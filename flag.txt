@@ -1,0 +1,4 @@
+csc{
+  flag: "CSC{Welcome_To_Cyber_Security_Club}";
+  description: "This flag is for the Cyber Security Club at Uttara University, representing our commitment to cybersecurity education and community engagement.";
+}

@@ -12,6 +12,11 @@ html {
   --header-image-url: url(/assets/images/csc_blue.png);
   --gradient-2: #cbcbcb;
   --gradient-3: #b2b2b2;
+  
+  /* Improve mobile viewport */
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 *,
 *::before,
@@ -25,7 +30,7 @@ html {
   font-weight: 400;
   font-family: inherit;
   font-style: inherit;
-  font-size: 16px;
+  font-size: 1rem; /* Use rem for scalability */
   border: 0 none;
   outline: 0;
   padding: 0;
@@ -36,6 +41,8 @@ html,
 body {
   width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth; /* Smooth scrolling for mobile */
+  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
 }
 
 /** Scrollbar **/
@@ -66,6 +73,24 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   position: relative;
+}
+
+/* Global responsive image styles */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Better mobile interaction */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .navbar-links a:hover,
+  .join-button:hover,
+  .cta-button.primary:hover,
+  .cta-button.secondary:hover {
+    transform: none;
+  }
 }
 
 /** Header **/
@@ -225,7 +250,9 @@ body {
     gap: 20px;
     padding-top: 64px;
     z-index: 15;
-    width: 40%;
+    width: 60%; /* Increased for better mobile UX */
+    max-width: 320px; /* Maximum width limit */
+    min-width: 280px; /* Minimum width for readability */
     transform: translateX(100%);
     transition: transform 0.5s ease-in-out;
   }
@@ -610,6 +637,32 @@ body {
   font-size: 5rem;
   line-height: 5rem;
 }
+
+/* Mobile responsive heading title */
+@media (max-width: 1024px) {
+  .heading-title {
+    font-size: 4rem;
+    line-height: 4rem;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading-title {
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading-title {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin-top: 30px;
+  }
+}
+
 .heading-subtitle {
   font-style: normal;
   font-weight: 800;
@@ -618,6 +671,35 @@ body {
   margin-top: 6px;
   font-size: 4rem;
   line-height: 4rem;
+}
+
+/* Mobile responsive heading subtitle */
+@media (max-width: 1024px) {
+  .heading-subtitle {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading-subtitle {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading-subtitle {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading-subtitle {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
 }
 
 
@@ -630,16 +712,38 @@ body {
   margin-bottom: 50px;
   font-size: 1.3rem;
   line-height: 2rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
-@media (max-width: 600px) {
-    .heading-subtitle {
-        font-size: 1.5rem; /* Smaller size for mobile */
-    }
+
+/* Mobile responsive heading description */
+@media (max-width: 768px) {
+  .heading-description {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 }
+
 @media (max-width: 600px) {
-    .heading-description {
-        font-size: 1rem; /* Smaller size for mobile */
-    }
+  .heading-description {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading-description {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 95%;
+  }
 }
 .intro-section {
   width: 100%;

@@ -101,23 +101,23 @@
   <main class="page-content" aria-label="Content">
     <div>
       <!-- Header Section -->
-      <section class="intro-section section-animated">
-        <div class="heading-title heading-animated">Free Resources</div>
+      <section class="intro-section">
+        <div class="heading-title">Free Resources</div>
         <div class="heading-description" style="color: #0000FF;">Comprehensive collection of free tools, courses, and learning materials</div>
       </section>
 
       <!-- Resources Section -->
-      <section class="page-section section-animated">
+      <section class="page-section">
         <div class="container">
 
           <!-- Hands-on Practice -->
-          <div class="resource-category card-animated">
+          <div class="resource-category">
             <h2 class="category-title">
               <i class="fas fa-laptop-code"></i>
               Hands-on Practice & Labs
             </h2>
             <div class="resource-grid">
-              <div class="resource-card grid-item-animated">
+              <div class="resource-card">
                 <h3>Interactive Learning Platforms</h3>
                 <p>The most popular gamified cybersecurity platforms</p>
                 <div class="multi-links">
@@ -137,10 +137,8 @@
                 <p>Most popular vulnerable VMs and web applications</p>
                 <div class="multi-links">
                   <a href="https://www.vulnhub.com/" target="_blank" class="resource-link-mini">VulnHub</a>
-                  <a href="https://sourceforge.net/projects/owaspbwa/" target="_blank" class="resource-link-mini">OWASP
-                    Top 10</a>
-                  <a href="https://pentesterlab.com/exercises/web-for-pentester" target="_blank"
-                    class="resource-link-mini">PentesterLab</a>
+                  <a href="https://sourceforge.net/projects/owaspbwa/" target="_blank" class="resource-link-mini">OWASP Top 10</a>
+                  <a href="https://pentesterlab.com/exercises/web-for-pentester" target="_blank" class="resource-link-mini">PentesterLab</a>
                   <a href="http://www.itsecgames.com/" target="_blank" class="resource-link-mini">BWAPP</a>
                 </div>
               </div>
@@ -316,10 +314,9 @@
             <div class="resource-grid">
               <div class="resource-card">
                 <h3>Essential Security Standards</h3>
-                <p>security guidelines</p>
+                <p>Industry standard security guidelines and frameworks</p>
                 <div class="multi-links">
-                  <a href="https://owasp.org/www-project-top-ten/" target="_blank" class="resource-link-mini">OWASP Top
-                    10</a>
+                  <a href="https://owasp.org/www-project-top-ten/" target="_blank" class="resource-link-mini">OWASP Top 10</a>
                   <a href="https://inventory.raw.pm/tools.html#title-tools-cracking" target="_blank"
                     class="resource-link-mini">Rawsec's Inventory</a>
                 </div>
@@ -515,7 +512,7 @@
           <div class="footer-title">
             <h1>Cyber Security Club,Uttara University</h1>
           </div>
-          <a class="email" href="mailto:cybersecurity@club.uttara.ac.bd">
+          <a class="email" href="mailto:cybersecurity@club.uttara.ac.bd?subject=General%20Inquiry%20-%20Cyber%20Security%20Club&body=Hello%20Cyber%20Security%20Club%20Team%2C%0A%0AI%20would%20like%20to%20inquire%20about%3A%0A%0A%5BPlease%20describe%20your%20inquiry%20here%5D%0A%0AThank%20you%20for%20your%20time.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D%0A%5BYour%20Contact%20Information%5D">
             <div class="mail">
               <span>Contact@CyberSecurityClub</span>
             </div>
@@ -562,11 +559,47 @@
       text-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
     }
 
-    /* Smooth text animations for all interactive text */
+    /* Smooth text animations */
     h1, h2, h3, p, a {
       transition: all 0.3s ease;
     }
 
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    /* Intro Section Styles */
+    .intro-section {
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      padding: 0px 32px;
+    }
+
+    .heading-title {
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: var(--text-color);
+      margin-top: 50px;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .heading-description {
+      font-size: 1.1rem;
+      color: #0008ff;
+      max-width: 600px;
+      margin: 40px auto;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Resource Categories */
     .resource-category {
       margin-bottom: 3rem;
     }
@@ -579,10 +612,9 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      transition: all 0.3s ease;
-      cursor: default;
       text-align: center;
     }
+
     .resource-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -600,24 +632,10 @@
       position: relative;
       overflow: hidden;
       border: 2px solid transparent;
-      animation: fadeInScale 0.6s ease-out;
-      width: 100%;
       min-height: 240px;
-      max-width: 320px;
       display: flex;
       flex-direction: column;
       margin: 0 auto;
-    }
-
-    @keyframes fadeInScale {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
     }
 
     .resource-card::before {
@@ -646,11 +664,7 @@
       margin-bottom: 0.8rem;
       font-size: 1.2rem;
       font-weight: 700;
-      transition: all 0.3s ease;
-      cursor: default;
       text-align: center;
-      width: 100%;
-      display: block;
     }
 
     .resource-card:hover h3 {
@@ -659,10 +673,9 @@
     }
 
     .resource-card p {
-      color: var(--text-secondary);
+      color: var(--light-text-color);
       margin-bottom: 1.2rem;
       line-height: 1.4;
-      transition: all 0.3s ease;
       text-align: center;
       flex-grow: 1;
       font-size: 0.9rem;
@@ -682,51 +695,6 @@
       min-height: 50px;
     }
 
-    .resource-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      padding: 0.6rem 1rem;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-      border: 2px solid transparent;
-    }
-
-    .resource-link::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .resource-link:hover {
-      background: linear-gradient(135deg, #764ba2, #667eea);
-      color: white;
-      text-decoration: none;
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-      border-color: #8b5cf6;
-    }
-
-    .resource-link:hover::before {
-      left: 100%;
-    }
-
-    .resource-link i {
-      font-size: 0.9rem;
-    }
-
     .resource-link-mini {
       display: inline-flex;
       align-items: center;
@@ -741,7 +709,6 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 2px 6px rgba(102, 126, 234, 0.25);
-      text-shadow: none;
     }
 
     .resource-link-mini::before {
@@ -761,62 +728,26 @@
       text-decoration: none;
       transform: translateY(-1px) scale(1.05);
       box-shadow: 0 4px 10px rgba(102, 126, 234, 0.5);
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
     }
 
     .resource-link-mini:hover::before {
       left: 100%;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1.5rem;
-    }
-
-    /* Intro Section Styles */
-    .intro-section {
-      width: 100%;
-      max-width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      padding: 0px 32px;
-    }
-
+    /* Mobile Responsive Styles */
     @media (min-width: 576px) {
       .intro-section {
         padding: 0px 64px;
       }
     }
 
-    .heading-title {
-      font-size: 4.5rem;
-      font-weight: 800;
-      color: var(--text-color);
-      margin-top: 50px;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .heading-description {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 40px auto 40px auto;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    /* Mobile Responsive Styles - Keep Desktop Layout */
     @media (max-width: 768px) {
       .intro-section {
         padding: 0px 16px;
       }
 
       .heading-title {
-        font-size: 3.8rem;
+        font-size: 3rem;
         line-height: 1.2;
         margin-top: 40px;
         margin-bottom: 0.8rem;
@@ -824,20 +755,20 @@
 
       .heading-description {
         font-size: 1rem;
-        margin: 30px auto 35px auto;
+        margin: 30px auto;
         line-height: 1.5;
       }
 
       .resource-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 0.8rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
       }
 
       .resource-card {
         padding: 1.3rem;
-        min-height: 220px;
-        max-width: 300px;
-        border-radius: 12px;
+        min-height: 200px;
+        max-width: 100%;
+        margin: 0;
       }
 
       .resource-card h3 {
@@ -854,6 +785,8 @@
       .category-title {
         font-size: 1.5rem;
         margin-bottom: 1.2rem;
+        flex-direction: column;
+        gap: 0.3rem;
       }
 
       .multi-links {
@@ -867,15 +800,35 @@
       }
 
       .container {
-        padding: 1.2rem;
+        padding: 1rem;
       }
 
       .resource-category {
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      /* Disable hover effects on touch devices */
+      .resource-card:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: transparent;
+      }
+
+      .resource-card:hover h3 {
+        color: var(--text-color);
+        transform: none;
+      }
+
+      .resource-card:hover p {
+        color: var(--light-text-color);
+      }
+
+      .resource-link-mini:hover {
+        transform: none;
+        box-shadow: 0 2px 6px rgba(102, 126, 234, 0.25);
       }
     }
 
-    /* Extra small screens - Keep Multi-Column Layout */
     @media (max-width: 480px) {
       .intro-section {
         padding: 0px 12px;
@@ -889,24 +842,17 @@
 
       .heading-description {
         font-size: 0.9rem;
-        margin: 25px auto 30px auto;
-      }
-
-      .resource-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 0.6rem;
+        margin: 25px auto;
       }
 
       .resource-card {
-        padding: 1.1rem;
-        margin: 0;
-        min-height: 200px;
-        max-width: 280px;
+        padding: 1rem;
+        min-height: 180px;
+        border-radius: 12px;
       }
 
       .category-title {
         font-size: 1.3rem;
-        gap: 0.3rem;
       }
 
       .multi-links {
@@ -915,17 +861,16 @@
       }
 
       .resource-link-mini {
-        text-align: center;
         font-size: 0.7rem;
         padding: 0.15rem 0.3rem;
       }
 
-      .resource-category {
-        margin-bottom: 2rem;
-      }
-
       .container {
         padding: 0.8rem;
+      }
+
+      .resource-category {
+        margin-bottom: 1.5rem;
       }
     }
   </style>
