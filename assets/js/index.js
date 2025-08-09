@@ -35,9 +35,3 @@ setInterval(function () {
     .end()
     .appendTo("#slideshow");
 }, 5000);
-
-//Dark Light Toggle - REMOVED
-
-// window.addEventListener('scroll', function() {
-//   document.body.style.backgroundPositionY = -window.pageYOffset/8 + "px";
-// });
