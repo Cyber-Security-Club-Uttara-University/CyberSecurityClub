@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Jekyll SEO tag -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +37,6 @@
   <meta name="twitter:creator" content="@csc_uu">
   <meta name="twitter:domain" content="cybersecurity.club.uttara.ac.bd">
   <meta name="twitter:app:name:iphone" content="Cyber Security Club UU">
-  <!-- Additional SEO Meta Tags -->
   <meta name="theme-color" content="#1e3a8a">
   <meta name="msapplication-TileColor" content="#1e3a8a">
   <meta name="application-name" content="CSC UU">
@@ -520,7 +518,6 @@
         <div class="form-container">
           <form class="recruitment-form" id="recruitmentForm" onsubmit="submitToGoogleSheets(event)">
 
-            <!-- Hidden Registration Time Field -->
             <input type="hidden" id="registrationTime" name="registrationTime">
 
             <div class="form-row">
@@ -737,7 +734,6 @@
         <div class="section-title">Questions? Contact Us</div>
     </div>
   </main>
-  <!-- Footer 2 !!Dont Touch!! -->
   <footer class="site-footer">
     <div class="footer-wrapper">
       <div class="footer-info-container">
@@ -910,7 +906,6 @@
           interests.push(checkbox.value);
         });
         
-        // Prepare data object for Google Sheets
         const data = {
           timestamp: getCurrentBangladeshTimestamp(),
           firstName: formData.get('firstName'),
@@ -1004,7 +999,6 @@
       const words = text ? text.split(/\s+/).filter(word => word.length > 0) : [];
       const wordCount = words.length;
       
-      // Update counter display
       counter.textContent = wordCount;
       
       // Add warning class if exceeding limit
