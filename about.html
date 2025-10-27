@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Jekyll SEO tag -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About | Cyber Security Club</title>
   <meta name="generator" content="Jekyll v3.9.5">
   <meta property="og:title" content="Cyber Security Club Uttara University | Official Website">
@@ -38,26 +37,16 @@
   <meta name="twitter:creator" content="@csc_uu">
   <meta name="twitter:domain" content="cybersecurity.club.uttara.ac.bd">
   <meta name="twitter:app:name:iphone" content="Cyber Security Club UU">
-  <!-- Additional SEO Meta Tags -->
   <meta name="theme-color" content="#1e3a8a">
   <meta name="msapplication-TileColor" content="#1e3a8a">
   <meta name="application-name" content="CSC UU">
   <meta name="apple-mobile-web-app-title" content="CSC UU">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="googlef1444b151b031c52">
-
-  <!-- Bing Webmaster Tools Verification (Add your actual verification code) -->
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://cybersecurity.club.uttara.ac.bd/">
-
-  <!-- Alternate Languages -->
   <link rel="alternate" hreflang="en" href="https://cybersecurity.club.uttara.ac.bd/">
   <link rel="alternate" hreflang="bn" href="https://cybersecurity.club.uttara.ac.bd/">
-
-  <!-- DNS Prefetch for Performance -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -135,13 +124,9 @@
     "query-input": "required name=search_term_string"
   }
 }
-<!-- End Jekyll SEO tag -->
+
 </script>
-
-  <!-- Default Nav bar  -->
   <link rel="stylesheet" href="/assets/css/style.css">
-
-  <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
@@ -239,32 +224,26 @@
       </div>
     </div>
   </nav>
-  <!-- nav Ends -->
+
   <main class="page-content" aria-label="Content">
     <div>
       <main class="page-content" aria-label="Content">
         <div class="about-container">
-          <!-- About Section -->
           <section class="about-section section-animated">
             <div class="heading-title heading-animated">About Us</div>
             <div class="about-description_container">
               <div class="heading-description">
-                <!-- Description Start -->
                 Cyber Security Club is a vibrant and dynamic community of students and faculty at Uttara University
                 dedicated to exploring the latest trends and technologies in the field of cybersecurity. Our goal is to
                 promote awareness and education about cybersecurity among our members and the wider community. We
                 organize workshops, seminars, and hands-on training sessions to equip our members with the necessary
                 skills and knowledge to defend against cyber threats. Our club also provides opportunities for
                 networking, collaboration, and professional development.
-                <!-- Description Ends  -->
               </div>
             </div>
           </section>
-          
-          <!-- Year Selector -->
           <div class="year-selector-wrapper">
             <div class="year-selector">
-              <!-- <button class="year-btn" data-year="2026">2026</button> -->
               <button class="year-btn active" data-year="2025">2025</button>
               <button class="year-btn" data-year="2024">2024</button>
               <button class="year-btn" data-year="2023">2023</button>
@@ -330,8 +309,6 @@
               background: #0000CC;
               box-shadow: 0 6px 20px rgba(0, 0, 255, 0.4);
             }
-            
-            /* Mobile responsive */
             @media (max-width: 768px) {
               .year-selector-wrapper {
                 margin: 2rem auto 1.5rem;
@@ -362,17 +339,14 @@
           </style>
 
           <script>
-            // Year selector functionality
             document.addEventListener('DOMContentLoaded', function() {
               const yearBtns = document.querySelectorAll('.year-btn');
               const yearSections = document.querySelectorAll('.year-section');
-              
-              // Function to show/hide sections based on year
               function filterByYear(year) {
                 yearSections.forEach(section => {
                   if (section.dataset.year === year) {
                     section.style.display = 'block';
-                    // Add fade-in animation
+                 
                     section.style.opacity = '0';
                     setTimeout(() => {
                       section.style.transition = 'opacity 0.5s ease-in-out';
@@ -383,24 +357,15 @@
                   }
                 });
               }
-              
-              // Initialize - show 2025 by default
               filterByYear('2025');
-              
               yearBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                  // Remove active class from all buttons
                   yearBtns.forEach(b => b.classList.remove('active'));
-                  // Add active class to clicked button
                   this.classList.add('active');
                   
                   const selectedYear = this.dataset.year;
                   console.log('Selected year:', selectedYear);
-                  
-                  // Filter sections by year
                   filterByYear(selectedYear);
-                  
-                  // Add smooth scroll to members section
                   const firstVisibleSection = document.querySelector('.year-section[style*="display: block"]');
                   if (firstVisibleSection) {
                     setTimeout(() => {
@@ -411,10 +376,7 @@
               });
             });
           </script>
-          
           <div class="about-section-heading heading-animated">Executive Committee</div>
-          
-          <!-- 2025 Section (Current) -->
           <section class="members-section section-animated year-section" data-year="2025">
             <div class="about-section-heading">2025-2026</div>
             <div class="about-description_container">
@@ -441,7 +403,6 @@
                         </svg>
                       </a>
                     </div>
-
                   </div>
                 </div>
                 <div class="member_container grid-item-animated">
@@ -532,7 +493,7 @@
                     </div>
                   </div>
                 </div>
-                <!--  -->
+                
                   <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="/assets/images/2025eboard/pran0x.jpg" alt="pran0x" class="member_avatar">
@@ -554,7 +515,7 @@
                     </div>
                   </div>
                 </div>
-                <!--  -->
+                
                                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="/assets/images/2025eboard/pran0x.jpg" alt="pran0x" class="member_avatar">
@@ -576,7 +537,7 @@
                     </div>
                   </div>
                 </div>
-                <!--  -->
+                
                                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="/assets/images/2025eboard/pran0x.jpg" alt="pran0x" class="member_avatar">
@@ -598,12 +559,11 @@
                     </div>
                   </div>
                 </div>
-                <!--  -->
+                
               </div>
             </div>
           </section>
-          
-          <!-- 2024 Section -->
+
           <section class="members-section section-animated year-section" data-year="2024" style="display: none;">
             <div class="about-section-heading">2024-2025</div>
             <div class="members-container">
@@ -614,13 +574,13 @@
                   </div>
                   <div class="member_info">
                     <div class="member_title">
-                      <!-- PRESIDENT DETAILS -->
+                      
                       Abu Said
-                      <!-- <span style="color: #0000FF; opacity: 0.9"> '26 </span> -->
+                      
                     </div>
                     <div class="member_details"><span
                         style="color: #0000FF; opacity: 2; font-weight: 800;">President</span><br></div>
-                    <!-- Social Icons and Media -->
+                    
                     <div class="member_socials">
                       <a class="member_social" href="https://www.linkedin.com/in/0xsaid/" target="_blank"
                         title="Linkedin">
@@ -640,9 +600,9 @@
                   </div>
                   <div class="member_info">
                     <div class="member_title">
-                      <!-- Vice President Details -->
+                      
                       Md Ashiqur Rahman
-                      <!-- <span style="color: #0000FF; opacity: 0.9"> '27 </span> -->
+                      
                     </div>
                     <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Vice
                         President</span><br>
@@ -664,9 +624,7 @@
                   </div>
                   <div class="member_info">
                     <div class="member_title">
-                      <!-- Media Secretary -->
                       Pranto Kumar Shil<br><center>(Pritom)</center>
-                      <!-- <span style="color: #0000FF; opacity: 0.9"> '29 </span> -->
                     </div>
                     <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Media
                         Secretary</span><br>
@@ -688,9 +646,9 @@
                   </div>
                   <div class="member_info">
                     <div class="member_title">
-                      <!-- CTF ADMINISTRATOR -->
+                      
                       Abdullah Bin Shawon
-                      <!-- <span style="color: #0000FF; opacity: 0.9"> '27 </span> -->
+                      
                     </div>
                     <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">CTF
                         Administrator</span><br>
@@ -709,13 +667,12 @@
               </div>
             </div>
           </section>
-          
-          <!-- 2023 Section - Executive Committee -->
+
           <section class="members-section section-animated year-section" data-year="2023" style="display: none;">
             <div class="about-section-heading">2023-2024</div>
             <div class="members-container">
               <div class="members-grid">
-                <!-- President -->
+                
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="../assets/images/Alumni/Tariqul.jpg" alt="Tariqul Islam" class="member_avatar">
@@ -733,8 +690,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Vice President -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="./assets/images/not-available.png" alt="Md. Bakhtiar Mazrur" class="member_avatar">
@@ -752,8 +708,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- General Secretary -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="../assets/images/Alumni/mishu.jpg" alt="Rakibul Hasan Mishu" class="member_avatar">
@@ -771,8 +726,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Organizing Secretary -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="./assets/images/not-available.png" alt="Jubayer Ahmed Shawon" class="member_avatar">
@@ -790,8 +744,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Executive Member: Md. Yeasin Ahammed -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="./assets/images/not-available.png" alt="Md. Yeasin Ahammed" class="member_avatar">
@@ -809,8 +762,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Executive Member: Md. Ashiqur Rahman Bhuiyan -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="../assets/images/2025eboard/Ashiq.jpeg" alt="Md. Ashiqur Rahman Bhuiyan" class="member_avatar">
@@ -828,8 +780,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Executive Member: Abu Said -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="../assets/images/2025eboard/Said.jpeg" alt="Abu Said" class="member_avatar">
@@ -847,8 +798,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Executive Member: Mosaddik Asif -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="./assets/images/not-available.png" alt="Mosaddik Asif" class="member_avatar">
@@ -869,13 +819,12 @@
               </div>
             </div>
           </section>
-          
-          <!-- 2022 Section -->
+
           <section class="members-section section-animated year-section" data-year="2022" style="display: none;">
             <div class="about-section-heading">2022-2023</div>
             <div class="members-container">
               <div class="members-grid">
-                <!-- President -->
+                
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="../assets/images/Alumni/Tariqul.jpg" alt="Tariqul Islam" class="member_avatar">
@@ -893,8 +842,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Vice President -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="./assets/images/not-available.png" alt="Alimul Haque" class="member_avatar">
@@ -912,8 +860,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Organizing Secretary -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="../assets/images/Alumni/depro.jpg" alt="Deepro Das" class="member_avatar">
@@ -931,8 +878,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Event Secretary -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="./assets/images/not-available.png" alt="Mohammad Hasem" class="member_avatar">
@@ -950,8 +896,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Media Secretary: Roufin Ahmed -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="./assets/images/not-available.png" alt="Roufin Ahmed" class="member_avatar">
@@ -969,8 +914,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Media Secretary: Md. Bakhtiar Mazrur -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="./assets/images/not-available.png" alt="Md. Bakhtiar Mazrur" class="member_avatar">
@@ -988,8 +932,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Executive Member: Shah Moazzem -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="./assets/images/not-available.png" alt="Shah Moazzem" class="member_avatar">
@@ -1007,8 +950,7 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Executive Member: Sadman Sakib -->
+
                 <div class="member_container grid-item-animated">
                   <div class="member_avatar-container">
                     <img src="./assets/images/not-available.png" alt="Sadman Sakib" class="member_avatar">
@@ -1117,3 +1059,4 @@
     </script>
 </body>
 </html>
+
