@@ -114,51 +114,121 @@
 
         <div class="article-content">
           <div class="article-text">
-   <p><h1><b>Top 15 Nmap Commands for Hackers </b></h1><br/></p>
-<p><b>Introduction <br/></b><b>Nmap (Network Mapper) </b>is a fundamental reconnaissance tool used to discover hosts, open <br/>ports, services, and operating systems on a network. This blog presents the 15 most <br/>useful Nmap commands for beginners, each explained in plain language with practical <br/>examples. Run scans only on systems you own or have explicit permission to test. <br/></p>
-<p> <br/></p>
-<p><b>1. Ping scan (host discovery): nmap -sn &lt;target&gt; <br/>What it does:</b> Performs host discovery (also called a ping sweep). Nmap sends probes to <br/>find which IPs are online without scanning ports.&#8203;<br/><b>Why it matters:</b> Before scanning ports, you often want to know which addresses are active. <br/>This saves time and avoids unnecessary scans.&#8203;<br/><b>When to use:</b> Map live hosts in a subnet quickly. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap -sn 161.248.122.70/24 </code></pre></b></p>
-<p><b>2. Basic TCP scan: nmap &lt;target&gt; <br/>What it does:</b> Scans the most common 1,000 TCP ports on a target host and reports which <br/>ports are open, closed, or filtered.&#8203;<br/><b>Why it matters:</b> This is the simplest and most common starting point. It shows you the <br/>'surface' of a host and is a good first step before deeper scans.&#8203;<br/><b>When to use:</b> Use it to quickly see what services might be running on a host. Always <br/>confirm you have permission to scan. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap 161.248.122.70 </code></pre></p>
-<p><b>3. Service &amp; version detection: nmap -sV &lt;target&gt; <br/>What it does:</b> After finding open ports, Nmap probes those ports to determine the service <br/>name and often the service version.&#8203;<br/><b>Why it matters:</b> Knowing the exact service and version helps you identify vulnerable <br/>software versions and pick the right follow-up tests.&#8203;<br/><b>When to use:</b> Use this when you need more detail about a discovered service. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap -sV 161.248.122.70 </code></pre></p>
-<p><b>4. Stealthy SYN scan: nmap -sS &lt;target&gt; <br/>What it does:</b> Sends TCP SYN packets (the first step of the TCP handshake) and examines <br/>replies;then resets the connection. It's faster and quieter than a full connect.&#8203;<br/><b>Why it matters:</b> SYN scans are less noisy in logs and preferred during penetration testing to <br/>avoid filling server logs with full connections.&#8203;<br/><b>When to use:</b> Use when you need a faster scan that draws less attention than a full connect <br/>scan. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap -sS 161.248.122.70 </code></pre></p>
-<p><b>5. Operating system detection: nmap -O &lt;target&gt; <br/>What it does:</b> Uses TCP/IP stack fingerprinting and other signals to guess the target's <br/>operating system (e.g., Linux, Windows, device type).&#8203;<br/><b>Why it matters:</b> OS information narrows down possible vulnerabilities and helps you choose <br/>the right tools/techniques.&#8203;<br/><b>When to use:</b> Run on hosts where you need context about platform or when triaging a <br/>larger network. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap -O 161.248.122.70 </code></pre></p>
-</div></div>
-<p><b>6. Aggressive scan (combined): nmap -A &lt;target&gt; <br/>What it does:</b> Enables OS detection, version detection, default scripts, and traceroute all at <br/>once.&#8203;<br/><b>Why it matters:</b> Provides a comprehensive view in one command;useful for learning and <br/>quick assessments, but it is noisy.&#8203;<br/><b>When to use:</b> Good for a one-shot deep look in a lab or on systems you control. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap -A 161.248.122.70 </code></pre></p>
-<p><b>7. Default script scan: nmap -sC &lt;target&gt; <br/>What it does:</b> Runs Nmap's default script set (NSE) which gathers additional service-level <br/>information such as banner grabs and simple vulnerability checks.&#8203;<br/><b>Why it matters:</b> Scripts can reveal useful details beyond port and version, like HTTP titles, <br/>SSL cert info, or trivial vulnerabilities.&#8203;<br/><b>When to use:</b> Combine with -sV to get richer output. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap -sC 161.248.122.70 </code></pre></p>
-<p><b>8. Run a specific Nmap script: nmap --script=&lt;script&gt; &lt;target&gt; <br/>What it does:</b> Executes one or more NSE scripts by name, for targeted checks (for <br/>example, http-title or ssl-cert).&#8203;<br/><b>Why it matters:</b> Scripts let you tailor scans-run only the checks you trust or need.&#8203;<br/><b>When to use:</b> When a specific script matches your goal (e.g., check for Heartbleed with a <br/>vain script). <br/></p>
-<p><b>Examples:</b> <br/><pre><code>nmap --script=http-title 161.248.122.70 </code></pre>  <pre><code>nmap --script=ssl-cert 161.248.122.70 </code></pre></p>
-</div></div>
-<div style="page-break-before:always; page-break-after:always"><div><p><b>9. Save output to readable text: nmap -oN &lt;file&gt; &lt;target&gt; <br/>What it does:</b> Writes the scan output to a plain text file using Nmap's normal output format.&#8203;<br/><b>Why it matters:</b> Keeping records is essential-saves results for reports, sharing, or later <br/>analysis.&#8203;<br/><b>When to use:</b> Always save important scans; it's easier to compare and document findings. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap -oN results.txt 161.248.122.70 </code></pre></p>
-<p><b>10. Save output in XML (machine-readable): nmap -oX &lt;file&gt; &lt;target&gt; <br/>What it does:</b> Writes results in XML that other tools can parse.&#8203;<br/><b>Why it matters:</b> XML output integrates with reporting tools, parsers, and dashboards.&#8203;<br/><b>When to use:</b> Use when exporting scan data to analysis tools or scripts. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap -oX results.xml 161.248.122.70 </code></pre></p>
-<p><b>11. Scan multiple targets from a list: nmap -iL &lt;file&gt; -oN &lt;out&gt; <br/>What it does:</b> Nmap reads targets from a file (hosts or IPs) and scans them sequentially.&#8203;<br/><b>Why it matters:</b> Essential for scanning labs, subnets, or many hosts without typing each <br/>address.&#8203;<br/><b>When to use:</b> Prepare a hosts file and scan an entire set in one command. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap -iL hosts.txt -oN combined-results.txt </code></pre></p>
-</div></div>
-<div style="page-break-before:always; page-break-after:always"><div><p><b>
-12. Scan a specific port or range: nmap -p &lt;port(s)&gt; &lt;target&gt; <br/>What it does:</b> Restricts the scan to specific ports (single, comma-separated list, or ranges <br/>like 1-100).&#8203;<br/><b>Why it matters:</b> Faster and focused scanning when you know which services matter.&#8203;<br/><b>When to use:</b> Check a single service (ssh=22) or a small range rapidly. <br/></p>
-<p><b>Examples:</b> <br/><pre><code>nmap -p 22 161.248.122.70 </code></pre>  <pre><code>nmap -p 1-100 161.248.122.70 </code></pre></p>
-<p><b>13. Fast scan (top ports): nmap -F &lt;target&gt; <br/>What it does:</b> Scans the top 100 most commonly used ports instead of the default 1,000.&#8203;<br/><b>Why it matters:</b> Faster snapshot when you need quick reconnaissance.&#8203;<br/><b>When to use:</b> Speed-first checks or when time is limited. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap -F 161.248.122.70 </code></pre></p>
-<p><b>14. Show reason for each port state: nmap --reason &lt;target&gt; <br/>What it does:</b> Adds explanation codes to output, indicating why Nmap labeled a port as <br/>open, closed, or filtered.&#8203;<br/><b>Why it matters:</b> Helpful for beginners to learn how Nmap interprets responses and for <br/>troubleshooting. <br/></p>
-<p><b>Example:</b> <br/><pre><code>nmap --reason 161.248.122.70 </code></pre></p>
-<p><b>15. Packet trace (show raw packets): sudo nmap --packet-trace &lt;target&gt; </b></p>
-</div></div>
-<div style="page-break-before:always; page-break-after:always"><div><p><b>What it does:</b> Prints the actual packets Nmap sends and receives during the scan.&#8203;<br/><b>Why it matters:</b> Great for learning and debugging; see lower-level behavior and <br/>understand how probes work.&#8203;<br/><b>When to use:</b> Study mode, debugging, or advanced learning. <br/></p>
-<p><b>Example:</b> <br/><pre><code>sudo nmap --packet-trace 161.248.122.70 </code></pre></p>
-<p><b>Safety &amp; Ethics <br/></b>Nmap is a powerful tool. Always scan only systems you own or have explicit permission to <br/>test. Unauthorized scanning may be illegal or get you blocked. Use --reason and <br/>--packet-trace to learn, but do not use intrusive scripts on production systems without <br/>approval. Document your scans and keep scan logs for any authorized engagement.<b> <br/></b> <br/> </p>
+            <h1><b>Top 15 Nmap Commands for Hackers</b></h1>
+            
+            <h2><b>Introduction</b></h2>
+            <p><b>Nmap (Network Mapper)</b> is a fundamental reconnaissance tool used to discover hosts, open ports, services, and operating systems on a network. This blog presents the 15 most useful Nmap commands for beginners, each explained in plain language with practical examples. Run scans only on systems you own or have explicit permission to test.</p>
 
-</div></div>
-</body></html>
+            <h3><b>1. Ping scan (host discovery): nmap -sn &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Performs host discovery (also called a ping sweep). Nmap sends probes to find which IPs are online without scanning ports.</p>
+            <p><b>Why it matters:</b> Before scanning ports, you often want to know which addresses are active. This saves time and avoids unnecessary scans.</p>
+            <p><b>When to use:</b> Map live hosts in a subnet quickly.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -sn 161.248.122.70/24</code></pre>
 
-            </ul>
+            <h3><b>2. Basic TCP scan: nmap &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Scans the most common 1,000 TCP ports on a target host and reports which ports are open, closed, or filtered.</p>
+            <p><b>Why it matters:</b> This is the simplest and most common starting point. It shows you the 'surface' of a host and is a good first step before deeper scans.</p>
+            <p><b>When to use:</b> Use it to quickly see what services might be running on a host. Always confirm you have permission to scan.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap 161.248.122.70</code></pre>
+
+            <h3><b>3. Service &amp; version detection: nmap -sV &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> After finding open ports, Nmap probes those ports to determine the service name and often the service version.</p>
+            <p><b>Why it matters:</b> Knowing the exact service and version helps you identify vulnerable software versions and pick the right follow-up tests.</p>
+            <p><b>When to use:</b> Use this when you need more detail about a discovered service.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -sV 161.248.122.70</code></pre>
+
+            <h3><b>4. Stealthy SYN scan: nmap -sS &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Sends TCP SYN packets (the first step of the TCP handshake) and examines replies; then resets the connection. It's faster and quieter than a full connect.</p>
+            <p><b>Why it matters:</b> SYN scans are less noisy in logs and preferred during penetration testing to avoid filling server logs with full connections.</p>
+            <p><b>When to use:</b> Use when you need a faster scan that draws less attention than a full connect scan.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -sS 161.248.122.70</code></pre>
+
+            <h3><b>5. Operating system detection: nmap -O &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Uses TCP/IP stack fingerprinting and other signals to guess the target's operating system (e.g., Linux, Windows, device type).</p>
+            <p><b>Why it matters:</b> OS information narrows down possible vulnerabilities and helps you choose the right tools/techniques.</p>
+            <p><b>When to use:</b> Run on hosts where you need context about platform or when triaging a larger network.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -O 161.248.122.70</code></pre>
+
+            <h3><b>6. Aggressive scan (combined): nmap -A &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Enables OS detection, version detection, default scripts, and traceroute all at once.</p>
+            <p><b>Why it matters:</b> Provides a comprehensive view in one command; useful for learning and quick assessments, but it is noisy.</p>
+            <p><b>When to use:</b> Good for a one-shot deep look in a lab or on systems you control.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -A 161.248.122.70</code></pre>
+
+            <h3><b>7. Default script scan: nmap -sC &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Runs Nmap's default script set (NSE) which gathers additional service-level information such as banner grabs and simple vulnerability checks.</p>
+            <p><b>Why it matters:</b> Scripts can reveal useful details beyond port and version, like HTTP titles, SSL cert info, or trivial vulnerabilities.</p>
+            <p><b>When to use:</b> Combine with -sV to get richer output.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -sC 161.248.122.70</code></pre>
+
+            <h3><b>8. Run a specific Nmap script: nmap --script=&lt;script&gt; &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Executes one or more NSE scripts by name, for targeted checks (for example, http-title or ssl-cert).</p>
+            <p><b>Why it matters:</b> Scripts let you tailor scans - run only the checks you trust or need.</p>
+            <p><b>When to use:</b> When a specific script matches your goal (e.g., check for Heartbleed with a vain script).</p>
+            <p><b>Examples:</b></p>
+            <pre><code>nmap --script=http-title 161.248.122.70</code></pre>
+            <pre><code>nmap --script=ssl-cert 161.248.122.70</code></pre>
+
+            <h3><b>9. Save output to readable text: nmap -oN &lt;file&gt; &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Writes the scan output to a plain text file using Nmap's normal output format.</p>
+            <p><b>Why it matters:</b> Keeping records is essential - saves results for reports, sharing, or later analysis.</p>
+            <p><b>When to use:</b> Always save important scans; it's easier to compare and document findings.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -oN results.txt 161.248.122.70</code></pre>
+
+            <h3><b>10. Save output in XML (machine-readable): nmap -oX &lt;file&gt; &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Writes results in XML that other tools can parse.</p>
+            <p><b>Why it matters:</b> XML output integrates with reporting tools, parsers, and dashboards.</p>
+            <p><b>When to use:</b> Use when exporting scan data to analysis tools or scripts.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -oX results.xml 161.248.122.70</code></pre>
+
+            <h3><b>11. Scan multiple targets from a list: nmap -iL &lt;file&gt; -oN &lt;out&gt;</b></h3>
+            <p><b>What it does:</b> Nmap reads targets from a file (hosts or IPs) and scans them sequentially.</p>
+            <p><b>Why it matters:</b> Essential for scanning labs, subnets, or many hosts without typing each address.</p>
+            <p><b>When to use:</b> Prepare a hosts file and scan an entire set in one command.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -iL hosts.txt -oN combined-results.txt</code></pre>
+
+            <h3><b>12. Scan a specific port or range: nmap -p &lt;port(s)&gt; &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Restricts the scan to specific ports (single, comma-separated list, or ranges like 1-100).</p>
+            <p><b>Why it matters:</b> Faster and focused scanning when you know which services matter.</p>
+            <p><b>When to use:</b> Check a single service (ssh=22) or a small range rapidly.</p>
+            <p><b>Examples:</b></p>
+            <pre><code>nmap -p 22 161.248.122.70</code></pre>
+            <pre><code>nmap -p 1-100 161.248.122.70</code></pre>
+
+            <h3><b>13. Fast scan (top ports): nmap -F &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Scans the top 100 most commonly used ports instead of the default 1,000.</p>
+            <p><b>Why it matters:</b> Faster snapshot when you need quick reconnaissance.</p>
+            <p><b>When to use:</b> Speed-first checks or when time is limited.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -F 161.248.122.70</code></pre>
+
+            <h3><b>14. Show reason for each port state: nmap --reason &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Adds explanation codes to output, indicating why Nmap labeled a port as open, closed, or filtered.</p>
+            <p><b>Why it matters:</b> Helpful for beginners to learn how Nmap interprets responses and for troubleshooting.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap --reason 161.248.122.70</code></pre>
+
+            <h3><b>15. Packet trace (show raw packets): sudo nmap --packet-trace &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Prints the actual packets Nmap sends and receives during the scan.</p>
+            <p><b>Why it matters:</b> Great for learning and debugging; see lower-level behavior and understand how probes work.</p>
+            <p><b>When to use:</b> Study mode, debugging, or advanced learning.</p>
+            <p><b>Example:</b></p>
+            <pre><code>sudo nmap --packet-trace 161.248.122.70</code></pre>
+
+            <h2><b>Safety &amp; Ethics</b></h2>
+            <p>Nmap is a powerful tool. Always scan only systems you own or have explicit permission to test. Unauthorized scanning may be illegal or get you blocked. Use --reason and --packet-trace to learn, but do not use intrusive scripts on production systems without approval. Document your scans and keep scan logs for any authorized engagement.</p>
+          </div>
+        </div>
             <!-- Article Tags -->
             <div class="article-tags">
               <h4>Tags</h4>
@@ -194,7 +264,7 @@
     </article>
 
     <!-- Related Articles -->
-    <!-- <section class="related-news">
+    <section class="related-news">
       <div class="container">
         <h2 class="section-title">Related Articles</h2>
         <div class="related-news-grid">
@@ -222,17 +292,17 @@
 
           <article class="related-news-card">
             <div class="related-news-image">
-              <img src="../assets/images/blog/linux-basics.jpg" alt="Linux Basics">
+              <img src="./images/Linux.gif" alt="Linux Basics">
             </div>
             <div class="related-news-content">
               <h3 class="related-news-title">Linux Command Line Basics for Cybersecurity</h3>
               <p class="related-news-date"><i class="fas fa-calendar"></i> Oct 4, 2025</p>
-              <a href="linux-basics.html" class="related-news-link">Read More →</a>
+              <a href="./Linux_Command.html" class="related-news-link">Read More →</a>
             </div>
           </article>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <!-- Back to Blog -->
     <section class="back-to-news">
