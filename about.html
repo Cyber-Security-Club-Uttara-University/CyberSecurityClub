@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Jekyll SEO tag -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About | Cyber Security Club</title>
   <meta name="generator" content="Jekyll v3.9.5">
   <meta property="og:title" content="Cyber Security Club Uttara University | Official Website">
@@ -38,26 +37,16 @@
   <meta name="twitter:creator" content="@csc_uu">
   <meta name="twitter:domain" content="cybersecurity.club.uttara.ac.bd">
   <meta name="twitter:app:name:iphone" content="Cyber Security Club UU">
-  <!-- Additional SEO Meta Tags -->
   <meta name="theme-color" content="#1e3a8a">
   <meta name="msapplication-TileColor" content="#1e3a8a">
   <meta name="application-name" content="CSC UU">
   <meta name="apple-mobile-web-app-title" content="CSC UU">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="googlef1444b151b031c52">
-
-  <!-- Bing Webmaster Tools Verification (Add your actual verification code) -->
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://cybersecurity.club.uttara.ac.bd/">
-
-  <!-- Alternate Languages -->
   <link rel="alternate" hreflang="en" href="https://cybersecurity.club.uttara.ac.bd/">
   <link rel="alternate" hreflang="bn" href="https://cybersecurity.club.uttara.ac.bd/">
-
-  <!-- DNS Prefetch for Performance -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -135,13 +124,9 @@
     "query-input": "required name=search_term_string"
   }
 }
-<!-- End Jekyll SEO tag -->
+
 </script>
-
-  <!-- Default Nav bar  -->
   <link rel="stylesheet" href="/assets/css/style.css">
-
-  <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
@@ -195,7 +180,7 @@
           <a href="gallery.html"><span class="navbar-slash">|</span>Gallery</a>
         </li>
         <li>
-          <a href="groups.html"><span class="navbar-slash">|</span>Teams</a>
+          <a href="Teams.html"><span class="navbar-slash">|</span>Teams</a>
         </li>
         <li>
           <a href="resources.html"><span class="navbar-slash">|</span>Resources</a>
@@ -239,31 +224,161 @@
       </div>
     </div>
   </nav>
-  <!-- nav Ends -->
+
   <main class="page-content" aria-label="Content">
     <div>
       <main class="page-content" aria-label="Content">
         <div class="about-container">
-          <!-- About Section -->
           <section class="about-section section-animated">
             <div class="heading-title heading-animated">About Us</div>
             <div class="about-description_container">
               <div class="heading-description">
-                <!-- Description Start -->
                 Cyber Security Club is a vibrant and dynamic community of students and faculty at Uttara University
                 dedicated to exploring the latest trends and technologies in the field of cybersecurity. Our goal is to
                 promote awareness and education about cybersecurity among our members and the wider community. We
                 organize workshops, seminars, and hands-on training sessions to equip our members with the necessary
                 skills and knowledge to defend against cyber threats. Our club also provides opportunities for
                 networking, collaboration, and professional development.
-                <!-- Description Ends  -->
               </div>
             </div>
           </section>
-          <!-- Members Section -->
+          <div class="year-selector-wrapper">
+            <div class="year-selector">
+              <button class="year-btn active" data-year="2025">2025</button>
+              <button class="year-btn" data-year="2024">2024</button>
+              <button class="year-btn" data-year="2023">2023</button>
+              <button class="year-btn" data-year="2022">2022</button>
+            </div>
+          </div>
+
+          <style>
+            .year-selector-wrapper {
+              display: flex;
+              justify-content: center;
+              margin: 3rem auto 2rem;
+              padding: 0 20px;
+              max-width: 900px;
+            }
+            
+            .year-selector {
+              background: var(--header-color);
+              backdrop-filter: blur(16px);
+              -webkit-backdrop-filter: blur(16px);
+              border: 1px solid rgba(0, 0, 255, 0.15);
+              border-radius: 16px;
+              padding: 8px;
+              display: flex;
+              gap: 8px;
+              flex-wrap: wrap;
+              justify-content: center;
+              box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            }
+            
+            .year-btn {
+              background: transparent;
+              color: var(--light-text-color);
+              border: 1px solid transparent;
+              border-radius: 10px;
+              padding: 10px 24px;
+              cursor: pointer;
+              font-weight: 600;
+              font-size: 1rem;
+              font-family: "JetBrains Mono", Monospace, Sans-Serif;
+              transition: all 0.3s ease;
+              position: relative;
+              overflow: hidden;
+            }
+            
+            .year-btn:hover {
+              background: rgba(0, 0, 255, 0.08);
+              border-color: rgba(0, 0, 255, 0.2);
+              color: var(--text-color);
+              transform: translateY(-2px);
+              box-shadow: 0 4px 12px rgba(0, 0, 255, 0.15);
+            }
+            
+            .year-btn.active {
+              background: var(--link-color);
+              color: white;
+              border-color: var(--link-color);
+              box-shadow: 0 4px 15px rgba(0, 0, 255, 0.3);
+              transform: translateY(-2px);
+            }
+            
+            .year-btn.active:hover {
+              background: #0000CC;
+              box-shadow: 0 6px 20px rgba(0, 0, 255, 0.4);
+            }
+            @media (max-width: 768px) {
+              .year-selector-wrapper {
+                margin: 2rem auto 1.5rem;
+              }
+              
+              .year-selector {
+                padding: 6px;
+                gap: 6px;
+              }
+              
+              .year-btn {
+                padding: 8px 18px;
+                font-size: 0.9rem;
+              }
+            }
+            
+            @media (max-width: 480px) {
+              .year-selector {
+                gap: 4px;
+                padding: 5px;
+              }
+              
+              .year-btn {
+                padding: 7px 14px;
+                font-size: 0.85rem;
+              }
+            }
+          </style>
+
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const yearBtns = document.querySelectorAll('.year-btn');
+              const yearSections = document.querySelectorAll('.year-section');
+              function filterByYear(year) {
+                yearSections.forEach(section => {
+                  if (section.dataset.year === year) {
+                    section.style.display = 'block';
+                 
+                    section.style.opacity = '0';
+                    setTimeout(() => {
+                      section.style.transition = 'opacity 0.5s ease-in-out';
+                      section.style.opacity = '1';
+                    }, 10);
+                  } else {
+                    section.style.display = 'none';
+                  }
+                });
+              }
+              filterByYear('2025');
+              yearBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                  yearBtns.forEach(b => b.classList.remove('active'));
+                  this.classList.add('active');
+                  
+                  const selectedYear = this.dataset.year;
+                  console.log('Selected year:', selectedYear);
+                  filterByYear(selectedYear);
+                  const firstVisibleSection = document.querySelector('.year-section[style*="display: block"]');
+                  if (firstVisibleSection) {
+                    setTimeout(() => {
+                      firstVisibleSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                  }
+                });
+              });
+            });
+          </script>
           <div class="about-section-heading heading-animated">Executive Committee</div>
-          <section class="members-section section-animated">
-            <div class="about-section-heading">2024-2025</div>
+          <section class="members-section section-animated year-section" data-year="2025">
+            <div class="about-section-heading">2025-2026</div>
             <div class="about-description_container">
               <div class="about-section-description"></div>
             </div>
@@ -275,13 +390,238 @@
                   </div>
                   <div class="member_info">
                     <div class="member_title">
-                      <!-- PRESIDENT DETAILS -->
                       Abu Said
-                      <!-- <span style="color: #0000FF; opacity: 0.9"> '26 </span> -->
                     </div>
                     <div class="member_details"><span
                         style="color: #0000FF; opacity: 2; font-weight: 800;">President</span><br></div>
-                    <!-- Social Icons and Media -->
+                    <div class="member_socials">
+                      <a class="member_social" href="https://www.linkedin.com/in/0xsaid/" target="_blank"
+                        title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="../assets/images/2025eboard/Ashiq.jpeg" alt="Md Ashiqur Rahman avatar"
+                      class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">
+                      Md Ashiqur Rahman
+                    </div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Vice
+                        President</span><br>
+                    </div>
+                    <div class="member_socials">
+                      <a class="member_social" href="https://www.linkedin.com/in/md-ashiqur-rahman-a97638331/"
+                        target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                  <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="../assets/images/2025eboard/depro.png" alt="Depro avatar" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">
+                      Eftasib Araf Depro
+                    </div>
+                    <div class="member_details"><span
+                        style="color: #0000FF; opacity: 2; font-weight: 800;">General Secretary</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="https://www.linkedin.com/in/depro0x/" target="_blank"
+                        title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="/assets/images/2025eboard/pran0x.jpg" alt="pran0x" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">
+                      Pranto Kumar Shil<br><center>(Pritom)</center>
+                    </div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Organizing Secretary</span><br>
+                    </div>
+                    <div class="member_socials">
+                      <a class="member_social" href="https://www.linkedin.com/in/pran0x" target="_blank"
+                        title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="../assets/images/2025eboard/Shawon.jpeg" alt="Shaown" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">
+                      Abdullah Bin Shawon
+                    </div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">CTF
+                        Administrator</span><br>
+                    </div>
+                    <div class="member_socials">
+                      <a class="member_social" href="https://www.linkedin.com/in/abdullah-bin-shawon-2b4068263/"
+                        target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                                                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="/assets/images/2025eboard/pran0x.jpg" alt="pran0x" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">
+                      Maidul islam Fahim
+                    </div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Treasurer</span><br>
+                    </div>
+                    <div class="member_socials">
+                      <a class="member_social" href="https://www.linkedin.com/in/pran0x" target="_blank"
+                        title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                                                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="/assets/images/2025eboard/pran0x.jpg" alt="pran0x" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">
+                      Seam Shikder Nahid
+                    </div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Research Secretary</span><br>
+                    </div>
+                    <div class="member_socials">
+                      <a class="member_social" href="https://www.linkedin.com/in/pran0x" target="_blank"
+                        title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                  <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="/assets/images/2025eboard/pran0x.jpg" alt="pran0x" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">
+                      Bishal
+                    </div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Media Secretary</span><br>
+                    </div>
+                    <div class="member_socials">
+                      <a class="member_social" href="https://www.linkedin.com/in/pran0x" target="_blank"
+                        title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="/assets/images/2025eboard/pran0x.jpg" alt="pran0x" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">
+                      Syda Tammanna
+                    </div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Media Secretary</span><br>
+                    </div>
+                    <div class="member_socials">
+                      <a class="member_social" href="https://www.linkedin.com/in/pran0x" target="_blank"
+                        title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="/assets/images/2025eboard/pran0x.jpg" alt="pran0x" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">
+                      Anika
+                    </div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Office Secretary</span><br>
+                    </div>
+                    <div class="member_socials">
+                      <a class="member_social" href="https://www.linkedin.com/in/pran0x" target="_blank"
+                        title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </section>
+
+          <section class="members-section section-animated year-section" data-year="2024" style="display: none;">
+            <div class="about-section-heading">2024-2025</div>
+            <div class="members-container">
+              <div class="members-grid">
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="../assets/images/2025eboard/Said.jpeg" alt="Abu Said avatar" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">
+                      
+                      Abu Said
+                      
+                    </div>
+                    <div class="member_details"><span
+                        style="color: #0000FF; opacity: 2; font-weight: 800;">President</span><br></div>
+                    
                     <div class="member_socials">
                       <a class="member_social" href="https://www.linkedin.com/in/0xsaid/" target="_blank"
                         title="Linkedin">
@@ -301,9 +641,9 @@
                   </div>
                   <div class="member_info">
                     <div class="member_title">
-                      <!-- Vice President Details -->
+                      
                       Md Ashiqur Rahman
-                      <!-- <span style="color: #0000FF; opacity: 0.9"> '27 </span> -->
+                      
                     </div>
                     <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Vice
                         President</span><br>
@@ -325,9 +665,7 @@
                   </div>
                   <div class="member_info">
                     <div class="member_title">
-                      <!-- Media Secretary -->
                       Pranto Kumar Shil<br><center>(Pritom)</center>
-                      <!-- <span style="color: #0000FF; opacity: 0.9"> '29 </span> -->
                     </div>
                     <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Media
                         Secretary</span><br>
@@ -349,9 +687,9 @@
                   </div>
                   <div class="member_info">
                     <div class="member_title">
-                      <!-- CTF ADMINISTRATOR -->
+                      
                       Abdullah Bin Shawon
-                      <!-- <span style="color: #0000FF; opacity: 0.9"> '27 </span> -->
+                      
                     </div>
                     <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">CTF
                         Administrator</span><br>
@@ -370,102 +708,314 @@
               </div>
             </div>
           </section>
-          <section class="about-past-eboard-section section-animated">
-            <div class="about-section-heading heading-animated">Past Executive Committee</div>
-            <div class="about-past-eboard-container">
-              <div class="about-past-eboard">
-                <div class="past-eboard-year expandable-header" onclick="togglePastEboard('2023-2024')" tabindex="0" role="button" aria-expanded="false" aria-controls="content-2023-2024">
-                  <span>2023-2024</span>
-                  <i class="fas fa-chevron-down expand-icon" id="icon-2023-2024" aria-hidden="true"></i>
-                </div>
-                <div class="past-eboard-content" id="content-2023-2024" style="display: none;" aria-labelledby="icon-2023-2024">
-                  <div class="past-eboard-orgname">Legacy Operators</div>
-                  <div class="past-eboard-members">
-                    <table class="past-eboard-table">
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">President:</span></td>
-                        <td><a href="advisor.html#tariqul-islam" style="text-decoration: none;">Tariqul Islam</a></td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Vice President</span></td>
-                        <td>Md. Bakhtiar Mazrur</td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">General Secretary:</span></td>
-                        <td><a href="advisor.html#rakibul-islam-mishu" style="text-decoration: none;">Rakibul Hasan Mishu</a></td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Organizing Secretary:</span></td>
-                        <td>Jubayer Ahmed Shawon</td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Executive Member:</span></td>
-                        <td>Md. Yeasin Ahammed</td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Executive Member:</span></td>
-                        <td>Md. Ashiqur Rahman Bhuiyan</td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Executive Member:</span></td>
-                        <td>Abu Said</td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Executive Member:</span></td>
-                        <td>Mosaddik Asif</td>
-                      </tr>
-                    </table>
+
+          <section class="members-section section-animated year-section" data-year="2023" style="display: none;">
+            <div class="about-section-heading">2023-2024</div>
+            <div class="members-container">
+              <div class="members-grid">
+                
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="../assets/images/Alumni/Tariqul.jpg" alt="Tariqul Islam" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Tariqul Islam</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">President</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="past-eboard-year expandable-header" onclick="togglePastEboard('2022-2023')" tabindex="0" role="button" aria-expanded="false" aria-controls="content-2022-2023">
-                  <span>2022-2023</span>
-                  <i class="fas fa-chevron-down expand-icon" id="icon-2022-2023" aria-hidden="true"></i>
-                </div>
-                <div class="past-eboard-content" id="content-2022-2023" style="display: none;" aria-labelledby="icon-2022-2023">
-                  <div class="past-eboard-orgname">Founding Defenders</div>
-                  <div class="past-eboard-members">
-                    <table class="past-eboard-table_2">
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">President:</span></td>
-                        <td><a href="advisor.html#tariqul-islam" style="text-decoration: none;">Tariqul Islam</a></td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Vice President:</span></td>
-                        <td>Alimul Haque</td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Organizing Secretary:</span></td>
-                        <td><a href="advisor.html#deepro-das" style="text-decoration: none;">Deepro Das</a></td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Event Secretary:</span></td>
-                        <td>Mohammad Hasem</td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Media Secretary:</span></td>
-                        <td>Roufin Ahmed</td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Media Secretary:</span></td>
-                        <td>Md. Bakhtiar Mazrur</td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Executive Member:</span></td>
-                        <td>Shah Moazzem</td>
-                      </tr>
-                      <tr>
-                        <td><span style="color: #0000FF; font-weight: 800;">Executive Member:</span></td>
-                        <td>Sadman Sakib</td>
-                      </tr>
-                    </table>
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="./assets/images/not-available.png" alt="Md. Bakhtiar Mazrur" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Md. Bakhtiar Mazrur</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Vice President</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
                 </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="../assets/images/Alumni/mishu.jpg" alt="Rakibul Hasan Mishu" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Rakibul Hasan Mishu</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">General Secretary</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="./assets/images/not-available.png" alt="Jubayer Ahmed Shawon" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Jubayer Ahmed Shawon</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Organizing Secretary</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="./assets/images/not-available.png" alt="Md. Yeasin Ahammed" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Md. Yeasin Ahammed</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Executive Member</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="../assets/images/2025eboard/Ashiq.jpeg" alt="Md. Ashiqur Rahman Bhuiyan" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title" style="font-size: 14.5px;">Md. Ashiqur Rahman Bhuiyan</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Executive Member</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="../assets/images/2025eboard/Said.jpeg" alt="Abu Said" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Abu Said</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Executive Member</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="./assets/images/not-available.png" alt="Mosaddik Asif" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Mosaddik Asif</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Executive Member</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
+
+          <section class="members-section section-animated year-section" data-year="2022" style="display: none;">
+            <div class="about-section-heading">2022-2023</div>
+            <div class="members-container">
+              <div class="members-grid">
+                
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="../assets/images/Alumni/Tariqul.jpg" alt="Tariqul Islam" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Tariqul Islam</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">President</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="./assets/images/not-available.png" alt="Alimul Haque" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Alimul Haque</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Vice President</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="../assets/images/Alumni/depro.jpg" alt="Deepro Das" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Deepro Das</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Organizing Secretary</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="./assets/images/not-available.png" alt="Mohammad Hasem" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Mohammad Hasem</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Event Secretary</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="./assets/images/not-available.png" alt="Roufin Ahmed" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Roufin Ahmed</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Media Secretary</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="./assets/images/not-available.png" alt="Md. Bakhtiar Mazrur" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Md. Bakhtiar Mazrur</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Media Secretary</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="./assets/images/not-available.png" alt="Shah Moazzem" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Shah Moazzem</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Executive Member</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="member_container grid-item-animated">
+                  <div class="member_avatar-container">
+                    <img src="./assets/images/not-available.png" alt="Sadman Sakib" class="member_avatar">
+                  </div>
+                  <div class="member_info">
+                    <div class="member_title">Sadman Sakib</div>
+                    <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Executive Member</span><br></div>
+                    <div class="member_socials">
+                      <a class="member_social" href="#" target="_blank" title="Linkedin">
+                        <svg class="member_social-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="#2363d1"
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
         </div>
       </main>
     </div>
-  <!-- Footer 2 !!Dont Touch!! -->
   <footer class="site-footer">
     <div class="footer-wrapper">
       <div class="footer-info-container">
@@ -483,7 +1033,6 @@
         <div class="footer-description-container">
         </div>
       </div>
-      <!-- Footer End -->
       <div class="footer-social-container">
         <a class="social-link" rel="me" target="_blank" href="https://facebook.com/csc.uu.bd" title="Faceboook CSC">
           <i class="fa-brands fa-square-facebook"></i>
@@ -499,24 +1048,16 @@
       <div class="site-credit">
 ©2025 | Developed by Cyber Security Club, Uttara University 
       </div>
-            <!-- GitHub Contributors Section -->
 <div class="github-contributors-section">
   <div class="github-contributors-title">
       Thanks to our awesome contributors</div>
   <div id="github-contributors-list" class="github-contributors-list">
-    <!-- Contributors will be loaded here -->
   </div>
 </div>
-<!-- GitHub Contributors Section End -->
-
     </footer>
-      <!-- Footer !!don't touch!! -->
-    <!-- Cloudflare Pages Analytics -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="assets/js/index.js"></script>
     <script src="assets/js/git-cont.js"></script>
-    
-    <!-- Past Executive Board Toggle Script -->
     <script>
       function togglePastEboard(year) {
         const content = document.getElementById('content-' + year);
@@ -524,14 +1065,12 @@
         const header = document.querySelector(`[onclick="togglePastEboard('${year}')"]`);
         
         if (content.style.display === 'none' || content.style.display === '') {
-          // Show content
           content.style.display = 'block';
           content.classList.add('show');
           icon.classList.remove('fa-chevron-down');
           icon.classList.add('fa-chevron-up');
           header.setAttribute('aria-expanded', 'true');
           
-          // Smooth scroll to the expanded section
           setTimeout(() => {
             content.scrollIntoView({ 
               behavior: 'smooth', 
@@ -539,7 +1078,6 @@
             });
           }, 100);
         } else {
-          // Hide content
           content.style.display = 'none';
           content.classList.remove('show');
           icon.classList.remove('fa-chevron-up');
@@ -547,8 +1085,6 @@
           header.setAttribute('aria-expanded', 'false');
         }
       }
-
-      // Add keyboard accessibility
       document.addEventListener('DOMContentLoaded', function() {
         const expandableHeaders = document.querySelectorAll('.expandable-header');
         expandableHeaders.forEach(header => {
@@ -562,7 +1098,6 @@
         });
       });
     </script>
-
 </body>
-
 </html>
+

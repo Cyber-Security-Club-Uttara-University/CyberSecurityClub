@@ -63,7 +63,7 @@
         </li>
         <li><a href="events.html"><span class="navbar-slash">|</span>Events</a></li>
         <li><a href="gallery.html"><span class="navbar-slash">|</span>Gallery</a></li>
-        <li><a href="groups.html"><span class="navbar-slash">|</span>Teams</a></li>
+        <li><a href="Teams.html"><span class="navbar-slash">|</span>Teams</a></li>
         <li><a href="resources.html"><span class="navbar-slash">|</span>Resources</a></li>
         <li><a href="sponsors.html"><span class="navbar-slash">|</span>Sponsors</a></li>
         <li class="dropdown">
@@ -95,19 +95,16 @@
       </div>
     </div>
   </nav>
-
-  <!-- Main Content -->
   <main class="blog-portal-main">
-
-    <!-- Featured Blog Section -->
     <section class="featured-blog-section">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title main-title">Featured Blogs</h2>
           <p class="section-subtitle">Hand-picked articles from our expert contributors</p>
         </div>
-        <!-- Featured Blog 1 -->
-            <article class="featured-blog-card">
+        
+        <div class="featured-blog-grid">
+          <article class="featured-blog-card">
             <div class="featured-blog-image">
               <img src="./BlogPortal/images/Linux.gif" alt="CTF Writeup">
               <div class="blog-category">Tutorial</div>
@@ -123,7 +120,7 @@
               </div>
               <h3 class="featured-blog-title">15 Essential Linux Commands for Hackers</h3>
               <p class="featured-blog-excerpt">
-                Complete writeup of CTF Night 0x1 challenges covering web exploitation, cryptography, reverse engineering, and forensics with step-by-step solutions and learning points.
+               Linux is the playground for hackers, sysadmins, and CTF warriors. These commands aren’t just tools—they’re your language for navigating systems, automating tasks, and investigating digital trails. Each one builds muscle memory and confidence.
               </p>
               <div class="blog-tags">
                 <span class="blog-tag"><i class="fas fa-tag"></i> Linux</span>
@@ -135,9 +132,6 @@
               </a>
             </div>
           </article>
-
-        <div class="featured-blog-grid">
-          <!-- Featured Blog 2 -->
           <article class="featured-blog-card">
             <div class="featured-blog-image">
               <img src="./BlogPortal/images/Owasp/image.png" alt="Web Application Security">
@@ -170,10 +164,10 @@
       </div>
     </section>
 
-    <!-- Search & Filter Section -->
+
     <section class="blog-filter-section">
       <div class="container">
-        <!-- Search Bar -->
+
         <div class="blog-search">
           <div class="search-container">
             <i class="fas fa-search search-icon"></i>
@@ -184,7 +178,7 @@
           </div>
         </div>
 
-        <!-- Category Filter -->
+
         <div class="category-filter">
           <button class="filter-btn active" data-category="all">
             <i class="fas fa-th-large"></i>
@@ -214,7 +208,7 @@
       </div>
     </section>
 
-    <!-- All Blogs Section -->
+
     <section class="all-blogs-section">
       <div class="container">
         <div class="section-header">
@@ -226,17 +220,17 @@
         </div>
 
         <div class="blog-grid" id="blogGrid">
-          <!-- Blog Card 1 -->
-          <!-- <article class="blog-card" data-category="tutorial">
+          <!-- 
+          <article class="blog-card" data-category="tutorial">
             <div class="blog-card-image">
-              <img src="assets/images/blog/linux-basics.jpg" alt="Linux for Hackers">
+              <img src="./BlogPortal/images/Linux.gif" alt="Linux for Hackers">
               <div class="blog-category">Tutorial</div>
-              <div class="blog-reading-time"><i class="fas fa-clock"></i> 12 min</div>
+              <div class="blog-reading-time"><i class="fas fa-clock"></i> 10 min</div>
             </div>
             <div class="blog-card-content">
               <div class="blog-meta">
-                <span class="blog-author"><i class="fas fa-user"></i> pran0x</span>
-                <span class="blog-date"><i class="fas fa-calendar"></i> Oct 4, 2025</span>
+                <span class="blog-author"><i class="fas fa-user"></i>S4M</span>
+                <span class="blog-date"><i class="fas fa-calendar"></i> Oct 11, 2025</span>
               </div>
               <h3 class="blog-card-title">Linux Command Line Basics for Cybersecurity</h3>
               <p class="blog-card-excerpt">
@@ -246,13 +240,11 @@
                 <span class="blog-tag">Linux</span>
                 <span class="blog-tag">Command Line</span>
               </div>
-              <a href="BlogPortal/linux-basics.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+              <a href="BlogPortal/Linux_Command.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
           </article>
-          -->
 
-          <!-- Blog Card 2 -->
-          <!-- <article class="blog-card" data-category="writeup">
+          <article class="blog-card" data-category="writeup">
             <div class="blog-card-image">
               <img src="assets/images/blog/binary-exploitation.jpg" alt="Binary Exploitation">
               <div class="blog-category">CTF Writeup</div>
@@ -273,10 +265,10 @@
               </div>
               <a href="BlogPortal/buffer-overflow.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
-          </article> -->
+          </article>
 
-          <!-- Blog Card 3 -->
-          <!-- <article class="blog-card" data-category="research">
+
+          <article class="blog-card" data-category="research">
             <div class="blog-card-image">
               <img src="assets/images/blog/malware-analysis.jpg" alt="Malware Analysis">
               <div class="blog-category">Research</div>
@@ -298,10 +290,10 @@
               <a href="BlogPortal/malware-analysis.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
           </article> 
-          -->
+          
 
-          <!-- Blog Card 4 -->
-          <!-- <article class="blog-card" data-category="tutorial">
+
+          <article class="blog-card" data-category="tutorial">
             <div class="blog-card-image">
               <img src="assets/images/blog/python-security.jpg" alt="Python for Security">
               <div class="blog-category">Tutorial</div>
@@ -322,10 +314,10 @@
               </div>
               <a href="BlogPortal/python-security.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
-          </article> -->
+          </article>
 
-          <!-- Blog Card 5 -->
-          <!-- <article class="blog-card" data-category="news">
+
+          <article class="blog-card" data-category="news">
             <div class="blog-card-image">
               <img src="assets/images/blog/security-news.jpg" alt="Security News">
               <div class="blog-category">Security News</div>
@@ -347,10 +339,10 @@
               <a href="BlogPortal/security-threats-2025.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
           </article> 
-          -->
+          
 
-          <!-- Blog Card 6 -->
-          <!-- <article class="blog-card" data-category="tools">
+
+          <article class="blog-card" data-category="tools">
             <div class="blog-card-image">
               <img src="assets/images/blog/burp-suite.jpg" alt="Burp Suite">
               <div class="blog-category">Tools</div>
@@ -372,17 +364,16 @@
               <a href="BlogPortal/burp-suite-guide.html" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
           </article>
-        </div>
-        -->
+        </div> -->
 
-        <!-- No Results Message -->
+
         <div class="no-results hidden" id="noResults">
           <i class="fas fa-search"></i>
           <h3>No Articles Found</h3>
           <p>Try adjusting your search or filter criteria</p>
         </div>
 
-        <!-- Load More Button -->
+ 
         <div class="load-more-section">
           <button class="load-more-btn" id="loadMoreBtn">
             <span class="btn-text">Load More Articles</span>
@@ -395,35 +386,13 @@
         </div>
       </div>
     </section>
-
-    <!-- Newsletter Section -->
-    <!-- <section class="newsletter-section">
-      <div class="container">
-        <div class="newsletter-content">
-          <div class="newsletter-text">
-            <h2>Subscribe to Our Newsletter</h2>
-            <p>Get the latest cybersecurity articles, tutorials, and CTF writeups delivered to your inbox</p>
-          </div>
-          <div class="newsletter-form">
-            <form id="newsletterForm">
-              <input type="email" placeholder="Enter your email address" required>
-              <button type="submit">
-                <span>Subscribe</span>
-                <i class="fas fa-paper-plane"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section> -->
   </main>
 
-  <!-- Scroll to Top Button -->
   <div class="scroll-to-top" id="scrollToTop" title="Back to top">
     <i class="fas fa-arrow-up"></i>
   </div>
 
-  <!-- Footer -->
+
   <footer class="site-footer">
     <div class="footer-wrapper">
       <div class="footer-info-container">
@@ -458,8 +427,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="assets/js/index.js"></script>
   <script src="assets/js/git-cont.js"></script>

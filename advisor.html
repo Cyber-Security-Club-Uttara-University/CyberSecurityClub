@@ -195,7 +195,7 @@
           <a href="gallery.html"><span class="navbar-slash">|</span>Gallery</a>
         </li>
         <li>
-          <a href="groups.html"><span class="navbar-slash">|</span>Teams</a>
+          <a href="Teams.html"><span class="navbar-slash">|</span>Teams</a>
         </li>
         <li>
           <a href="resources.html"><span class="navbar-slash">|</span>Resources</a>
@@ -244,9 +244,161 @@
       <section class="alumni-section section-animated">
         <div class="heading-title heading-animated">Advisor</div>
         <div class="heading-description">Meet all of our wonderful advisor!</div>
+        
+        <!-- Year Selector -->
+        <div class="year-selector-wrapper">
+          <div class="year-selector">
+            <button class="year-btn active" data-year="2025">2025</button>
+            <button class="year-btn" data-year="2024">2024</button>
+            <button class="year-btn" data-year="2023">2023</button>
+            <button class="year-btn" data-year="2022">2022</button>
+          </div>
+        </div>
+
+        <style>
+          .year-selector-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 3rem auto 2rem;
+            padding: 0 20px;
+            max-width: 900px;
+          }
+          
+          .year-selector {
+            background: var(--header-color);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 255, 0.15);
+            border-radius: 16px;
+            padding: 8px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+          }
+          
+          .year-btn {
+            background: transparent;
+            color: var(--light-text-color);
+            border: 1px solid transparent;
+            border-radius: 10px;
+            padding: 10px 24px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: "JetBrains Mono", Monospace, Sans-Serif;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+          }
+          
+          .year-btn:hover {
+            background: rgba(0, 0, 255, 0.08);
+            border-color: rgba(0, 0, 255, 0.2);
+            color: var(--text-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 255, 0.15);
+          }
+          
+          .year-btn.active {
+            background: var(--link-color);
+            color: white;
+            border-color: var(--link-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 255, 0.3);
+            transform: translateY(-2px);
+          }
+          
+          .year-btn.active:hover {
+            background: #0000CC;
+            box-shadow: 0 6px 20px rgba(0, 0, 255, 0.4);
+          }
+          
+          /* Mobile responsive */
+          @media (max-width: 768px) {
+            .year-selector-wrapper {
+              margin: 2rem auto 1.5rem;
+            }
+            
+            .year-selector {
+              padding: 6px;
+              gap: 6px;
+            }
+            
+            .year-btn {
+              padding: 8px 18px;
+              font-size: 0.9rem;
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .year-selector {
+              gap: 4px;
+              padding: 5px;
+            }
+            
+            .year-btn {
+              padding: 7px 14px;
+              font-size: 0.85rem;
+            }
+          }
+        </style>
+
+        <script>
+          // Year selector functionality
+          document.addEventListener('DOMContentLoaded', function() {
+            const yearBtns = document.querySelectorAll('.year-btn');
+            const graduationGroups = document.querySelectorAll('.graduation-group');
+            
+            // Function to show/hide panels based on year
+            function filterByYear(year) {
+              graduationGroups.forEach(group => {
+                if (group.dataset.year === year) {
+                  group.style.display = 'block';
+                  // Add fade-in animation
+                  group.style.opacity = '0';
+                  setTimeout(() => {
+                    group.style.transition = 'opacity 0.5s ease-in-out';
+                    group.style.opacity = '1';
+                  }, 10);
+                } else {
+                  group.style.display = 'none';
+                }
+              });
+            }
+            
+            // Initialize - show 2025 by default
+            filterByYear('2025');
+            
+            yearBtns.forEach(btn => {
+              btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                yearBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const selectedYear = this.dataset.year;
+                console.log('Selected year:', selectedYear);
+                
+                // Filter panels by year
+                filterByYear(selectedYear);
+                
+                // Add smooth scroll to content section
+                const firstVisibleGroup = document.querySelector('.graduation-group[style*="display: block"]');
+                if (firstVisibleGroup) {
+                  setTimeout(() => {
+                    firstVisibleGroup.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }, 100);
+                }
+              });
+            });
+          });
+        </script>
+        
         <div class="alumni-container">
-          <div class="graduation-group">
-            <div class="about-section-heading heading-animated">2024-2025</div>
+          <!-- 2025 Panel (Current) -->
+          <div class="graduation-group" data-year="2025">
+            <div class="about-section-heading heading-animated">2025-2026</div>
             <section class="members-section section-animated">
               <div class="about-section-heading">Current Student</div>
               <div class="about-description_container">
@@ -264,7 +416,7 @@
                         <!-- ADVISOR DETAILS -->
                         MD Sadikul Islam Akash
                       </div>
-                      <span style="color: #0000FF; opacity: 0.9">Security Specialist</span>
+                      <span style="color: #0000FF; opacity: 0.9">Red Team Researcher</span>
                       <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">BEETLES
                           CYBER SECURITY</span><br></div>
                       <div class="member_details"><span
@@ -394,13 +546,222 @@
                       </div>
                     </div>
                   </div>
+                <!-- END MEMBERS -->
+                </div>
+              </div>
+            </section>
+          </div>
+          
+          <!-- 2024 Panel -->
+          <div class="graduation-group" data-year="2024">
+            <div class="about-section-heading heading-animated">2024-2025</div>
+            <section class="members-section section-animated">
+              <div class="about-section-heading">Current Student</div>
+              <div class="about-description_container">
+                <div class="about-section-description"></div>
+              </div>
+              <div class="members-container">
+                <div class="members-grid">
+              <!-- ADD MEMBERS -->
+                  <div class="member_container grid-item-animated">
+                    <div class="member_avatar-container">
+                      <img src="assets/images/Alumni/akash.jpg" alt="akash avatar" class="member_avatar">
+                    </div>
+                    <div class="member_info">
+                      <div class="member_title">
+                        <!-- ADVISOR DETAILS -->
+                        MD Sadikul Islam Akash
+                      </div>
+                      <span style="color: #0000FF; opacity: 0.9">Red Team Researcher</span>
+                      <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">BEETLES
+                          CYBER SECURITY</span><br></div>
+                      <div class="member_details"><span
+                          style="color: #0000ff; opacity: 1; font-weight: 800;">ADVISOR</span>
+                        <a rel="me" target="_blank" href="https://www.linkedin.com/in/mdsadikulislam/"
+                          title="MD Sadikul Islam Akash">
+                          <i class="fa-brands fa-linkedin" style="color: #0000ff;"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="member_container grid-item-animated">
+                    <div class="member_avatar-container">
+                      <img src="assets/images/Alumni/naeem.jpg" alt="Naeem avatar" class="member_avatar">
+                    </div>
+                    <div class="member_info">
+                      <div class="member_title">
+                        <!-- ADVISOR DETAILS -->
+                        Alwoares Naeem
+                      </div>
+                      <span style="color: #0000FF; opacity: 0.9">CEO</span>
+                      <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">
+                        ZeroRisk Cyber Security
+                      </span><br></div>
+                      <div class="member_details"><span
+                          style="color: #0000ff; opacity: 1; font-weight: 800;">ADVISOR</span>
+                        <a rel="me" target="_blank" href="https://www.linkedin.com/in/a1woares/"
+                          title="Alwoares Naeem">
+                          <i class="fa-brands fa-linkedin" style="color: #0000ff;"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="member_container" id="rakibul-islam-mishu">
+                    <div class="member_avatar-container">
+                      <img src="assets/images/Alumni/mishu.jpg" alt="Mishu avatar" class="member_avatar">
+                    </div>
+                    <div class="member_info">
+                      <div class="member_title">
+                        <!-- ADVISOR DETAILS -->
+                        Rakibul Islam Mishu
+                      </div>
+                      <span style="color: #0000FF; opacity: 0.9">Data Engineer</span>
+                      <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">
+                        Prime Bank Securities Ltd</span><br></div>
+                      <div class="member_details"><span
+                          style="color: #0000ff; opacity: 1; font-weight: 800;">ADVISOR</span>
+                        <a rel="me" target="_blank" href="https://www.linkedin.com/in/rakibul-hasan-mishu/"
+                          title="Rakibul Islam Mishu">
+                          <i class="fa-brands fa-linkedin" style="color: #0000ff;"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- END CURRENT STUDENT -->
+                </div>
+                </div>
+            </section>
+            <section class="members-section">
+              <div class="about-section-heading">Alumni</div>
+              <div class="about-description_container">
+                <div class="about-section-description"></div>
+              </div>
+              <div class="members-container">
+                <div class="members-grid">
+              <!-- ADD MEMBERS -->
+                  <div class="member_container">
+                    <div class="member_avatar-container">
+                      <img src="assets/images/Alumni/asif.jpg" alt="Asif avatar" class="member_avatar">
+                    </div>
+                    <div class="member_info">
+                      <div class="member_title">
+                        <!-- ADVISOR DETAILS -->
+                        Md Asif Hossain
+                      </div>
+                      <span style="color: #0000FF; opacity: 0.9">Security Researcher</span>
+                      <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">HackerOne|BugCrowd|Yogosha</span><br></div>
+                      <div class="member_details"><span
+                          style="color: #0000ff; opacity: 1; font-weight: 800;">ADVISOR</span>
+                        <a rel="me" target="_blank" href="https://www.linkedin.com/in/0x0asif/"
+                          title="Md Asif Hossain">
+                          <i class="fa-brands fa-linkedin" style="color: #0000ff;"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="member_container" id="tariqul-islam">
+                    <div class="member_avatar-container">
+                      <img src="assets/images/Alumni/Tariqul.jpg" alt="Tariqul avatar" class="member_avatar">
+                    </div>
+                    <div class="member_info">
+                      <div class="member_title">
+                        <!-- ADVISOR DETAILS -->
+                        Tariqul Islam
+                      </div>
+                      <span style="color: #0000FF; opacity: 0.9">Project Coordinator</span>
+                      <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">TQLSOFT</span><br></div>
+                      <div class="member_details"><span
+                          style="color: #0000ff; opacity: 1; font-weight: 800;">ADVISOR</span>
+                        <a rel="me" target="_blank" href="https://www.linkedin.com/in/tariqultais/"
+                          title="Tariqul Islam">
+                          <i class="fa-brands fa-linkedin" style="color: #0000ff;"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="member_container" id="deepro-das">
+                    <div class="member_avatar-container">
+                      <img src="assets/images/Alumni/depro.jpg" alt="Deepro avatar" class="member_avatar">
+                    </div>
+                    <div class="member_info">
+                      <div class="member_title">
+                        <!-- ADVISOR DETAILS -->
+                        Deepro Das
+                      </div>
+                      <span style="color: #0000FF; opacity: 0.9">Technical Officer</span>
+                      <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">
+                        Dhaka Mercantile Bank LTD.
+                      </span><br></div>
+                      <div class="member_details"><span
+                          style="color: #0000ff; opacity: 1; font-weight: 800;">ADVISOR</span>
+                        <a rel="me" target="_blank" href="https://www.linkedin.com/in/deepro-das-a4216929b/"
+                          title="Deepro Das">
+                          <i class="fa-brands fa-linkedin" style="color: #0000ff;"></i>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 <!-- END MEMBERS -->
                 </div>
-                </div>
+              </div>
             </section>
           </div>
+          <!-- 2023 Panel -->
+          <div class="graduation-group" data-year="2023" style="display: none;">
+            <div class="about-section-heading heading-animated">2022-2023</div>
+            <section class="members-section section-animated">
+              <div class="about-section-heading">Advisors</div>
+              <div class="about-description_container">
+                <div class="about-section-description">Advisors for the 2022-2023 academic year</div>
+              </div>
+              <div class="members-container">
+                <div class="members-grid">
+                  <!-- Add 2023 advisors here -->
+                  <div class="member_container grid-item-animated">
+                    <div class="member_avatar-container">
+                      <img src="assets/images/Alumni/Tariqul.jpg" alt="Placeholder" class="member_avatar">
+                    </div>
+                    <div class="member_info">
+                      <div class="member_title">Advisor Name</div>
+                      <span style="color: #0000FF; opacity: 0.9">Position</span>
+                      <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Company/Organization</span><br></div>
+                      <div class="member_details"><span style="color: #0000ff; opacity: 1; font-weight: 800;">ADVISOR</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          
+          <!-- 2022 Panel -->
+          <div class="graduation-group" data-year="2022" style="display: none;">
+            <div class="about-section-heading heading-animated">2021-2022</div>
+            <section class="members-section section-animated">
+              <div class="about-section-heading">Current Student</div>
+              <div class="about-description_container">
+                <div class="about-section-description">Advisors for the 2021-2022 academic year</div>
+              </div>
+              <div class="members-container">
+                <div class="members-grid">
+                  <!-- Add 2022 advisors here -->
+                  <div class="member_container grid-item-animated">
+                    <div class="member_avatar-container">
+                      <img src="assets/images/Alumni/depro.jpg" alt="Placeholder" class="member_avatar">
+                    </div>
+                    <div class="member_info">
+                      <div class="member_title">Advisor Name</div>
+                      <span style="color: #0000FF; opacity: 0.9">Position</span>
+                      <div class="member_details"><span style="color: #0000FF; opacity: 2; font-weight: 800;">Company/Organization</span><br></div>
+                      <div class="member_details"><span style="color: #0000ff; opacity: 1; font-weight: 800;">ADVISOR</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          
+        </div>
       </section>
     </div>
 
