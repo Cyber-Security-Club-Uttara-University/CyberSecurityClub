@@ -1,6 +1,6 @@
-<!DO  <meta charset="utf-8">
+<!DOCTYPE  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">ang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -151,6 +151,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/ctfs-prev.css">
 </head>
 
 <body>
@@ -236,27 +237,174 @@
   <main class="page-content" aria-label="Content">
     <div class="heading-title heading-animated">Capture The Flag</div>
     <div class="heading-description section-animated">
-      Cyber Security club presents a unique Capture the Flag (CTF) challenge designed
-      to sharpen problem-solving skills and enhance security expertise.
+      Cyber Security Club presents comprehensive Capture the Flag (CTF) competitions designed
+      to develop advanced problem-solving capabilities and cultivate cybersecurity expertise.
     </div>
-    <!-- CTF DASHBOARD -->
-    <p class="education-section" style="font-size: 30px; font-weight: 800;">Scoreboard</p>
-    <main style="display: flex; justify-content: center; align-items: center; min-height: 60vh;">
-      <div>
+
+    <!-- Statistics Overview -->
+    <section class="ctf-stats-section section-animated">
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number">2</h3>
+            <p class="stat-label">Events Hosted</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number">50+</h3>
+            <p class="stat-label">Participants</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-puzzle-piece"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number">30+</h3>
+            <p class="stat-label">Challenges Created</p>
+          </div>
+        </div>
       </div>
-      <img src="/assets/images/CTF/image.png"
-      style="max-width: 1000px; width: 100%; height: auto; margin: 0 auto; display: block;"
-      alt="Monthly CTF 0x1">
-    </main>
-    <!-- CTF DASHBOARD -->
-    <!-- Education Section -->
-<section class="education-section section-animated">
-  <div>
-    <a class="color-gred" href="http://ctf-cybersecurity-club-uttara.duckdns.org/" target="_blank" rel="noopener noreferrer">
-      <h3>CTF Dashboard</h3>
-    </a>
-  </div>
-</section>
+    </section>
+
+    <!-- Past CTF Events Section -->
+    <section class="ctf-events-section section-animated">
+      <div class="section-header">
+        <h2 class="section-title">Past CTF Competitions</h2>
+        <p class="section-subtitle">Explore our previous competitions and review detailed scoreboards</p>
+      </div>
+      
+      <div class="ctf-events-grid">
+
+        <!-- Weekly CTF 0x1 -->
+        <div class="ctf-event-card">
+          <div class="ctf-event-badge">
+            <span class="badge-text">Weekly</span>
+          </div>
+          <div class="ctf-event-image">
+            <img src="/assets/images/CTF/Weekly-ctf-0x1.jpg" alt="Weekly CTF 0x1">
+          </div>
+          <div class="ctf-event-body">
+            <div class="ctf-event-info">
+              <div class="info-item">
+                <i class="fas fa-calendar-alt"></i>
+                <div class="info-text">
+                  <span class="info-value">11 October, 2025</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <div class="info-text">
+                  <span class="info-value">5 Hours</span>
+                </div>
+              </div>
+            </div>
+            <div class="event-description">
+              <h4>Challenge Categories</h4>
+              <div class="category-tags">
+                <span class="category-tag">Web Exploitation</span>
+                <span class="category-tag">Cryptography</span>
+                <span class="category-tag">Forensics</span>
+                <span class="category-tag">OSINT</span>
+                <span class="category-tag">PWN</span>
+                <span class="category-tag">Network</span>
+              </div>
+            </div>
+          </div>
+          <div class="ctf-event-footer">
+            <a href="/CTFs/past-ctfs/weekly0x1/Weekly CTF 0x1.html" class="ctf-view-btn" target="_blank">
+              <span class="btn-text">View Scoreboard</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Monthly CTF 0x1 -->
+        <div class="ctf-event-card">
+          <div class="ctf-event-badge">
+            <span class="badge-text">Monthly</span>
+          </div>
+          <div class="ctf-event-image">
+            <img src="/assets/images/CTF/CTF-NIGHT0x1.jpg" alt="CTF Night 0x1">
+          </div>
+          <div class="ctf-event-body">
+            <div class="ctf-event-info">
+              <div class="info-item">
+                <i class="fas fa-calendar-alt"></i>
+                <div class="info-text">
+                  <span class="info-value">10 August, 2025</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <div class="info-text">
+                  <span class="info-value">7 Hours</span>
+                </div>
+              </div>
+            </div>
+            <div class="event-description">
+              <h4>Challenge Categories</h4>
+              <div class="category-tags">
+                <span class="category-tag">Web Exploitation</span>
+                <span class="category-tag">Cryptography</span>
+                <span class="category-tag">Forensics</span>
+                <span class="category-tag">OSINT</span>
+              </div>
+            </div>
+          </div>
+          <div class="ctf-event-footer">
+            <a href="/CTFs/past-ctfs/weekly0x1/Weekly CTF 0x1.html" class="ctf-view-btn" target="_blank">
+              <span class="btn-text">View Scoreboard</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live CTF Dashboard Link -->
+    <section class="live-ctf-section section-animated">
+      <div class="live-ctf-container">
+        <div class="live-ctf-content-wrapper">
+          <div class="live-ctf-icon">
+            <i class="fas fa-satellite-dish"></i>
+            <span class="live-indicator">LIVE</span>
+          </div>
+          <div class="live-ctf-content">
+            <h3>Live CTF Platform</h3>
+            <p>Access our real-time CTF dashboard to participate in ongoing challenges and competitions</p>
+            <div class="platform-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Real-time Scoreboard</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Weekly & Monthly CTFs</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Open to all Students of Uttara University</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="live-ctf-action">
+          <a href="http://ctf-cybersecurity-club-uttara.duckdns.org/scoreboard" class="live-ctf-btn" target="_blank">
+            <span>Launch Platform</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          <p class="platform-note">Login credentials available to registered members</p>
+        </div>
+      </div>
+    </section>
+
   </main>
   <footer class="site-footer">
     <div class="footer-wrapper">
