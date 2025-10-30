@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>15 Essential Nmap Commands for Hackers | CSC Blog</title>
+  <meta name="description" content="A comprehensive walkthrough of the top Linux with practical examples.">
+  <meta name="keywords" content="Linux Commands for Hackers, penetration testing, security vulnerabilities">
+  <meta property="og:title" content="15 Essential Nmap Commands for Hackers">
+  <meta property="og:description" content="Learn about the 15 Essential Nmap Commands with practical examples.">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../NewsPortal/news-portal.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./command-code-style.css">
+  <meta name="author" content="Seam Sikder Nahid">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="header">
+    <div class="header-wrapper">
+      <div class="header-image-container">
+        <a rel="author" href="../index.html" title="Cyber Security Club Homepage">
+          <div class="header-image"></div>
+        </a>
+      </div>
+      <ul class="navbar-links">
+        <li><a href="../index.html"><span class="navbar-slash">|</span>Home</a></li>
+        <li><a href="../about.html"><span class="navbar-slash">|</span>About</a></li>
+        <li><a href="../advisor.html"><span class="navbar-slash">|</span>Advisor</a></li>
+        <li class="dropdown">
+          <a href="../CTF.html"><span class="navbar-slash">|</span><span>CTF</span></a>
+          <div class="dropdown-content">
+            <a href="http://ctf-cybersecurity-club-uttara.duckdns.org/scoreboard">Dashboard</a>
+            <a href="../CTFWeekly.html">Weekly CTFs</a>
+            <a href="../CTFMonthly.html">Monthly CTFs</a>
+            <a href="../CTFWriteups.html">Writeups</a>
+          </div>
+        </li>
+        <li><a href="../events.html"><span class="navbar-slash">|</span>Events</a></li>
+        <li><a href="../gallery.html"><span class="navbar-slash">|</span>Gallery</a></li>
+        <li><a href="../groups.html"><span class="navbar-slash">|</span>Groups</a></li>
+        <li><a href="../resources.html"><span class="navbar-slash">|</span>Resources</a></li>
+        <li><a href="../sponsors.html"><span class="navbar-slash">|</span>Sponsors</a></li>
+        <li class="dropdown">
+          <a href="#" class="active-nav-link">
+            <span class="navbar-slash">|</span>
+            <span>Article</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="../NewsPortal/News.html">News</a>
+            <a href="../NewsPortal/News.html#highlights">Highlights</a>
+            <a href="../blog.html">Blog</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="../MemberShip.html"><span class="navbar-slash">|</span><span>Membership</span></a>
+          <div class="dropdown-content">
+            <a href="../MemberShip.html">Membership Process</a>
+            <a href="../recruitment.html">Join Us</a>
+          </div>
+        </li>
+      </ul>
+      <div class="navbar-controls">
+        <div class="navbar-burger">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+          <div class="line-3"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="news-detail-main" id="main-content">
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../blog.html">Blog</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">15 Essential Nmap Commands for Hackers</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Article -->
+    <article class="news-article">
+      <div class="container">
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="article-category">Tutorial</span>
+            <span class="article-date"><i class="fas fa-calendar"></i> October 30, 2025</span>
+            <span class="article-author"><i class="fas fa-user"></i> <a
+                href="https://www.linkedin.com/in/seam-sikder-nahid/" target="_blank"
+                style="text-decoration: none; color: black;">Seam Sikder Nahid</a></span>
+            <span class="article-date"><i class="fas fa-clock"></i> 20 min read</span>
+          </div>
+          <h1 class="article-title">Top 15 Nmap Commands for Hackers</h1>
+        </header>
+
+        <div class="article-image">
+          <img src="./images/nmap.jpg" alt="Nmap Commands for Hackers">
+        </div>
+
+        <div class="article-content">
+          <div class="article-text">
+   <p><h1><b>Top 15 Nmap Commands for Hackers </b></h1><br/></p>
+<p><b>Introduction <br/></b><b>Nmap (Network Mapper) </b>is a fundamental reconnaissance tool used to discover hosts, open <br/>ports, services, and operating systems on a network. This blog presents the 15 most <br/>useful Nmap commands for beginners, each explained in plain language with practical <br/>examples. Run scans only on systems you own or have explicit permission to test. <br/></p>
+<p> <br/></p>
+<p><b>1. Ping scan (host discovery): nmap -sn &lt;target&gt; <br/>What it does:</b> Performs host discovery (also called a ping sweep). Nmap sends probes to <br/>find which IPs are online without scanning ports.&#8203;<br/><b>Why it matters:</b> Before scanning ports, you often want to know which addresses are active. <br/>This saves time and avoids unnecessary scans.&#8203;<br/><b>When to use:</b> Map live hosts in a subnet quickly. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap -sn 161.248.122.70/24 </code></pre></b></p>
+<p><b>2. Basic TCP scan: nmap &lt;target&gt; <br/>What it does:</b> Scans the most common 1,000 TCP ports on a target host and reports which <br/>ports are open, closed, or filtered.&#8203;<br/><b>Why it matters:</b> This is the simplest and most common starting point. It shows you the <br/>'surface' of a host and is a good first step before deeper scans.&#8203;<br/><b>When to use:</b> Use it to quickly see what services might be running on a host. Always <br/>confirm you have permission to scan. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap 161.248.122.70 </code></pre></p>
+<p><b>3. Service &amp; version detection: nmap -sV &lt;target&gt; <br/>What it does:</b> After finding open ports, Nmap probes those ports to determine the service <br/>name and often the service version.&#8203;<br/><b>Why it matters:</b> Knowing the exact service and version helps you identify vulnerable <br/>software versions and pick the right follow-up tests.&#8203;<br/><b>When to use:</b> Use this when you need more detail about a discovered service. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap -sV 161.248.122.70 </code></pre></p>
+<p><b>4. Stealthy SYN scan: nmap -sS &lt;target&gt; <br/>What it does:</b> Sends TCP SYN packets (the first step of the TCP handshake) and examines <br/>replies;then resets the connection. It's faster and quieter than a full connect.&#8203;<br/><b>Why it matters:</b> SYN scans are less noisy in logs and preferred during penetration testing to <br/>avoid filling server logs with full connections.&#8203;<br/><b>When to use:</b> Use when you need a faster scan that draws less attention than a full connect <br/>scan. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap -sS 161.248.122.70 </code></pre></p>
+<p><b>5. Operating system detection: nmap -O &lt;target&gt; <br/>What it does:</b> Uses TCP/IP stack fingerprinting and other signals to guess the target's <br/>operating system (e.g., Linux, Windows, device type).&#8203;<br/><b>Why it matters:</b> OS information narrows down possible vulnerabilities and helps you choose <br/>the right tools/techniques.&#8203;<br/><b>When to use:</b> Run on hosts where you need context about platform or when triaging a <br/>larger network. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap -O 161.248.122.70 </code></pre></p>
+</div></div>
+<p><b>6. Aggressive scan (combined): nmap -A &lt;target&gt; <br/>What it does:</b> Enables OS detection, version detection, default scripts, and traceroute all at <br/>once.&#8203;<br/><b>Why it matters:</b> Provides a comprehensive view in one command;useful for learning and <br/>quick assessments, but it is noisy.&#8203;<br/><b>When to use:</b> Good for a one-shot deep look in a lab or on systems you control. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap -A 161.248.122.70 </code></pre></p>
+<p><b>7. Default script scan: nmap -sC &lt;target&gt; <br/>What it does:</b> Runs Nmap's default script set (NSE) which gathers additional service-level <br/>information such as banner grabs and simple vulnerability checks.&#8203;<br/><b>Why it matters:</b> Scripts can reveal useful details beyond port and version, like HTTP titles, <br/>SSL cert info, or trivial vulnerabilities.&#8203;<br/><b>When to use:</b> Combine with -sV to get richer output. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap -sC 161.248.122.70 </code></pre></p>
+<p><b>8. Run a specific Nmap script: nmap --script=&lt;script&gt; &lt;target&gt; <br/>What it does:</b> Executes one or more NSE scripts by name, for targeted checks (for <br/>example, http-title or ssl-cert).&#8203;<br/><b>Why it matters:</b> Scripts let you tailor scans-run only the checks you trust or need.&#8203;<br/><b>When to use:</b> When a specific script matches your goal (e.g., check for Heartbleed with a <br/>vain script). <br/></p>
+<p><b>Examples:</b> <br/><pre><code>nmap --script=http-title 161.248.122.70 </code></pre>  <pre><code>nmap --script=ssl-cert 161.248.122.70 </code></pre></p>
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p><b>9. Save output to readable text: nmap -oN &lt;file&gt; &lt;target&gt; <br/>What it does:</b> Writes the scan output to a plain text file using Nmap's normal output format.&#8203;<br/><b>Why it matters:</b> Keeping records is essential-saves results for reports, sharing, or later <br/>analysis.&#8203;<br/><b>When to use:</b> Always save important scans; it's easier to compare and document findings. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap -oN results.txt 161.248.122.70 </code></pre></p>
+<p><b>10. Save output in XML (machine-readable): nmap -oX &lt;file&gt; &lt;target&gt; <br/>What it does:</b> Writes results in XML that other tools can parse.&#8203;<br/><b>Why it matters:</b> XML output integrates with reporting tools, parsers, and dashboards.&#8203;<br/><b>When to use:</b> Use when exporting scan data to analysis tools or scripts. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap -oX results.xml 161.248.122.70 </code></pre></p>
+<p><b>11. Scan multiple targets from a list: nmap -iL &lt;file&gt; -oN &lt;out&gt; <br/>What it does:</b> Nmap reads targets from a file (hosts or IPs) and scans them sequentially.&#8203;<br/><b>Why it matters:</b> Essential for scanning labs, subnets, or many hosts without typing each <br/>address.&#8203;<br/><b>When to use:</b> Prepare a hosts file and scan an entire set in one command. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap -iL hosts.txt -oN combined-results.txt </code></pre></p>
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p><b>
+12. Scan a specific port or range: nmap -p &lt;port(s)&gt; &lt;target&gt; <br/>What it does:</b> Restricts the scan to specific ports (single, comma-separated list, or ranges <br/>like 1-100).&#8203;<br/><b>Why it matters:</b> Faster and focused scanning when you know which services matter.&#8203;<br/><b>When to use:</b> Check a single service (ssh=22) or a small range rapidly. <br/></p>
+<p><b>Examples:</b> <br/><pre><code>nmap -p 22 161.248.122.70 </code></pre>  <pre><code>nmap -p 1-100 161.248.122.70 </code></pre></p>
+<p><b>13. Fast scan (top ports): nmap -F &lt;target&gt; <br/>What it does:</b> Scans the top 100 most commonly used ports instead of the default 1,000.&#8203;<br/><b>Why it matters:</b> Faster snapshot when you need quick reconnaissance.&#8203;<br/><b>When to use:</b> Speed-first checks or when time is limited. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap -F 161.248.122.70 </code></pre></p>
+<p><b>14. Show reason for each port state: nmap --reason &lt;target&gt; <br/>What it does:</b> Adds explanation codes to output, indicating why Nmap labeled a port as <br/>open, closed, or filtered.&#8203;<br/><b>Why it matters:</b> Helpful for beginners to learn how Nmap interprets responses and for <br/>troubleshooting. <br/></p>
+<p><b>Example:</b> <br/><pre><code>nmap --reason 161.248.122.70 </code></pre></p>
+<p><b>15. Packet trace (show raw packets): sudo nmap --packet-trace &lt;target&gt; </b></p>
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p><b>What it does:</b> Prints the actual packets Nmap sends and receives during the scan.&#8203;<br/><b>Why it matters:</b> Great for learning and debugging; see lower-level behavior and <br/>understand how probes work.&#8203;<br/><b>When to use:</b> Study mode, debugging, or advanced learning. <br/></p>
+<p><b>Example:</b> <br/><pre><code>sudo nmap --packet-trace 161.248.122.70 </code></pre></p>
+<p><b>Safety &amp; Ethics <br/></b>Nmap is a powerful tool. Always scan only systems you own or have explicit permission to <br/>test. Unauthorized scanning may be illegal or get you blocked. Use --reason and <br/>--packet-trace to learn, but do not use intrusive scripts on production systems without <br/>approval. Document your scans and keep scan logs for any authorized engagement.<b> <br/></b> <br/> </p>
+
+</div></div>
+</body></html>
+
+            </ul>
+            <!-- Article Tags -->
+            <div class="article-tags">
+              <h4>Tags</h4>
+              <div class="tag-list">
+                <span class="tag">Nmap</span>
+                <span class="tag">Kali Linux</span>
+                <span class="tag">Penetration Testing</span>
+                <span class="tag">Security Best Practices</span>
+                <span class="tag">Tutorial</span>
+              </div>
+            </div>
+
+            <!-- Share Section -->
+            <div class="article-share">
+              <h4>Share this article</h4>
+              <div class="share-buttons">
+                <a href="#" class="share-btn facebook" onclick="shareOnFacebook(); return false;">
+                  <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="#" class="share-btn twitter" onclick="shareOnTwitter(); return false;">
+                  <i class="fab fa-twitter"></i> Twitter
+                </a>
+                <a href="#" class="share-btn linkedin" onclick="shareOnLinkedIn(); return false;">
+                  <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="#" class="share-btn copy" onclick="copyLink(); return false;">
+                  <i class="fas fa-link"></i> Copy Link
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </article>
+
+    <!-- Related Articles -->
+    <!-- <section class="related-news">
+      <div class="container">
+        <h2 class="section-title">Related Articles</h2>
+        <div class="related-news-grid">
+          <article class="related-news-card">
+            <div class="related-news-image">
+              <img src="../assets/images/blog/python-security.jpg" alt="Python Security">
+            </div>
+            <div class="related-news-content">
+              <h3 class="related-news-title">Python Scripting for Penetration Testing</h3>
+              <p class="related-news-date"><i class="fas fa-calendar"></i> Sep 28, 2025</p>
+              <a href="python-security.html" class="related-news-link">Read More →</a>
+            </div>
+          </article>
+
+          <article class="related-news-card">
+            <div class="related-news-image">
+              <img src="../assets/images/blog/burp-suite.jpg" alt="Burp Suite">
+            </div>
+            <div class="related-news-content">
+              <h3 class="related-news-title">Burp Suite Pro: Advanced Web Testing</h3>
+              <p class="related-news-date"><i class="fas fa-calendar"></i> Sep 23, 2025</p>
+              <a href="burp-suite-guide.html" class="related-news-link">Read More →</a>
+            </div>
+          </article>
+
+          <article class="related-news-card">
+            <div class="related-news-image">
+              <img src="../assets/images/blog/linux-basics.jpg" alt="Linux Basics">
+            </div>
+            <div class="related-news-content">
+              <h3 class="related-news-title">Linux Command Line Basics for Cybersecurity</h3>
+              <p class="related-news-date"><i class="fas fa-calendar"></i> Oct 4, 2025</p>
+              <a href="linux-basics.html" class="related-news-link">Read More →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Back to Blog -->
+    <section class="back-to-news">
+      <div class="container">
+        <a href="../blog.html" class="back-btn">
+          <i class="fas fa-arrow-left"></i>
+          Back to All Articles
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scroll to Top -->
+  <div class="scroll-to-top" id="scrollToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+      <div class="footer-info-container">
+        <div class="footer-title-container">
+          <div class="footer-title">
+            <p>Cyber Security Club, Uttara University</p>
+          </div>
+          <a class="email" href="mailto:cybersecurity@club.uttara.ac.bd">
+            <div class="mail">
+              <span>Contact@CyberSecurityClub</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="footer-social-container">
+        <a class="social-link" rel="me" target="_blank" href="https://facebook.com/csc.uu.bd">
+          <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a class="social-link" rel="me" target="_blank"
+          href="https://www.linkedin.com/company/cscuu/?viewAsMember=true">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a class="social-link" rel="me" target="_blank" href="https://discord.gg/N83SjBHjzG">
+          <i class="fa-brands fa-discord"></i>
+        </a>
+      </div>
+      <div class="site-credit">
+        ©2025 | All rights reserved by Cyber Security Club, Uttara University
+      </div>
+      <div class="github-contributors-section">
+        <div class="github-contributors-title">
+          Thanks to our awesome contributors</div>
+        <div id="github-contributors-list" class="github-contributors-list">
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="../assets/js/index.js"></script>
+  <script src="../assets/js/git-cont.js"></script>
+  <script>
+    function shareOnFacebook() {
+      const url = window.location.href;
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+    }
+
+    function shareOnTwitter() {
+      const url = window.location.href;
+      const text = document.querySelector('.article-title').textContent;
+      window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function shareOnLinkedIn() {
+      const url = window.location.href;
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+    }
+
+    function copyLink() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        alert('Link copied to clipboard!');
+      });
+    }
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('show');
+      } else {
+        scrollToTopBtn.classList.remove('show');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+
+</html>
