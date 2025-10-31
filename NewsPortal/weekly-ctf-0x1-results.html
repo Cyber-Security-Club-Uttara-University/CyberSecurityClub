@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly CTF 0x1 - Official Results | Cyber Security Club, Uttara University</title>
+  
+  <!-- Open Graph meta tags for social sharing -->
+  <meta property="og:site_name" content="Cyber Security Club - Uttara University">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Weekly CTF x01 — Official Results!">
+  <meta property="og:description" content="Congratulations to the Top 3 performers of Weekly CTF x01! 1st: Taki, 2nd: S4M, 3rd: Monjur0x0. The Champion can collect the HTB Voucher from the Club Executive.">
+  <meta property="og:image" content="https://cybersecurity.club.uttara.ac.bd/CTFs/past-ctfs/weekly0x1/image.png">
+  <meta property="og:url" content="https://cybersecurity.club.uttara.ac.bd/NewsPortal/weekly-ctf-0x1-results.html">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Weekly CTF 0x1 Results">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:author" content="CTF Committee">
+  <meta property="article:published_time" content="2025-10-12T00:00:00.000Z">
+  <meta property="article:section" content="Results">
+  <meta property="article:tag" content="Results">
+  
+  <!-- WhatsApp and Messenger specific meta tags -->
+  <meta property="og:image:secure_url" content="https://cybersecurity.club.uttara.ac.bd/CTFs/past-ctfs/weekly0x1/image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="fb:app_id" content="">
+  
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Weekly CTF x01 — Official Results!">
+  <meta name="twitter:description" content="Congratulations to the Top 3 performers of Weekly CTF x01! 1st: Taki, 2nd: S4M, 3rd: Monjur0x0. The Champion can collect the HTB Voucher from the Club Executive.">
+  <meta name="twitter:image" content="https://cybersecurity.club.uttara.ac.bd/CTFs/past-ctfs/weekly0x1/image.png">
+  <meta name="twitter:image:alt" content="Weekly CTF 0x1 Results">
+  <meta name="twitter:site" content="@csc_uu">
+  <meta name="twitter:creator" content="@csc_uu">
+  <meta name="twitter:url" content="https://cybersecurity.club.uttara.ac.bd/NewsPortal/weekly-ctf-0x1-results.html">
+  
+  <!-- Additional social sharing meta tags -->
+  <meta property="article:publisher" content="https://facebook.com/csc.uu.bd">
+  <meta name="thumbnail" content="https://cybersecurity.club.uttara.ac.bd/CTFs/past-ctfs/weekly0x1/image.png">
+  
+  <!-- Standard meta tags -->
+  <meta name="description" content="Congratulations to the Top 3 performers of Weekly CTF x01! 1st: Taki, 2nd: S4M, 3rd: Monjur0x0. The Champion can collect the HTB Voucher from the Club Executive.">
+  <meta name="keywords" content="Results, Weekly CTF, CTF x01, cyber security, Uttara University, CSC, CTF Challenges, Hack The Box, HTB Voucher">
+  <meta name="author" content="CTF Committee">
+  <meta name="robots" content="index, follow">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="news-portal.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon/favicon-32x32.png">
+  
+  <style>
+    .winners-section {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      border-radius: 20px;
+      padding: 50px 40px;
+      margin: 40px 0;
+      text-align: center;
+      color: white;
+    }
+
+    .winners-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 40px;
+      color: white;
+    }
+
+    .winners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .winner-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 30px 20px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .winner-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .winner-card.first {
+      border-color: #FFD700;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.1) 100%);
+    }
+
+    .winner-card.second {
+      border-color: #C0C0C0;
+      background: linear-gradient(135deg, rgba(192, 192, 192, 0.2) 0%, rgba(192, 192, 192, 0.1) 100%);
+    }
+
+    .winner-card.third {
+      border-color: #CD7F32;
+      background: linear-gradient(135deg, rgba(205, 127, 50, 0.2) 0%, rgba(205, 127, 50, 0.1) 100%);
+    }
+
+    .medal-icon {
+      font-size: 4rem;
+      margin-bottom: 15px;
+    }
+
+    .winner-card.first .medal-icon {
+      color: #FFD700;
+      filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+    }
+
+    .winner-card.second .medal-icon {
+      color: #C0C0C0;
+      filter: drop-shadow(0 0 10px rgba(192, 192, 192, 0.5));
+    }
+
+    .winner-card.third .medal-icon {
+      color: #CD7F32;
+      filter: drop-shadow(0 0 10px rgba(205, 127, 50, 0.5));
+    }
+
+    .winner-position {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .winner-name {
+      font-size: 2rem;
+      font-weight: 900;
+      margin: 10px 0;
+      color: white;
+    }
+
+    .prize-info {
+      background: rgba(255, 215, 0, 0.2);
+      border: 2px solid #FFD700;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .prize-info h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: #FFD700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .prize-info p {
+      font-size: 1.1rem;
+      margin: 0;
+      color: white;
+      font-weight: 600;
+    }
+
+    .scoreboard-link {
+      display: inline-block;
+      background: white;
+      color: #1e40af;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      margin-top: 30px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .scoreboard-link:hover {
+      background: #FFD700;
+      color: #1e40af;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .congratulations-banner {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      margin: 30px 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .hashtags {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hashtags span {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .winners-section {
+        padding: 30px 20px;
+      }
+
+      .winners-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .winner-name {
+        font-size: 1.5rem;
+      }
+
+      .medal-icon {
+        font-size: 3rem;
+      }
+
+      .prize-info h3 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <nav class="header">
+    <div class="header-wrapper">
+      <div class="header-image-container">
+        <a rel="author" href="../index.html" title="Cyber Security Club Homepage">
+          <div class="header-image"></div>
+        </a>
+      </div>
+      <ul class="navbar-links">
+        <li>
+          <a href="../index.html"><span class="navbar-slash">|</span>Home</a>
+        </li>
+        <li>
+          <a href="../about.html"><span class="navbar-slash">|</span>About</a>
+        </li>
+        <li>
+          <a href="../advisor.html"><span class="navbar-slash">|</span>Advisor</a>
+        </li>
+        <li class="dropdown">
+          <a href="../CTF.html">
+            <span class="navbar-slash">|</span>
+            <span>CTF</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="http://ctf-cybersecurity-club-uttara.duckdns.org/scoreboard">Dashboard</a>
+            <a href="../CTFWeekly.html">Weekly CTFs</a>
+            <a href="../CTFMonthly.html">Monthly CTFs</a>
+            <a href="../CTFWriteups.html">Writeups</a>
+          </div>
+        </li>
+        <li>
+          <a href="../events.html"><span class="navbar-slash">|</span>Events</a>
+        </li>
+        <li>
+          <a href="../gallery.html"><span class="navbar-slash">|</span>Gallery</a>
+        </li>
+        <li>
+          <a href="../Teams.html"><span class="navbar-slash">|</span>Teams</a>
+        </li>
+        <li>
+          <a href="../resources.html"><span class="navbar-slash">|</span>Resources</a>
+        </li>
+        <li>
+          <a href="../sponsors.html"><span class="navbar-slash">|</span>Sponsors</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="active-nav-link">
+            <span class="navbar-slash">|</span>
+            <span>Article</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="News.html">News</a>
+            <a href="News.html#highlights">Highlights</a>
+            <a href="../blog.html">Blog</a>
+          </div>
+        </li>
+        <li>
+          <a href="../CertificateGenerator/certificate-generator.html"><span class="navbar-slash">|</span>Certificate</a>
+        </li>
+        <li class="dropdown">
+          <a href="../MemberShip.html">
+            <span class="navbar-slash">|</span>
+            <span>Membership</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="../MemberShip.html">Membership Process</a>
+            <a href="../recruitment.html">Join Us</a>
+          </div>
+        </li>
+                <li class="dropdown">
+          <a href="#more">
+            <span class="navbar-slash">|</span>
+            <span>More</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="store.html">Store</a>
+            <a href="logo.html">CSC - logo & using guidelines</a>
+          </div>
+        </li>
+      </ul>
+      <div class="navbar-controls">
+        <div class="navbar-burger">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+          <div class="line-3"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="news-detail-main">
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="News.html">News</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Article</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="news-article">
+      <div class="container">
+        <div class="article-header">
+          <div class="article-meta">
+            <span class="article-category">Results</span>
+            <span class="article-date"><i class="fas fa-calendar"></i> October 12, 2025</span>
+            <span class="article-author"><i class="fas fa-user"></i> CTF Committee</span>
+          </div>
+          <h1 class="article-title">Weekly CTF x01 — Official Results!</h1>
+        </div>
+
+        <div class="article-image">
+          <img src="../CTFs/past-ctfs/weekly0x1/image.png" alt="Weekly CTF 0x1 Results">
+        </div>
+
+        <div class="article-content">
+          <div class="article-text">
+            <p>We're excited to announce the official results of <strong>Weekly CTF x01</strong>! This competition saw incredible talent and determination from all participants. After intense challenges across various cybersecurity domains, we're proud to reveal our top performers.</p>
+
+            <h3>Top 3 Performers</h3>
+            <ul>
+              <li><strong>1st Place:</strong> Taki - 4470 points</li>
+              <li><strong>2nd Place:</strong> S4M - 3960 points</li>
+              <li><strong>3rd Place:</strong> Monjur0x0 - 2090 points</li>
+            </ul>
+
+            <h3>Champion's Prize</h3>
+            <p>The Champion (<strong>Taki</strong>) can collect the <strong>Hack The Box (HTB) Voucher</strong> from the Club Executive.</p>
+
+            <h3>View Full Scoreboard</h3>
+            <p>Check out the complete scoreboard and detailed statistics:</p>
+            <p><strong>Scoreboard Link:</strong> <a href="/CTFs/past-ctfs/weekly0x1/scoreboard.html" target="_blank" rel="noopener noreferrer">ctf-cybersecurity-club-uttara.duckdns.org/scoreboard</a></p>
+
+            <h3>About Weekly CTF</h3>
+            <p>Weekly CTF competitions are designed to provide regular practice opportunities for students interested in cybersecurity. These events feature beginner to intermediate-level challenges across various categories including web exploitation, cryptography, forensics, OSINT, and more.</p>
+
+            <h3>What's Next?</h3>
+            <p>Stay tuned for upcoming CTF events! Follow our social media channels and check the <a href="../CTF.html">CTF page</a> regularly for announcements about the next Weekly CTF and Monthly CTF competitions.</p>
+
+            <p><strong>Want to Participate?</strong></p>
+            <p>Join our next CTF competition by registering on our <a href="http://ctf-cybersecurity-club-uttara.duckdns.org/" target="_blank" rel="noopener noreferrer">CTF Platform</a>. Whether you're a beginner or experienced, there's something for everyone!</p>
+
+            <p><em>Congratulations again to all participants and winners!</em></p>
+          </div>
+
+          <!-- Social Share -->
+          <div class="article-share">
+            <h4>Share this article:</h4>
+            <div class="share-buttons">
+            <div class="share-buttons">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://cybersecurity.club.uttara.ac.bd/NewsPortal/weekly-ctf-0x1-results.html" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="share-btn facebook"
+               title="Share on Facebook">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=Weekly%20CTF%20x01%20Results!&url=https://cybersecurity.club.uttara.ac.bd/NewsPortal/weekly-ctf-0x1-results.html&hashtags=weeklyctf,cybersecurityclub,CTFx01" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="share-btn twitter"
+               title="Share on Twitter">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://cybersecurity.club.uttara.ac.bd/NewsPortal/weekly-ctf-0x1-results.html" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="share-btn linkedin"
+               title="Share on LinkedIn">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+            <a href="https://wa.me/?text=Weekly%20CTF%20x01%20Results!%20https://cybersecurity.club.uttara.ac.bd/NewsPortal/weekly-ctf-0x1-results.html" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="share-btn whatsapp"
+               title="Share on WhatsApp">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="#" class="share-btn copy" onclick="copyCurrentURL()">
+              <i class="fas fa-link"></i> Copy Link
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+    <!-- Related News -->
+    <section class="related-news">
+      <div class="container">
+        <h2 class="section-title">Related News</h2>
+        <div class="related-news-grid">
+          <div class="related-news-card" onclick="window.location.href='ctf-night.html'">
+            <img src="../assets/images/News/CTF_Night0x1.png" alt="CTF Night 0x1: Beginner-Friendly CTF">
+            <div class="related-news-content">
+              <h4 class="related-news-title">CTF Night 0x1: Beginner-Friendly CTF</h4>
+              <p class="related-news-date"><i class="fas fa-calendar"></i> August 5, 2025</p>
+            </div>
+          </div>
+          
+          <div class="related-news-card" onclick="window.location.href='recruitment-news.html'">
+            <img src="../assets/images/News/Exe_25.png" alt="Join Us: Leadership Opportunities Await!">
+            <div class="related-news-content">
+              <h4 class="related-news-title">Join Us: Leadership Opportunities Await!</h4>
+              <p class="related-news-date"><i class="fas fa-calendar"></i> September 5, 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to News -->
+    <section class="back-to-news">
+      <div class="container">
+        <a href="News.html" class="back-btn">
+          <i class="fas fa-arrow-left"></i> Back to News Portal
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+      <div class="footer-info-container">
+        <div class="footer-title-container">
+          <div class="footer-title">
+            <p>Cyber Security Club,Uttara University</p>
+          </div>
+          <a class="email" href="mailto:cybersecurity@club.uttara.ac.bd?subject=General%20Inquiry%20-%20Cyber%20Security%20Club&body=Hello%20Cyber%20Security%20Club%20Team%2C%0A%0AI%20would%20like%20to%20inquire%20about%3A%0A%0A%5BPlease%20describe%20your%20inquiry%20here%5D%0A%0AThank%20you%20for%20your%20time.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D%0A%5BYour%20Contact%20Information%5D"
+          title="cybersecurity@club.uttara.ac.bd">
+            <div class="mail">
+              <span>Contact@CyberSecurityClub</span>
+            </div>
+          </a>
+        </div>
+        <div class="footer-description-container">
+        </div>
+      </div>
+      <div class="footer-social-container">
+        <a class="social-link" rel="me noopener" target="_blank" href="https://facebook.com/csc.uu.bd" title="Faceboook CSC">
+          <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a class="social-link" rel="me noopener" target="_blank" href="https://www.linkedin.com/company/cscuu/?viewAsMember=true" title="LinkedIn CSC">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a class="social-link" rel="me noopener" target="_blank" href="https://discord.gg/N83SjBHjzG"
+          title="Discord CSC">
+          <i class="fa-brands fa-discord"></i>
+        </a>
+      </div>
+      <div class="site-credit">
+©2025 | Developed by Cyber Security Club, Uttara University 
+      </div>
+      <div class="github-contributors-section">
+        <div class="github-contributors-title">
+          Thanks to our awesome contributors
+        </div>
+        <div id="github-contributors-list" class="github-contributors-list">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="../assets/js/index.js"></script>
+  <script src="../assets/js/git-cont.js"></script>
+  <script src="news-portal.js"></script>
+</body>
+
+</html>
