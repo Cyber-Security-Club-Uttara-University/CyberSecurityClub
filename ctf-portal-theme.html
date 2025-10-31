@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTF Night 0x2</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      height: 100%;
+      width: 100%;
+      max-width: 100vw;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('/files/file/NightCTF0x2.jpg') center/cover no-repeat fixed;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      color: #c77dff;
+      overflow-x: hidden;
+    }
+
+    /* Countdown Timer Section - Upper Position */
+    .countdown-section {
+      width: 100%;
+      padding: 35px 20px;
+      margin: 0;
+      background: rgba(20, 0, 40, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid #9d4edd;
+      box-shadow: 0 4px 20px rgba(157, 78, 221, 0.4);
+    }
+
+    .countdown-title {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #9d4edd, 0 0 30px #c77dff;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    /* Countdown Container */
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .time-box {
+      background: rgba(157, 78, 221, 0.2);
+      border: 2px solid #9d4edd;
+      border-radius: 10px;
+      padding: 18px 24px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(157, 78, 221, 0.5);
+      min-width: 85px;
+      transition: all 0.3s ease;
+    }
+
+    .time-box:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 25px rgba(199, 125, 255, 0.8);
+      background: rgba(157, 78, 221, 0.35);
+    }
+
+    .number {
+      font-size: 2.4rem;
+      color: #ffffff;
+      text-shadow: 0 0 12px #9d4edd, 0 0 25px #c77dff;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .label {
+      font-size: 1rem;
+      color: #c77dff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }    /* Content Section */
+    .content-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 25px 15px;
+      width: 100%;
+    }
+
+    .img {
+      width: 280px;
+      height: auto;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.7));
+      border-radius: 20%;
+      object-fit: cover;
+      border: 1px solid #9d4edd;
+      box-shadow: 0 0 30px rgba(157, 78, 221, 0.6);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px #9d4edd, 0 0 30px #c77dff;
+      margin-top: 5px;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #9d4edd, 0 0 20px #c77dff;
+      color: #e0aaff;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin: 6px 0;
+      text-shadow: 0 0 8px #9d4edd;
+      background: rgba(30, 0, 50, 0.7);
+      padding: 8px 16px;
+      border-radius: 8px;
+      backdrop-filter: blur(5px);
+      color: #e0aaff;
+    }
+
+    #live-text {
+      margin-top: 20px;
+      font-size: 2rem;
+      color: #e0aaff;
+      text-shadow: 0 0 15px #9d4edd, 0 0 30px #c77dff;
+      display: none;
+      animation: pulse 2s ease-in-out infinite;
+      background: rgba(30, 0, 50, 0.9);
+      padding: 15px 30px;
+      border-radius: 12px;
+      border: 2px solid #9d4edd;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+    }
+
+    @media (max-width: 768px) {
+      .countdown-title { font-size: 1.1rem; }
+      h1 { font-size: 2.5rem; }
+      .subtitle { font-size: 1.1rem; }
+      h2 { font-size: 0.95rem; padding: 6px 12px; }
+      .number { font-size: 1.6rem; }
+      .time-box { padding: 10px 15px; min-width: 60px; gap: 10px; }
+      .label { font-size: 0.75rem; }
+      .img { width: 220px; height: 220px; }
+      #live-text { font-size: 1.5rem; padding: 12px 25px; }
+    }
+
+    @media (max-width: 480px) {
+      .countdown-section { padding: 15px 10px; }
+      .countdown-title { font-size: 1rem; }
+      .time-box { padding: 8px 12px; min-width: 55px; }
+      .number { font-size: 1.3rem; }
+      .label { font-size: 0.7rem; }
+    }
+
+    /* Button Section */
+    .button-section {
+      width: 100%;
+      padding: 35px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      background: rgba(20, 0, 40, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 2px solid #9d4edd;
+      box-shadow: 0 -4px 20px rgba(157, 78, 221, 0.3);
+      margin: 0;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .rulebook-container {
+      display: flex;
+    }
+
+    .auth-button {
+      padding: 14px 32px;
+      font-size: 1.05rem;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: bold;
+      text-decoration: none;
+      border: 2px solid #9d4edd;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+      min-width: 140px;
+      text-align: center;
+    }
+
+    .login-btn {
+      background: transparent;
+      color: #c77dff;
+    }
+
+    .login-btn:hover {
+      background: rgba(157, 78, 221, 0.3);
+      box-shadow: 0 0 25px rgba(157, 78, 221, 0.7);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+
+    .register-btn {
+      background: #9d4edd;
+      color: #000000;
+    }
+
+    .register-btn:hover {
+      background: linear-gradient(135deg, #7b2cbf, #9d4edd);
+      box-shadow: 0 0 28px rgba(199, 125, 255, 0.8);
+      transform: translateY(-2px);
+    }
+
+    .rulebook-btn {
+      background: rgba(157, 78, 221, 0.2);
+      color: #e0aaff;
+      border: 2px solid #7b2cbf;
+    }
+
+    .rulebook-btn:hover {
+      background: rgba(123, 44, 191, 0.4);
+      box-shadow: 0 0 25px rgba(123, 44, 191, 0.7);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .button-section { padding: 25px 15px; gap: 15px; flex-wrap: wrap; }
+      .auth-button { padding: 10px 24px; font-size: 0.9rem; min-width: 120px; }
+      .auth-buttons { flex-wrap: wrap; justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .button-section { padding: 20px 12px; gap: 12px; flex-wrap: wrap; }
+      .auth-button { padding: 8px 20px; font-size: 0.85rem; min-width: 100px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Countdown Timer Section at Top -->
+  <div class="countdown-section">
+    <h2 class="countdown-title">Event Countdown</h2>
+    <div id="countdown">
+      <div class="time-box"><div class="number" id="days">--</div><div class="label">Days</div></div>
+      <div class="time-box"><div class="number" id="hours">--</div><div class="label">Hours</div></div>
+      <div class="time-box"><div class="number" id="minutes">--</div><div class="label">Minutes</div></div>
+      <div class="time-box"><div class="number" id="seconds">--</div><div class="label">Seconds</div></div>
+    </div>
+    <div id="live-text">Event is LIVE!</div>
+  </div>
+
+  <!-- Main Content Section -->
+  <div class="content-section">
+    <img src="/files/file/NightCTF0x2.jpg" class="img">
+    <h1>CTF Night 0x2</h1>
+    <p class="subtitle">Hack the Night. Claim the Glory</p>
+    <h2>Type: Jeopardy-Style Capture The Flag</h2>
+    <h2>Category: Web, Network, Crypto, Forensics, OSINT, PWN, Reverse</h2>
+    <h2>Event Time: 1st November | 7:00 PM – 2 AM</h2>
+  </div>
+
+  <!-- Button Section at Bottom -->
+  <div class="button-section">
+    <div class="auth-buttons">
+      <a href="http://ctf-cybersecurity-club-uttara.duckdns.org/login" class="auth-button login-btn">Login</a>
+      <a href="http://ctf-cybersecurity-club-uttara.duckdns.org/register" class="auth-button register-btn">Register</a>
+    </div>
+    <div class="rulebook-container">
+      <a href="https://cybersecurity.club.uttara.ac.bd/rulebook.html" class="auth-button rulebook-btn">Rulebook</a>
+    </div>
+  </div>
+
+  <script>
+    // ============================================
+    // COUNTDOWN TIMER CONFIGURATION
+    // ============================================
+    // Change these dates to set your event countdown
+    // Format: "Month Day, Year Hour:Minute:Second"
+    // Example: "Nov 1, 2025 19:00:00" = November 1, 2025 at 7:00 PM
+    
+    const EVENT_START_DATE = "Nov 1, 2025 19:00:00";
+    const EVENT_END_DATE = "Nov 2, 2025 02:00:00";  // 2 AM next day
+    
+    // ============================================
+    // END OF CONFIGURATION - Do not modify below
+    // ============================================
+
+    const eventStartDate = new Date(EVENT_START_DATE).getTime();
+    const eventEndDate = new Date(EVENT_END_DATE).getTime();
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+    const liveText = document.getElementById("live-text");
+    const countdownContainer = document.getElementById("countdown");
+    const countdownTitle = document.querySelector(".countdown-title");
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distanceToStart = eventStartDate - now;
+      const distanceToEnd = eventEndDate - now;
+
+      // Event hasn't started yet
+      if (distanceToStart > 0) {
+        countdownTitle.textContent = "Event Countdown";
+        countdownContainer.style.display = "flex";
+        liveText.style.display = "none";
+
+        const days = Math.floor(distanceToStart / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distanceToStart % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distanceToStart % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distanceToStart % (1000 * 60)) / 1000);
+
+        daysEl.textContent = days;
+        hoursEl.textContent = hours;
+        minutesEl.textContent = minutes;
+        secondsEl.textContent = seconds;
+      } 
+      // Event is currently running
+      else if (distanceToEnd > 0) {
+        countdownTitle.textContent = "Time Remaining";
+        countdownContainer.style.display = "flex";
+        liveText.style.display = "none";
+
+        const days = Math.floor(distanceToEnd / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distanceToEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distanceToEnd % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distanceToEnd % (1000 * 60)) / 1000);
+
+        daysEl.textContent = days;
+        hoursEl.textContent = hours;
+        minutesEl.textContent = minutes;
+        secondsEl.textContent = seconds;
+      } 
+      // Event has ended
+      else {
+        clearInterval(timer);
+        countdownContainer.style.display = "none";
+        liveText.textContent = "Event has Ended!";
+        liveText.style.display = "block";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
