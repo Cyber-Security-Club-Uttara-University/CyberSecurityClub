@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>15 Essential Linux Commands for Hackers | CSC Blog</title>
+  <title>15 Essential Nmap Commands for Hackers | CSC Blog</title>
   <meta name="description" content="A comprehensive walkthrough of the top Linux with practical examples.">
   <meta name="keywords" content="Linux Commands for Hackers, penetration testing, security vulnerabilities">
-  <meta property="og:title" content="15 Essential Linux Commands for Hackers">
-  <meta property="og:description" content="Learn about the 15 Essential Linux Commands with practical examples.">
+  <meta property="og:title" content="15 Essential Nmap Commands for Hackers">
+  <meta property="og:description" content="Learn about the 15 Essential Nmap Commands with practical examples.">
 
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../NewsPortal/news-portal.css">
@@ -46,7 +46,7 @@
         </li>
         <li><a href="../events.html"><span class="navbar-slash">|</span>Events</a></li>
         <li><a href="../gallery.html"><span class="navbar-slash">|</span>Gallery</a></li>
-        <li><a href="../Teams.html"><span class="navbar-slash">|</span>Groups</a></li>
+        <li><a href="../groups.html"><span class="navbar-slash">|</span>Groups</a></li>
         <li><a href="../resources.html"><span class="navbar-slash">|</span>Resources</a></li>
         <li><a href="../sponsors.html"><span class="navbar-slash">|</span>Sponsors</a></li>
         <li class="dropdown">
@@ -88,7 +88,7 @@
           <span class="breadcrumb-separator">/</span>
           <a href="../blog.html">Blog</a>
           <span class="breadcrumb-separator">/</span>
-          <span class="breadcrumb-current">15 Essential Linux Commands for Hackers</span>
+          <span class="breadcrumb-current">15 Essential Nmap Commands for Hackers</span>
         </nav>
       </div>
     </section>
@@ -99,193 +99,141 @@
         <header class="article-header">
           <div class="article-meta">
             <span class="article-category">Tutorial</span>
-            <span class="article-date"><i class="fas fa-calendar"></i> October 11, 2025</span>
+            <span class="article-date"><i class="fas fa-calendar"></i> October 30, 2025</span>
             <span class="article-author"><i class="fas fa-user"></i> <a
                 href="https://www.linkedin.com/in/seam-sikder-nahid/" target="_blank"
                 style="text-decoration: none; color: black;">Seam Sikder Nahid</a></span>
-            <span class="article-date"><i class="fas fa-clock"></i> 10 min read</span>
+            <span class="article-date"><i class="fas fa-clock"></i> 20 min read</span>
           </div>
-          <h1 class="article-title">15 Essential Linux Commands for Hackers</h1>
+          <h1 class="article-title">Top 15 Nmap Commands for Hackers</h1>
         </header>
 
         <div class="article-image">
-          <img src="./images/Linux.gif" alt="Linux Commands for Hackers">
+          <img src="./images/nmap.jpg" alt="Nmap Commands for Hackers">
         </div>
 
         <div class="article-content">
           <div class="article-text">
+            <h1><b>Top 15 Nmap Commands for Hackers</b></h1>
+            
+            <h2><b>Introduction</b></h2>
+            <p><b>Nmap (Network Mapper)</b> is a fundamental reconnaissance tool used to discover hosts, open ports, services, and operating systems on a network. This blog presents the 15 most useful Nmap commands for beginners, each explained in plain language with practical examples. Run scans only on systems you own or have explicit permission to test.</p>
 
+            <h3><b>1. Ping scan (host discovery): nmap -sn &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Performs host discovery (also called a ping sweep). Nmap sends probes to find which IPs are online without scanning ports.</p>
+            <p><b>Why it matters:</b> Before scanning ports, you often want to know which addresses are active. This saves time and avoids unnecessary scans.</p>
+            <p><b>When to use:</b> Map live hosts in a subnet quickly.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -sn 161.248.122.70/24</code></pre>
 
-            <h2>Why Learn Linux Commands </h2>
-            <ul>
-              <li>Linux is everywhere: From servers and cloud VMs to routers and CTF boxes, Linux powers the systems
-                you’ll study and defend.</li>
-              <li>You think in steps, the shell does the work: Commands are small building blocks. By combining them
-                with pipes and redirection, you automate real tasks quickly.</li>
-              <li>Speed & precision for security work: CLI tools are fast, scriptable, and reproducible—perfect for
-                evidence-based workflow.</li>
-              <li>Clarity and repeatability: Every command you run leaves a trail you can document, repeat, and share
-                with your team.</li>
-              <li>Confidence & control: Knowing what a command does (and its flags) means fewer surprises.</li>
-              <li>Career advantage: Whether you become a SOC analyst, pentester, DFIR specialist, or DevOps engineer,
-                solid command-line skills are expected and respected.</li>
-            </ul>
+            <h3><b>2. Basic TCP scan: nmap &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Scans the most common 1,000 TCP ports on a target host and reports which ports are open, closed, or filtered.</p>
+            <p><b>Why it matters:</b> This is the simplest and most common starting point. It shows you the 'surface' of a host and is a good first step before deeper scans.</p>
+            <p><b>When to use:</b> Use it to quickly see what services might be running on a host. Always confirm you have permission to scan.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap 161.248.122.70</code></pre>
 
-            <p><b>Tips:</b> Always test new commands in a safe directory such as <code>~/playground</code>.</p>
+            <h3><b>3. Service &amp; version detection: nmap -sV &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> After finding open ports, Nmap probes those ports to determine the service name and often the service version.</p>
+            <p><b>Why it matters:</b> Knowing the exact service and version helps you identify vulnerable software versions and pick the right follow-up tests.</p>
+            <p><b>When to use:</b> Use this when you need more detail about a discovered service.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -sV 161.248.122.70</code></pre>
 
-            <h2>The 15 Commands (Detailed for Beginners)</h2>
+            <h3><b>4. Stealthy SYN scan: nmap -sS &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Sends TCP SYN packets (the first step of the TCP handshake) and examines replies; then resets the connection. It's faster and quieter than a full connect.</p>
+            <p><b>Why it matters:</b> SYN scans are less noisy in logs and preferred during penetration testing to avoid filling server logs with full connections.</p>
+            <p><b>When to use:</b> Use when you need a faster scan that draws less attention than a full connect scan.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -sS 161.248.122.70</code></pre>
 
-            <h3>1. ls — list files and folders</h3>
-            <p><b>Why:</b> This command is your window into the filesystem. It shows you what files and directories
-              exist
-              where you are. Without it, you’d be navigating blind. With options, it reveals permissions, hidden files,
-              file
-              sizes, and timestamps, which are crucial for understanding context during security investigations or
-              project
-              work.</p>
-            <pre><code>ls -lah</code></pre>
-            <pre><code>ls -l /etc</code></pre>
+            <h3><b>5. Operating system detection: nmap -O &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Uses TCP/IP stack fingerprinting and other signals to guess the target's operating system (e.g., Linux, Windows, device type).</p>
+            <p><b>Why it matters:</b> OS information narrows down possible vulnerabilities and helps you choose the right tools/techniques.</p>
+            <p><b>When to use:</b> Run on hosts where you need context about platform or when triaging a larger network.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -O 161.248.122.70</code></pre>
 
-            <h3>2. pwd — show current directory</h3>
-            <p><b>Why:</b> Linux doesn’t always display your full path in the prompt. pwd is like GPS—it tells you your
-              exact
-              location in the filesystem. This helps when writing scripts, because relative paths can get confusing.
-              Beginners often get lost, and pwd quickly clears up where you are.</p>
-            <pre><code>pwd</code></pre>
+            <h3><b>6. Aggressive scan (combined): nmap -A &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Enables OS detection, version detection, default scripts, and traceroute all at once.</p>
+            <p><b>Why it matters:</b> Provides a comprehensive view in one command; useful for learning and quick assessments, but it is noisy.</p>
+            <p><b>When to use:</b> Good for a one-shot deep look in a lab or on systems you control.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -A 161.248.122.70</code></pre>
 
-            <h3>3. cd — move around directories</h3>
-            <p><b>Why:</b> This is your movement tool. Without cd, you can’t explore or manage different folders. It
-              teaches
-              beginners how paths work: absolute (/home/user/docs) vs relative (../docs). It also introduces shortcuts
-              like cd ~ (home) and cd - (previous folder).</p>
-            <pre><code>cd /var/log</code></pre>
-            <pre><code>cd ..</code></pre>
-            <pre><code>cd ~</code></pre>
-            <pre><code>cd -</code></pre>
+            <h3><b>7. Default script scan: nmap -sC &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Runs Nmap's default script set (NSE) which gathers additional service-level information such as banner grabs and simple vulnerability checks.</p>
+            <p><b>Why it matters:</b> Scripts can reveal useful details beyond port and version, like HTTP titles, SSL cert info, or trivial vulnerabilities.</p>
+            <p><b>When to use:</b> Combine with -sV to get richer output.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -sC 161.248.122.70</code></pre>
 
-            <h3>4. mkdir — create directories</h3>
-            <p><b>Why:</b> Organization matters. mkdir helps you structure your workspace—separate logs, scripts, and
-              reports. Beginners learn that Linux folders don’t magically appear; you must create them. With -p, you can
-              build nested folders in one step.</p>
-            <pre><code>mkdir notes</code></pre>
-            <pre><code>mkdir -p lab/day1/screenshots</code></pre>
+            <h3><b>8. Run a specific Nmap script: nmap --script=&lt;script&gt; &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Executes one or more NSE scripts by name, for targeted checks (for example, http-title or ssl-cert).</p>
+            <p><b>Why it matters:</b> Scripts let you tailor scans - run only the checks you trust or need.</p>
+            <p><b>When to use:</b> When a specific script matches your goal (e.g., check for Heartbleed with a vain script).</p>
+            <p><b>Examples:</b></p>
+            <pre><code>nmap --script=http-title 161.248.122.70</code></pre>
+            <pre><code>nmap --script=ssl-cert 161.248.122.70</code></pre>
 
-            <h3>5. cp — copy files and directories</h3>
-            <p><b>Why:</b> Beginners often worry about overwriting or losing data. cp lets you make safe copies first.
-              This
-              builds confidence: test on the copy, not the original. In security work, analysts duplicate evidence
-              before
-              examining it, so they don’t alter the source file.</p>
-            <pre><code>cp report.txt report.bak.txt</code></pre>
-            <pre><code>cp -r src/ src_backup/</code></pre>
+            <h3><b>9. Save output to readable text: nmap -oN &lt;file&gt; &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Writes the scan output to a plain text file using Nmap's normal output format.</p>
+            <p><b>Why it matters:</b> Keeping records is essential - saves results for reports, sharing, or later analysis.</p>
+            <p><b>When to use:</b> Always save important scans; it's easier to compare and document findings.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -oN results.txt 161.248.122.70</code></pre>
 
-            <h3>6. mv — move or rename</h3>
-            <p><b>Why:</b> Renaming files clearly helps with version control (draft.txt → final.txt). Moving lets you
-              rearrange
-              your workspace. Beginners quickly realize how tidy naming avoids confusion later. In Linux, mv is both
-              ‘move’ and ‘rename’.</p>
-            <pre><code>mv draft.txt final.txt</code></pre>
-            <pre><code>mv final.txt docs/</code></pre>
+            <h3><b>10. Save output in XML (machine-readable): nmap -oX &lt;file&gt; &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Writes results in XML that other tools can parse.</p>
+            <p><b>Why it matters:</b> XML output integrates with reporting tools, parsers, and dashboards.</p>
+            <p><b>When to use:</b> Use when exporting scan data to analysis tools or scripts.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -oX results.xml 161.248.122.70</code></pre>
 
-            <h3>7. rm — delete files and folders</h3>
-            <p><b>Why:</b> This teaches respect. rm permanently deletes—there’s no recycle bin. Beginners learn to
-              double-check names. Adding -i makes Linux ask before each deletion, a good habit. In cybersecurity, safe
-              deletion also matters for sensitive files.</p>
-            <pre><code>rm old.txt</code></pre>
-            <pre><code>rm -r tmp_dir</code></pre>
-            <pre><code>rm -i important.txt</code></pre>
+            <h3><b>11. Scan multiple targets from a list: nmap -iL &lt;file&gt; -oN &lt;out&gt;</b></h3>
+            <p><b>What it does:</b> Nmap reads targets from a file (hosts or IPs) and scans them sequentially.</p>
+            <p><b>Why it matters:</b> Essential for scanning labs, subnets, or many hosts without typing each address.</p>
+            <p><b>When to use:</b> Prepare a hosts file and scan an entire set in one command.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -iL hosts.txt -oN combined-results.txt</code></pre>
 
-            <h3>8. cat — quick view of file content</h3>
-            <p><b>Why:</b> Beginners often want to ‘open’ a file. cat streams its content directly in the
-              terminal—simple and fast
-              for small files. It helps students understand text-based configuration and logs. Later, they can combine
-              it
-              with grep for searching.</p>
-            <pre><code>cat README.md</code></pre>
+            <h3><b>12. Scan a specific port or range: nmap -p &lt;port(s)&gt; &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Restricts the scan to specific ports (single, comma-separated list, or ranges like 1-100).</p>
+            <p><b>Why it matters:</b> Faster and focused scanning when you know which services matter.</p>
+            <p><b>When to use:</b> Check a single service (ssh=22) or a small range rapidly.</p>
+            <p><b>Examples:</b></p>
+            <pre><code>nmap -p 22 161.248.122.70</code></pre>
+            <pre><code>nmap -p 1-100 161.248.122.70</code></pre>
 
-            <h3>9. grep — search text by pattern</h3>
-            <p><b>Why:</b> Logs are huge. grep gives beginners a flashlight in the dark—it highlights the lines that
-              matter. This
-              is one of the first ‘power tools’ they’ll love: simple keyword search, case-insensitive matching, or
-              combined
-              with pipes.</p>
-            <pre><code>grep -in "error" /var/log/syslog</code></pre>
-            <pre><code>dmesg | grep -i usb</code></pre>
+            <h3><b>13. Fast scan (top ports): nmap -F &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Scans the top 100 most commonly used ports instead of the default 1,000.</p>
+            <p><b>Why it matters:</b> Faster snapshot when you need quick reconnaissance.</p>
+            <p><b>When to use:</b> Speed-first checks or when time is limited.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap -F 161.248.122.70</code></pre>
 
-            <h3>10. man — built-in manuals</h3>
-            <p><b>Why:</b> Instead of Googling, beginners can type man. It’s a self-contained library of help. This
-              teaches
-              self-reliance: every command documents itself. Students also learn how to navigate manuals with arrows,
-              search (/word), and quit (q).</p>
-            <pre><code>man ls</code></pre>
+            <h3><b>14. Show reason for each port state: nmap --reason &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Adds explanation codes to output, indicating why Nmap labeled a port as open, closed, or filtered.</p>
+            <p><b>Why it matters:</b> Helpful for beginners to learn how Nmap interprets responses and for troubleshooting.</p>
+            <p><b>Example:</b></p>
+            <pre><code>nmap --reason 161.248.122.70</code></pre>
 
-            <h3>11. ps — list running processes</h3>
-            <p><b>Why:</b> Linux systems often run many processes silently. ps teaches beginners that every task has a
-              PID
-              (process ID). It’s the foundation for managing performance or killing frozen apps. In forensics, it helps
-              identify suspicious activity.</p>
-            <pre><code>ps aux | head</code></pre>
-            <pre><code>ps aux | grep ssh</code></pre>
+            <h3><b>15. Packet trace (show raw packets): sudo nmap --packet-trace &lt;target&gt;</b></h3>
+            <p><b>What it does:</b> Prints the actual packets Nmap sends and receives during the scan.</p>
+            <p><b>Why it matters:</b> Great for learning and debugging; see lower-level behavior and understand how probes work.</p>
+            <p><b>When to use:</b> Study mode, debugging, or advanced learning.</p>
+            <p><b>Example:</b></p>
+            <pre><code>sudo nmap --packet-trace 161.248.122.70</code></pre>
 
-            <h3>12. touch — create files</h3>
-            <p><b>Why:</b> This is the simplest way to create a file without opening an editor. It’s useful for quick
-              tests, empty
-              placeholders, or preparing files to edit later. Beginners see that in Linux, everything starts as a file.
-            </p>
-            <pre><code>touch todo.txt</code></pre>
-
-            <h3>13. wget — download files</h3>
-            <p><b>Why:</b> Instead of using a browser, wget shows beginners how to fetch directly from the internet.
-              It’s great
-              for pulling scripts, wordlists, or packages during CTFs. It also introduces the idea of URLs as resources.
-            </p>
-            <pre><code>wget https://example.com/sample.txt</code></pre>
-
-            <h3>14. df — check disk usage</h3>
-            <p><b>Why:</b> Storage errors confuse beginners. df gives a clear picture of what’s full. With -h, it shows
-              gigabytes
-              instead of raw bytes. Understanding disk space is crucial for avoiding crashes during labs or real
-              operations.</p>
-            <pre><code>df -h</code></pre>
-
-            <h3>15. wc — count lines, words, and characters</h3>
-            <p><b>Why:</b> Beginners often underestimate how useful quick statistics are. wc counts words, lines, and
-              characters. It’s perfect for checking log size, analyzing datasets, or even verifying if a file contains
-              expected data.</p>
-            <pre><code>wc -l access.log</code></pre>
-            <pre><code>wc -w notes.txt</code></pre>
-            <pre><code>wc -m notes.txt</code></pre>
-
-            <h2>Quick Cheat Sheet</h2>
-            <ul>
-              <li>List : <code>ls -lah</code></li>
-              <li>Where am I : <code>pwd</code></li>
-              <li>Move : <code>cd</code>, <code>mv</code></li>
-              <li>Make folder : <code>mkdir -p path/to/new</code></li>
-              <li>Copy : <code>cp file dest</code> | <code>cp -r dir dest</code></li>
-              <li>Delete : <code>rm file</code> | <code>rm -r dir</code> | <code>rm -i</code></li>
-              <li>View : <code>cat file</code></li>
-              <li>Search : <code>grep -in "text" file</code></li>
-              <li>Processes : <code>ps aux | grep name</code></li>
-              <li>Disk space : <code>df -h</code></li>
-              <li>New file : <code>touch file</code></li>
-              <li>Download : <code>wget URL</code></li>
-              <li>Count : <code>wc -l/-w/-m file</code></li>
-              <li>Help : <code>man &lt;command&gt;</code></li>
-            </ul>
-
-            <h2>Safety First</h2>
-            <ul>
-              <li>Work in a sandbox: Use <code>~/playground</code> for learning.</li>
-              <li>Use <code>rm -i</code>: Confirm before deletion.</li>
-              <li>Avoid <code>sudo</code>: Don’t run as root unless needed.</li>
-
-            </ul>
+            <h2><b>Safety &amp; Ethics</b></h2>
+            <p>Nmap is a powerful tool. Always scan only systems you own or have explicit permission to test. Unauthorized scanning may be illegal or get you blocked. Use --reason and --packet-trace to learn, but do not use intrusive scripts on production systems without approval. Document your scans and keep scan logs for any authorized engagement.</p>
+          </div>
+        </div>
             <!-- Article Tags -->
             <div class="article-tags">
               <h4>Tags</h4>
               <div class="tag-list">
-                <span class="tag">Linux</span>
+                <span class="tag">Nmap</span>
                 <span class="tag">Kali Linux</span>
                 <span class="tag">Penetration Testing</span>
                 <span class="tag">Security Best Practices</span>
@@ -316,7 +264,7 @@
     </article>
 
     <!-- Related Articles -->
-    <!-- <section class="related-news">
+    <section class="related-news">
       <div class="container">
         <h2 class="section-title">Related Articles</h2>
         <div class="related-news-grid">
@@ -344,17 +292,17 @@
 
           <article class="related-news-card">
             <div class="related-news-image">
-              <img src="../assets/images/blog/linux-basics.jpg" alt="Linux Basics">
+              <img src="./images/Linux.gif" alt="Linux Basics">
             </div>
             <div class="related-news-content">
               <h3 class="related-news-title">Linux Command Line Basics for Cybersecurity</h3>
               <p class="related-news-date"><i class="fas fa-calendar"></i> Oct 4, 2025</p>
-              <a href="linux-basics.html" class="related-news-link">Read More →</a>
+              <a href="./Linux_Command.html" class="related-news-link">Read More →</a>
             </div>
           </article>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <!-- Back to Blog -->
     <section class="back-to-news">
