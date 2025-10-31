@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CTF Rulebook | Cyber Security Club</title>
+  <meta name="generator" content="Jekyll v3.9.5">
+  <meta property="og:title" content="CTF Competition Rules - Cyber Security Club Uttara University">
+  <meta name="author" content="Cyber Security Club | Uttara University">
+  <meta property="og:locale" content="en_US">
+  <meta name="description" content="Official rulebook and guidelines for CTF competitions organized by Cyber Security Club, Uttara University.">
+  <meta property="og:description" content="Official CTF competition rules, guidelines, scoring system, and code of conduct for Capture The Flag events at Uttara University.">
+  <meta name="keywords" content="CTF rules, capture the flag, competition guidelines, cybersecurity competition, ethical hacking rules, CTF scoring, fair play policy">
+  <meta name="robots" content="index, follow">
+  <meta property="og:site_name" content="Cyber Security Club | Uttara University">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cybersecurity.club.uttara.ac.bd/assets/images/csc_white.png">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://cybersecurity.club.uttara.ac.bd/rulebook.html">
+
+  <!-- Default Nav bar -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+  <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    .rulebook-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .rulebook-hero {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: white;
+      padding: 60px 40px;
+      border-radius: 16px;
+      text-align: center;
+      margin-bottom: 50px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .rulebook-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin: 0 0 16px 0;
+    }
+
+    .rulebook-hero p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      margin: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .rulebook-hero .version {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+
+    .table-of-contents {
+      background: var(--header-color);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .table-of-contents h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 20px 0;
+      color: var(--text-color);
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-list li {
+      margin-bottom: 12px;
+    }
+
+    .toc-list a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .toc-list a:hover {
+      color: #2563eb;
+      transform: translateX(5px);
+    }
+
+    .toc-list i {
+      width: 20px;
+    }
+
+    .rule-section {
+      background: var(--header-color);
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .rule-section h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 0 0 10px 0;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .rule-section h2 .section-number {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .rule-section h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 30px 0 15px 0;
+      color: var(--text-color);
+      border-left: 4px solid #3b82f6;
+      padding-left: 15px;
+    }
+
+    .rule-section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--secondary-text-color);
+      margin: 15px 0;
+    }
+
+    .rule-section ul, .rule-section ol {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+
+    .rule-section li {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--secondary-text-color);
+      margin: 10px 0;
+    }
+
+    .important-note {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+      border-left: 4px solid #ef4444;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 25px 0;
+    }
+
+    .important-note h4 {
+      color: #ef4444;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .important-note p {
+      margin: 0;
+    }
+
+    .info-box {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+      border-left: 4px solid #3b82f6;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 25px 0;
+    }
+
+    .info-box h4 {
+      color: #3b82f6;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-box p {
+      margin: 0;
+    }
+
+    .success-box {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+      border-left: 4px solid #10b981;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 25px 0;
+    }
+
+    .success-box h4 {
+      color: #10b981;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .success-box p {
+      margin: 0;
+    }
+
+    .scoring-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: var(--header-color);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .scoring-table thead {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: white;
+    }
+
+    .scoring-table th {
+      padding: 15px;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .scoring-table td {
+      padding: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--secondary-text-color);
+    }
+
+    .scoring-table tr:hover {
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, #065f46 0%, #10b981 100%);
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      color: white;
+      margin-top: 50px;
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 0 0 15px 0;
+    }
+
+    .contact-section p {
+      font-size: 1.1rem;
+      margin: 0 0 20px 0;
+      opacity: 0.95;
+    }
+
+    .contact-section a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 12px 30px;
+      border-radius: 8px;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .contact-section a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .rulebook-hero h1 {
+        font-size: 2rem;
+      }
+
+      .rulebook-hero p {
+        font-size: 1rem;
+      }
+
+      .rule-section {
+        padding: 25px 20px;
+      }
+
+      .rule-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .contact-section {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="header">
+    <div class="header-wrapper">
+      <div class="header-image-container">
+        <a rel="author" href="index.html">
+          <div class="header-image"></div>
+        </a>
+      </div>
+      <ul class="navbar-links">
+        <li>
+          <a href="index.html"><span class="navbar-slash">|</span>Home</a>
+        </li>
+        <li>
+          <a href="about.html"><span class="navbar-slash">|</span>About</a>
+        </li>
+        <li>
+          <a href="advisor.html"><span class="navbar-slash">|</span>Advisor</a>
+        </li>
+        <li class="dropdown">
+          <a href="CTF.html">
+            <span class="navbar-slash">|</span>
+            <span>CTF</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="http://ctf-cybersecurity-club-uttara.duckdns.org/scoreboard">Dashboard</a>
+            <a href="/CTFWeekly.html">Weekly CTFs</a>
+            <a href="/CTFMonthly.html">Monthly CTFs</a>
+            <a href="/CTFWriteups.html">Writeups</a>
+          </div>
+        </li>
+        <li>
+          <a href="events.html"><span class="navbar-slash">|</span>Events</a>
+        </li>
+        <li>
+          <a href="gallery.html"><span class="navbar-slash">|</span>Gallery</a>
+        </li>
+        <li>
+          <a href="Teams.html"><span class="navbar-slash">|</span>Teams</a>
+        </li>
+        <li>
+          <a href="resources.html"><span class="navbar-slash">|</span>Resources</a>
+        </li>
+        <li>
+          <a href="sponsors.html"><span class="navbar-slash">|</span>Sponsors</a>
+        </li>
+        <li class="dropdown">
+          <a href="#">
+            <span class="navbar-slash">|</span>
+            <span>Article</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="News.html">News</a>
+            <a href="News.html#highlights">Highlights</a>
+            <a href="blog.html">Blog</a>
+          </div>
+        </li>
+        <li>
+          <a href="/CertificateGenerator/certificate-generator.html"><span class="navbar-slash">|</span>Certificate</a>
+        </li>
+        <li class="dropdown">
+          <a href="MemberShip.html">
+            <span class="navbar-slash">|</span>
+            <span>Membership</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="MemberShip.html">Membership Process</a>
+            <a href="recruitment.html">Join Us</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="navbar-controls">
+        <div class="navbar-burger">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+          <div class="line-3"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content" aria-label="Content">
+    <div class="rulebook-container">
+      <!-- Hero Section -->
+      <div class="rulebook-hero">
+        <h1><i class="fas fa-book"></i> CTF Competition Rulebook</h1>
+        <p>Official rules and guidelines for all Capture The Flag competitions organized by Cyber Security Club, Uttara University</p>
+        <span class="version">Version 1.0 | Updated: October 2025</span>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="table-of-contents">
+        <h2><i class="fas fa-list"></i> Table of Contents</h2>
+        <ul class="toc-list">
+          <li><a href="#introduction"><i class="fas fa-chevron-right"></i> Introduction</a></li>
+          <li><a href="#eligibility"><i class="fas fa-chevron-right"></i> Eligibility & Registration</a></li>
+          <li><a href="#competition-format"><i class="fas fa-chevron-right"></i> Competition Format</a></li>
+          <li><a href="#scoring"><i class="fas fa-chevron-right"></i> Scoring System</a></li>
+          <li><a href="#allowed-prohibited"><i class="fas fa-chevron-right"></i> Allowed & Prohibited Actions</a></li>
+          <li><a href="#code-of-conduct"><i class="fas fa-chevron-right"></i> Code of Conduct</a></li>
+          <li><a href="#prizes"><i class="fas fa-chevron-right"></i> Prizes & Recognition</a></li>
+          <li><a href="#disputes"><i class="fas fa-chevron-right"></i> Disputes & Appeals</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Information</a></li>
+        </ul>
+      </div>
+
+      <!-- Section 1: Introduction -->
+      <div class="rule-section" id="introduction">
+        <h2>
+          <span class="section-number">1</span>
+          Introduction
+        </h2>
+        <p>
+          Welcome to the Cyber Security Club CTF competitions! Capture The Flag (CTF) is a competitive cybersecurity challenge where participants solve security-related problems to capture "flags" - special strings that prove successful completion of a challenge.
+        </p>
+        <p>
+          Our CTF competitions are designed to provide hands-on experience in various domains of cybersecurity including web exploitation, cryptography, reverse engineering, forensics, binary exploitation, and more.
+        </p>
+
+        <div class="info-box">
+          <h4><i class="fas fa-lightbulb"></i> Competition Philosophy</h4>
+          <p>Our CTF events emphasize learning, skill development, and ethical hacking practices. We aim to create a fair, educational, and enjoyable experience for all participants regardless of skill level.</p>
+        </div>
+
+        <h3>Competition Types</h3>
+        <ul>
+          <li><strong>Weekly CTF:</strong> Short format competitions (3-5 hours) held weekly for continuous practice</li>
+          <li><strong>Monthly CTF:</strong> Extended competitions (6-8 hours) with more challenging problems</li>
+          <li><strong>Special Events:</strong> Annual flagship competitions and collaborative events with other institutions</li>
+        </ul>
+      </div>
+
+      <!-- Section 2: Eligibility & Registration -->
+      <div class="rule-section" id="eligibility">
+        <h2>
+          <span class="section-number">2</span>
+          Eligibility & Registration
+        </h2>
+
+        <h3>2.1 Eligibility Requirements</h3>
+        <ul>
+          <li>All registered students of Uttara University are eligible to participate</li>
+          <li>Participants must be currently enrolled in any undergraduate or graduate program</li>
+          <li>Club members and non-members are both welcome to participate</li>
+          <li>Guest participants may be allowed in specific events (will be announced)</li>
+        </ul>
+
+        <h3>2.2 Registration Process</h3>
+        <ol>
+          <li>Register on the CTF platform at: <a href="http://ctf-cybersecurity-club-uttara.duckdns.org" style="color: #3b82f6;">ctf-cybersecurity-club-uttara.duckdns.org</a></li>
+          <li>Use your university email address for registration</li>
+          <li>Complete your profile with accurate information</li>
+          <li>Choose to compete as <strong>Solo</strong> or <strong>Team</strong></li>
+          <li>If team mode: Create a new team or join an existing one</li>
+          <li>Read and accept the code of conduct</li>
+        </ol>
+
+        <h3>2.3 Participation Mode</h3>
+        <ul>
+          <li><strong>Solo Players:</strong> Compete individually and earn points for yourself</li>
+          <li><strong>Team Players:</strong> Form teams of 2-4 members and collaborate together</li>
+          <li>You can choose your preferred mode during registration</li>
+          <li>Team formation deadline: 24 hours before competition start</li>
+          <li>Teams need one person as captain for official communications</li>
+          <li>Once competition starts, you cannot switch between solo/team mode</li>
+        </ul>
+
+        <div class="important-note">
+          <h4><i class="fas fa-exclamation-triangle"></i> Important</h4>
+          <p>Late registrations may not be accepted. Register early to ensure your spot in the competition!</p>
+        </div>
+      </div>
+
+      <!-- Section 3: Competition Format -->
+      <div class="rule-section" id="competition-format">
+        <h2>
+          <span class="section-number">3</span>
+          Competition Format
+        </h2>
+
+        <h3>3.1 Jeopardy-Style Format</h3>
+        <p>Our CTF competitions follow the Jeopardy-style format where:</p>
+        <ul>
+          <li>Challenges are organized by category and difficulty</li>
+          <li>Each challenge contains a flag (format: <code>CSC{flag_text_here}</code>)</li>
+          <li>Participants solve challenges independently and submit flags</li>
+          <li>Points are awarded for correct flag submissions</li>
+          <li>Scoreboard updates in real-time</li>
+        </ul>
+
+        <h3>3.2 Challenge Categories</h3>
+        <table class="scoring-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Web Exploitation</strong></td>
+              <td>SQL injection, XSS, CSRF, authentication bypass, etc.</td>
+            </tr>
+            <tr>
+              <td><strong>Cryptography</strong></td>
+              <td>Classical ciphers, modern encryption, hash cracking, etc.</td>
+            </tr>
+            <tr>
+              <td><strong>Reverse Engineering</strong></td>
+              <td>Binary analysis, decompilation, malware analysis</td>
+            </tr>
+            <tr>
+              <td><strong>Forensics</strong></td>
+              <td>File analysis, memory forensics, network packet analysis</td>
+            </tr>
+            <tr>
+              <td><strong>OSINT</strong></td>
+              <td>Open source intelligence gathering and research</td>
+            </tr>
+            <tr>
+              <td><strong>PWN/Binary Exploitation</strong></td>
+              <td>Buffer overflow, ROP, format string vulnerabilities</td>
+            </tr>
+            <tr>
+              <td><strong>Miscellaneous</strong></td>
+              <td>Steganography, programming, puzzle-solving</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>3.3 Competition Timeline</h3>
+        <ul>
+          <li><strong>Pre-Competition:</strong> Registration, team formation, rule review</li>
+          <li><strong>Competition Start:</strong> Platform opens, challenges become accessible</li>
+          <li><strong>Active Period:</strong> Participants work on challenges</li>
+          <li><strong>Final Hour:</strong> Last chance to submit solutions</li>
+          <li><strong>Competition End:</strong> Platform closes, no more submissions accepted</li>
+          <li><strong>Verification:</strong> Organizers verify results and detect any violations</li>
+          <li><strong>Announcement:</strong> Winners announced and prizes distributed</li>
+        </ul>
+
+        <div class="info-box">
+          <h4><i class="fas fa-clock"></i> Time Management</h4>
+          <p>All times are in Bangladesh Standard Time (BST/GMT+6). Make sure to check the exact start and end times for each competition.</p>
+        </div>
+      </div>
+
+      <!-- Section 4: Scoring System -->
+      <div class="rule-section" id="scoring">
+        <h2>
+          <span class="section-number">4</span>
+          Scoring System
+        </h2>
+
+        <h3>4.1 Point Distribution</h3>
+        <p>Challenges are assigned points based on difficulty:</p>
+        <table class="scoring-table">
+          <thead>
+            <tr>
+              <th>Difficulty Level</th>
+              <th>Base Points</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Beginner</strong></td>
+              <td>50-100</td>
+              <td>Basic concepts, suitable for newcomers</td>
+            </tr>
+            <tr>
+              <td><strong>Easy</strong></td>
+              <td>100-200</td>
+              <td>Fundamental techniques required</td>
+            </tr>
+            <tr>
+              <td><strong>Medium</strong></td>
+              <td>200-400</td>
+              <td>Intermediate skills and creativity needed</td>
+            </tr>
+            <tr>
+              <td><strong>Hard</strong></td>
+              <td>400-600</td>
+              <td>Advanced techniques and deep knowledge</td>
+            </tr>
+            <tr>
+              <td><strong>Expert</strong></td>
+              <td>600-1000</td>
+              <td>Extremely challenging, multi-step solutions</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>4.2 Dynamic Scoring</h3>
+        <p>Some competitions may use dynamic scoring where:</p>
+        <ul>
+          <li>Points decrease as more teams solve a challenge</li>
+          <li>First blood (first solve) may receive bonus points</li>
+          <li>Minimum points threshold is set to maintain fairness</li>
+        </ul>
+
+        <h3>4.3 Tiebreakers</h3>
+        <p>In case of tied scores (for both solo and team categories), winners are determined by:</p>
+        <ol>
+          <li>Total points earned</li>
+          <li>Time of last successful flag submission</li>
+          <li>Number of challenges solved</li>
+          <li>First blood count (if applicable)</li>
+        </ol>
+
+        <h3>4.4 Penalties</h3>
+        <ul>
+          <li>No penalty for incorrect flag submissions</li>
+          <li>Hint usage may reduce points earned (if hints are available)</li>
+          <li>Rule violations may result in point deductions or disqualification</li>
+        </ul>
+      </div>
+
+      <!-- Section 5: Allowed & Prohibited Actions -->
+      <div class="rule-section" id="allowed-prohibited">
+        <h2>
+          <span class="section-number">5</span>
+          Allowed & Prohibited Actions
+        </h2>
+
+        <h3>5.1 Allowed Activities</h3>
+        <div class="success-box">
+          <h4><i class="fas fa-check-circle"></i> Permitted</h4>
+          <ul style="margin: 10px 0 0 0; padding-left: 20px;">
+            <li>Using any tools, scripts, or software to solve challenges</li>
+            <li>Searching online resources, documentation, and tutorials</li>
+            <li>Collaborating with your team members (if playing in team mode)</li>
+            <li>Taking breaks during the competition</li>
+            <li>Asking organizers for clarification on challenge descriptions</li>
+            <li>Using AI tools for learning and assistance</li>
+            <li>Writing and sharing writeups after the competition ends</li>
+          </ul>
+        </div>
+
+        <h3>5.2 Prohibited Activities</h3>
+        <div class="important-note">
+          <h4><i class="fas fa-ban"></i> Strictly Forbidden</h4>
+          <ul style="margin: 10px 0 0 0; padding-left: 20px;">
+            <li><strong>Attacking the infrastructure:</strong> DDoS, brute-forcing the platform, exploiting CTF system vulnerabilities</li>
+            <li><strong>Sharing flags:</strong> Giving or receiving flags from other players/teams</li>
+            <li><strong>Unauthorized collaboration:</strong> Solo players working together, or teams collaborating with other teams</li>
+            <li><strong>Flag sharing platforms:</strong> Posting or searching for flags on social media, forums, or chat groups</li>
+            <li><strong>Account sharing:</strong> Multiple people using the same account (solo players only)</li>
+            <li><strong>Automated submissions:</strong> Using scripts to brute-force or spam flag submissions</li>
+            <li><strong>Sabotage:</strong> Attempting to hinder other players' or teams' progress</li>
+            <li><strong>Exploiting competition bugs:</strong> Using platform vulnerabilities for unfair advantage (report them instead)</li>
+          </ul>
+        </div>
+
+        <h3>5.3 Resource Usage</h3>
+        <ul>
+          <li>Use your own computing resources</li>
+          <li>Public cloud services are allowed for hosting solutions</li>
+          <li>Do not overload or abuse provided challenge servers</li>
+          <li>Respect rate limits on challenge interactions</li>
+        </ul>
+
+        <h3>5.4 Flag Submission</h3>
+        <ul>
+          <li>Submit flags through the official platform only</li>
+          <li>Flag format must match the specified format (usually <code>CSC{...}</code>)</li>
+          <li>Flags are case-sensitive unless stated otherwise</li>
+          <li>Submit the complete flag including prefix and suffix</li>
+        </ul>
+      </div>
+
+      <!-- Section 6: Code of Conduct -->
+      <div class="rule-section" id="code-of-conduct">
+        <h2>
+          <span class="section-number">6</span>
+          Code of Conduct
+        </h2>
+
+        <h3>6.1 Ethical Behavior</h3>
+        <p>All participants are expected to:</p>
+        <ul>
+          <li>Demonstrate respect, integrity, and sportsmanship</li>
+          <li>Compete fairly and honestly</li>
+          <li>Respect fellow competitors and organizers</li>
+          <li>Follow all competition rules and guidelines</li>
+          <li>Report any issues or violations immediately</li>
+        </ul>
+
+        <h3>6.2 Respectful Communication</h3>
+        <ul>
+          <li>Be courteous in all interactions (Discord, platform chat, in-person)</li>
+          <li>No harassment, discrimination, or offensive behavior</li>
+          <li>No spamming or flooding communication channels</li>
+          <li>Use appropriate language at all times</li>
+          <li>Help create a positive learning environment</li>
+        </ul>
+
+        <h3>6.3 Academic Integrity</h3>
+        <ul>
+          <li>Do not plagiarize solutions or writeups</li>
+          <li>Credit sources when using others' tools or techniques</li>
+          <li>Original work is expected from all participants</li>
+          <li>Past competition solutions may be referenced for learning only</li>
+        </ul>
+
+        <h3>6.4 Reporting Violations</h3>
+        <p>If you witness or experience any rule violations:</p>
+        <ol>
+          <li>Contact competition organizers immediately</li>
+          <li>Provide specific details and evidence if available</li>
+          <li>Do not take matters into your own hands</li>
+          <li>All reports will be investigated confidentially</li>
+        </ol>
+
+        <div class="important-note">
+          <h4><i class="fas fa-gavel"></i> Zero Tolerance Policy</h4>
+          <p>We maintain a zero-tolerance policy for cheating, harassment, and unethical behavior. Violations will result in immediate disqualification and may affect future participation privileges.</p>
+        </div>
+      </div>
+
+      <!-- Section 7: Prizes & Recognition -->
+      <div class="rule-section" id="prizes">
+        <h2>
+          <span class="section-number">7</span>
+          Prizes & Recognition
+        </h2>
+
+        <h3>7.1 Awards</h3>
+        <ul>
+          <li><strong>Top 3 Solo Players:</strong> Certificates, prizes (when applicable), and public recognition</li>
+          <li><strong>Top 3 Teams:</strong> Certificates, prizes (when applicable), and public recognition (shared among team members)</li>
+          <li><strong>Category Winners:</strong> Recognition for best performance in specific categories</li>
+          <li><strong>First Blood Awards:</strong> Special recognition for first solves (when applicable)</li>
+          <li><strong>Participation Certificates:</strong> All participants receive certificates of participation</li>
+        </ul>
+
+        <div class="info-box">
+          <h4><i class="fas fa-info-circle"></i> Leaderboards</h4>
+          <p>Solo players and teams are ranked on separate leaderboards to ensure fair competition.</p>
+        </div>
+
+        <h3>7.2 Prize Distribution</h3>
+        <ul>
+          <li>Winners announced within 24 hours of competition end</li>
+          <li>Prizes distributed during award ceremony or club events</li>
+          <li>Valid student ID required for prize collection</li>48 hours
+          <li>Prizes are non-transferable</li>
+        </ul>
+
+        <h3>7.3 Leaderboard & Recognition</h3>
+        <ul>
+          <li>Final standings published on club website and social media</li>
+          <li>Top performers featured in club newsletter</li>
+          <li>Outstanding performance may lead to club leadership opportunities</li>
+          <li>Cumulative rankings maintained across multiple competitions</li>
+        </ul>
+
+        <div class="success-box">
+          <h4><i class="fas fa-trophy"></i> Additional Benefits</h4>
+          <p>Top performers may receive invitations to advanced workshops, mentorship opportunities, and recommendations for cybersecurity internships and competitions.</p>
+        </div>
+      </div>
+
+      <!-- Section 8: Disputes & Appeals -->
+      <div class="rule-section" id="disputes">
+        <h2>
+          <span class="section-number">8</span>
+          Disputes & Appeals
+        </h2>
+
+        <h3>8.1 Dispute Resolution</h3>
+        <p>If you have concerns about competition conduct or results:</p>
+        <ol>
+          <li><strong>Submit a formal appeal</strong> via email within 24 hours of competition end</li>
+          <li><strong>Provide evidence</strong> supporting your claim (screenshots, logs, timestamps)</li>
+          <li><strong>Describe the issue</strong> clearly and objectively</li>
+          <li><strong>Wait for review</strong> - organizers will investigate within 1 hour</li>
+          <li><strong>Accept decision</strong> - organizer decisions are final</li>
+        </ol>
+
+        <h3>8.2 Technical Issues</h3>
+        <ul>
+          <li>Report platform issues immediately during competition</li>
+          <li>Backup your solutions and progress regularly</li>
+          <li>Technical difficulties may result in time extensions (at organizer discretion)</li>
+          <li>No compensation for personal hardware/internet failures</li>
+        </ul>
+
+        <h3>8.3 Challenge Disputes</h3>
+        <ul>
+          <li>If a challenge appears broken or unsolvable, notify organizers</li>
+          <li>Broken challenges may be fixed, removed, or have points adjusted</li>
+          <li>Announcements made for any challenge modifications</li>
+          <li>Already submitted solutions remain valid unless otherwise stated</li>
+        </ul>
+
+        <h3>8.4 Final Authority</h3>
+        <p>The Cyber Security Club, Uttara University organizing committee reserves the right to:</p>
+        <ul>
+          <li>Make final decisions on all disputes and appeals</li>
+          <li>Modify rules if necessary for fairness</li>
+          <li>Disqualify participants for rule violations</li>
+          <li>Cancel or postpone competitions due to unforeseen circumstances</li>
+        </ul>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="contact-section" id="contact">
+        <h2><i class="fas fa-envelope"></i> Need Help?</h2>
+        <p>For questions, clarifications, or support regarding CTF competitions:</p>
+        <a href="mailto:cybersecurity@club.uttara.ac.bd?subject=CTF%20Rulebook%20Inquiry">
+          <i class="fas fa-paper-plane"></i> Contact Us
+        </a>
+        <p style="margin-top: 20px; font-size: 0.95rem;">
+          Join our Discord: <a href="https://discord.gg/N83SjBHjzG" style="color: white; text-decoration: underline;">cybersecurity.club</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+      <div class="footer-info-container">
+        <div class="footer-title-container">
+          <div class="footer-title">
+            <p>Cyber Security Club, Uttara University</p>
+          </div>
+          <a class="email" href="mailto:cybersecurity@club.uttara.ac.bd?subject=General%20Inquiry%20-%20Cyber%20Security%20Club&body=Hello%20Cyber%20Security%20Club%20Team%2C%0A%0AI%20would%20like%20to%20inquire%20about%3A%0A%0A%5BPlease%20describe%20your%20inquiry%20here%5D%0A%0AThank%20you%20for%20your%20time.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D%0A%5BYour%20Contact%20Information%5D"
+          title="cybersecurity@club.uttara.ac.bd">
+            <div class="mail">
+              <span>Contact@CyberSecurityClub</span>
+            </div>
+          </a>
+        </div>
+        <div class="footer-description-container">
+        </div>
+      </div>
+      <div class="footer-social-container">
+        <a class="social-link" rel="me" target="_blank" href="https://facebook.com/csc.uu.bd" title="Facebook CSC">
+          <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a class="social-link" rel="me" target="_blank" href="https://www.linkedin.com/company/cscuu/?viewAsMember=true" title="LinkedIn CSC">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a class="social-link" rel="me" target="_blank" href="https://discord.gg/N83SjBHjzG"
+          title="Discord CSC">
+          <i class="fa-brands fa-discord"></i>
+        </a>
+      </div>
+      <div class="site-credit">
+        ©2025 | Developed by Cyber Security Club, Uttara University 
+      </div>
+      <div class="github-contributors-section">
+        <div class="github-contributors-title">
+          Thanks to our awesome contributors
+        </div>
+        <div id="github-contributors-list" class="github-contributors-list">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="assets/js/index.js"></script>
+  <script src="assets/js/git-cont.js"></script>
+</body>
+
+</html>
