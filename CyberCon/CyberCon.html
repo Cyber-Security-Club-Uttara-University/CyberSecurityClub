@@ -16,6 +16,7 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="cybercon-style.css">
+    <link rel="stylesheet" href="cybercon-form-theme.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -556,12 +557,204 @@
                             <li><i class="fas fa-check"></i> Breakfast & Lunch</li>
                             <li><i class="fas fa-check"></i> Workshop materials</li>
                         </ul>
-                        <a href="#" class="btn btn-pricing">Select Plan</a>
+                        <a href="#registration-form" class="btn btn-pricing" onclick="showRegistrationForm()">Select Plan</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Registration Form Section (Hidden by default) -->
+    <section id="registration-form" class="registration-form-section" style="display: none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="registration-form-container">
+                        <button type="button" class="form-close-btn" onclick="hideRegistrationForm()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        
+                        <h2 class="form-title">Student Registration - CyberCon25</h2>
+                        <p class="form-subtitle">Complete your registration to secure your spot</p>
+
+                        <div id="form-alert-container"></div>
+
+                        <form id="cyberconRegistrationForm" onsubmit="submitCyberConRegistration(event)">
+                            <input type="hidden" id="regTimestamp" name="regTimestamp">
+                            <input type="hidden" name="ticketPrice" value="200 BDT">
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="fullName" class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="fullName" name="fullName" required 
+                                           pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" maxlength="50"
+                                           oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')">
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="studentId" class="form-label">Student ID *</label>
+                                    <input type="text" class="form-control" id="studentId" name="studentId" required
+                                           placeholder="22330814XX" pattern="[0-9]+" title="Only digits allowed" maxlength="15"
+                                           oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="university" class="form-label">University *</label>
+                                    <input type="text" class="form-control" id="university" name="university" 
+                                           value="Uttara University" readonly style="background-color: #e9ecef;">
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="department" class="form-label">Department *</label>
+                                    <input type="text" class="form-control" id="department" name="department" required
+                                           placeholder="e.g., CSE, EEE, CIVIL"
+                                           maxlength="50">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="batch" class="form-label">Batch *</label>
+                                    <input type="text" class="form-control" id="batch" name="batch" required
+                                           placeholder="e.g., 60, 61, 62"
+                                           maxlength="10">
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="section" class="form-label">Section *</label>
+                                    <input type="text" class="form-control" id="section" name="section" required
+                                           placeholder="e.g., A, B, C"
+                                           maxlength="10">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Varsity Email *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required
+                                           placeholder="yourname@uttara.ac.bd" 
+                                           pattern="[a-zA-Z0-9._%+-]+@(uttara\.ac\.bd|uttarauniversity\.edu\.bd)$"
+                                           title="Must be a valid @uttara.ac.bd or @uttarauniversity.edu.bd email"
+                                           oninput="validateEmailDomain(this)">
+                                    <small class="form-text text-muted">Must use @uttara.ac.bd or @uttarauniversity.edu.bd email</small>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" required
+                                           placeholder="+8801XXXXXXXXX" value="+880" maxlength="14"
+                                           pattern="\+880[0-9]{10}" title="Format: +880XXXXXXXXXX"
+                                           oninput="formatPhoneNumber(this)">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label for="queries" class="form-label">Any Queries (Optional)</label>
+                                    <textarea class="form-control" id="queries" name="queries" rows="3"
+                                              placeholder="Any questions or special requirements?"
+                                              maxlength="500"></textarea>
+                                    <small class="form-text text-muted">Maximum 500 characters</small>
+                                </div>
+                            </div>
+
+                            <div class="payment-section mb-4">
+                                <h5 class="section-heading">Payment Information</h5>
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle"></i> Registration Fee: <strong>200 BDT</strong>
+                                    <br><small>Pay via bKash/Rocket(<strong>01919399235</strong>) and enter transaction details below</small>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="paymentNumber" class="form-label">bKash/Rocket Number *</label>
+                                        <input type="tel" class="form-control" id="paymentNumber" name="paymentNumber" required
+                                               placeholder="01XXXXXXXXX" maxlength="11" pattern="[0-9]{11}"
+                                               title="11 digit mobile number"
+                                               oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                        <small class="form-text text-muted">Number used for payment</small>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="transactionId" class="form-label">Transaction/Txn ID *</label>
+                                        <input type="text" class="form-control" id="transactionId" name="transactionId" required
+                                               placeholder="Enter transaction ID" maxlength="20"
+                                               pattern="[A-Za-z0-9]+" title="Only letters and numbers allowed"
+                                               oninput="this.value = this.value.replace(/[^A-Za-z0-9]/g, '')">
+                                        <small class="form-text text-muted">Transaction/Reference ID from payment</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="alert alert-warning mt-3">
+                                    <i class="fas fa-exclamation-circle"></i> 
+                                    <strong>Payment Verification:</strong>
+                                    <p class="mb-0 mt-2">
+                                        • All payments will be verified before final confirmation<br>
+                                        • Ensure you enter the correct transaction ID<br>
+                                        • Keep your payment receipt/screenshot for reference<br>
+                                        • Invalid payment details will result in registration cancellation
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                                <label class="form-check-label" for="agreeTerms">
+                                    I agree to the <a href="#" target="_blank">terms and conditions</a> and confirm that all information provided is accurate *
+                                </label>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-register-cybercon btn-lg" id="submitRegBtn">
+                                    <i class="fas fa-rocket"></i> REGISTER NOW
+                                </button>
+                            </div>
+
+                            <div class="loading-overlay-form" id="loadingOverlayForm" style="display: none;">
+                                <div class="spinner-border text-primary" role="status"></div>
+                                <p class="mt-3">Processing your registration...</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content success-modal-content">
+                <div class="modal-header success-modal-header">
+                    <h5 class="modal-title success-modal-title">
+                        <i class="fas fa-check-circle"></i> REGISTRATION SUCCESSFUL
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body success-modal-body text-center py-5">
+                    <div class="ticket-display-box mb-4">
+                        <p class="ticket-label mb-3">YOUR TICKET ID</p>
+                        <h2 class="ticket-number-display" id="modalTicketId">2501</h2>
+                    </div>
+                    <div class="success-message-box">
+                        <p class="success-text-main">Congratulations! You're registered for CyberCon25!</p>
+                        <p class="success-text-email">A confirmation email has been sent to <span class="email-highlight" id="modalEmail"></span></p>
+                    </div>
+                    <div class="alert-save-ticket mt-4">
+                        <i class="fas fa-exclamation-triangle"></i> 
+                        <span>Save your Ticket ID for event entry</span>
+                    </div>
+                </div>
+                <div class="modal-footer success-modal-footer">
+                    <button type="button" class="btn-close-modal" data-bs-dismiss="modal">
+                        <i class="fas fa-times-circle"></i> Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
@@ -601,16 +794,81 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <form class="contact-form">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                    <!-- Ticket Sample Preview -->
+                    <div class="ticket-sample-container">
+                        <h3 class="ticket-sample-title"><i class="fas fa-ticket-alt"></i> YOUR TICKET PREVIEW</h3>
+                        <div class="ticket-sample-card">
+                            <div class="ticket-sample-header">
+                                <div class="ticket-sample-logo">
+                                    <img src="Assets/images/logo/CyberCon.png" alt="CyberCon Logo">
+                                </div>
+                                <div class="ticket-sample-event">
+                                    <h4>CYBERCON25</h4>
+                                    <p>Cybersecurity Conference</p>
+                                </div>
+                            </div>
+                            
+                            <div class="ticket-sample-divider"></div>
+                            
+                            <div class="ticket-sample-body">
+                                <div class="ticket-sample-row">
+                                    <div class="ticket-sample-field">
+                                        <span class="field-label">TICKET ID</span>
+                                        <span class="field-value ticket-id-preview">2501</span>
+                                    </div>
+                                    <div class="ticket-sample-field">
+                                        <span class="field-label">DATE</span>
+                                        <span class="field-value">TBA</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="ticket-sample-row">
+                                    <div class="ticket-sample-field">
+                                        <span class="field-label">NAME</span>
+                                        <span class="field-value">Your Name</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="ticket-sample-row">
+                                    <div class="ticket-sample-field">
+                                        <span class="field-label">VENUE</span>
+                                        <span class="field-value">Multi Purpose Hall</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="ticket-sample-row">
+                                    <div class="ticket-sample-field">
+                                        <span class="field-label">UNIVERSITY</span>
+                                        <span class="field-value">Uttara University</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="ticket-sample-footer">
+                                <div class="ticket-sample-barcode">
+                                    <div class="barcode-lines">
+                                        <span></span><span></span><span></span><span></span>
+                                        <span></span><span></span><span></span><span></span>
+                                        <span></span><span></span><span></span><span></span>
+                                    </div>
+                                    <p class="barcode-text">CYBERCON-2501-2025</p>
+                                </div>
+                                <p class="ticket-sample-note">
+                                    <i class="fas fa-info-circle"></i> Present this ticket at the venue
+                                </p>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        
+                        <div class="ticket-sample-info mt-4">
+                            <div class="alert alert-cybercon">
+                                <i class="fas fa-shield-check"></i>
+                                <strong>Registration Fee: 200 BDT</strong><br>
+                                <small>You'll receive your personalized ticket via email after registration</small>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
+                    </div>
+                    <!-- End Ticket Sample Preview -->
+                    <div style="display:none;" class="old-contact-form">
                         <div class="mb-3">
                             <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
                         </div>
@@ -685,5 +943,6 @@
     
     <!-- Custom JS -->
     <script src="cybercon-script.js"></script>
+    <script src="registration-integration.js"></script>
 </body>
 </html>

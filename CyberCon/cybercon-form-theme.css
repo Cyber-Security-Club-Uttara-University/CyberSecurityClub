@@ -1,0 +1,529 @@
+/* ===================================
+   Registration Form Background & Container
+   =================================== */
+.registration-form-section {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a2a65 100%);
+    padding: 5rem 0;
+    position: relative;
+}
+
+.registration-form-container {
+    background: rgba(35, 56, 134, 0.2);
+    border: 2px solid #2e3856;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.form-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: 2px solid #ff0037;
+    color: #ff0037;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.form-close-btn:hover {
+    background: #ff0037;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.form-title {
+    color: #1bb7ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(27, 183, 255, 0.5);
+}
+
+.form-subtitle {
+    color: #b8c1ec;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-label {
+    color: #1bb7ff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.payment-section {
+    background: rgba(255, 0, 55, 0.05);
+    border: 2px solid rgba(255, 0, 55, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.section-heading {
+    color: #ff0037;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.loading-overlay-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: #fff;
+}
+
+.loading-overlay-form .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.3rem;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Success Modal Styling */
+.success-modal-content {
+    background: linear-gradient(135deg, #0a0e27, #1a2a65);
+    border: 3px solid #1bb7ff;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(27, 183, 255, 0.5), 0 0 80px rgba(27, 183, 255, 0.3);
+}
+
+.success-modal-header {
+    background: linear-gradient(135deg, #233886, #1a2a65);
+    border-bottom: 3px solid #1bb7ff;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+    padding: 1.5rem;
+}
+
+.success-modal-title {
+    color: #1bb7ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(27, 183, 255, 0.8);
+}
+
+.success-modal-body {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a2a65 100%);
+}
+
+.ticket-display-box {
+    background: linear-gradient(135deg, rgba(26, 14, 39, 0.9), rgba(35, 20, 58, 0.9));
+    border: 3px solid #ff0037;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 30px rgba(255, 0, 55, 0.4), inset 0 0 30px rgba(255, 0, 55, 0.1);
+}
+
+.ticket-label {
+    color: #b8c1ec;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.ticket-number-display {
+    color: #ff0037;
+    font-family: 'Courier New', monospace;
+    font-size: 4rem;
+    font-weight: 900;
+    text-shadow: 0 0 40px rgba(255, 0, 55, 1), 0 0 80px rgba(255, 0, 55, 0.6);
+    margin: 0;
+    letter-spacing: 0.1em;
+}
+
+.success-text-main {
+    color: #00ff88;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+}
+
+.success-text-email {
+    color: #b8c1ec;
+    font-size: 1rem;
+}
+
+.email-highlight {
+    color: #1bb7ff;
+    font-weight: 600;
+}
+
+.alert-save-ticket {
+    background: rgba(255, 165, 0, 0.15);
+    border: 2px solid #ffa500;
+    border-radius: 10px;
+    padding: 1rem;
+    color: #ffa500;
+    font-weight: 600;
+}
+
+.success-modal-footer {
+    background: linear-gradient(135deg, #0a0e27, #1a2a65);
+    border-top: 3px solid #1bb7ff;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.btn-close-modal {
+    background: linear-gradient(135deg, #ff0037, #d60030);
+    color: #fff;
+    border: 2px solid #ff0037;
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(255, 0, 55, 0.4);
+}
+
+.btn-close-modal:hover {
+    background: linear-gradient(135deg, #1bb7ff, #0099cc);
+    border-color: #1bb7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(27, 183, 255, 0.6);
+}
+
+.btn-close-modal i {
+    margin-right: 8px;
+}
+
+#form-alert-container {
+    margin-bottom: 1rem;
+}
+
+#form-alert-container .alert {
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* ===================================
+   Registration Form Button Styling Only
+   =================================== */
+.btn-register-cybercon {
+    background: linear-gradient(135deg, #233886, #ff0037) !important;
+    border: 3px solid #ff0037 !important;
+    color: #fff !important;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 18px 60px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 40px rgba(255, 0, 55, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-register-cybercon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+.btn-register-cybercon:hover::before {
+    left: 100%;
+}
+
+.btn-register-cybercon:hover {
+    background: linear-gradient(135deg, #ff0037, #1bb7ff) !important;
+    border-color: #1bb7ff !important;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 50px rgba(255, 0, 55, 0.6);
+    color: #fff !important;
+}
+
+.btn-register-cybercon:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-register-cybercon i {
+    margin-right: 10px;
+    animation: rocket-bounce 2s infinite;
+}
+
+@keyframes rocket-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Responsive Design for Button */
+@media (max-width: 768px) {
+    .btn-register-cybercon {
+        width: 100%;
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+}
+
+
+/* ===================================
+   Ticket Sample Preview Styling
+   =================================== */
+.ticket-sample-container {
+    padding: 20px;
+}
+
+.ticket-sample-title {
+    color: #1bb7ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    text-align: center;
+    text-shadow: 0 0 20px rgba(27, 183, 255, 0.5);
+}
+
+.ticket-sample-title i {
+    margin-right: 10px;
+    color: #ff0037;
+}
+
+.ticket-sample-card {
+    background: rgba(35, 56, 134, 0.2);
+    border: 2px solid #2e3856;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8),
+                0 0 40px rgba(27, 183, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.ticket-sample-card:hover {
+    border-color: #ff0037;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9),
+                0 0 50px rgba(255, 0, 55, 0.4);
+}
+
+.ticket-sample-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff0037, #233886, #1bb7ff, #ff0037);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(15px);
+}
+
+.ticket-sample-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.ticket-sample-logo img {
+    max-width: 80px;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 55, 0.5));
+}
+
+.ticket-sample-event h4 {
+    color: #ff0037;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(255, 0, 55, 0.6);
+}
+
+.ticket-sample-event p {
+    color: #1bb7ff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    margin: 5px 0 0 0;
+    text-shadow: 0 0 10px rgba(27, 183, 255, 0.5);
+}
+
+.ticket-sample-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff0037, #1bb7ff, #ff0037, transparent);
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(255, 0, 55, 0.5);
+}
+
+.ticket-sample-body {
+    margin: 20px 0;
+}
+
+.ticket-sample-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.ticket-sample-field {
+    flex: 1;
+    padding: 12px;
+    background: rgba(10, 14, 39, 0.6);
+    border: 1px solid #2e3856;
+    border-radius: 8px;
+}
+
+.field-label {
+    display: block;
+    color: #b8c1ec;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px rgba(27, 183, 255, 0.3);
+}
+
+.field-value {
+    display: block;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.ticket-id-preview {
+    color: #ff0037;
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-shadow: 0 0 15px rgba(255, 0, 55, 0.6);
+}
+
+.ticket-sample-footer {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.ticket-sample-barcode {
+    margin-bottom: 15px;
+}
+
+.barcode-lines {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    margin-bottom: 10px;
+}
+
+.barcode-lines span {
+    display: block;
+    width: 4px;
+    height: 50px;
+    background: linear-gradient(180deg, #ff0037, #1bb7ff);
+    border-radius: 2px;
+}
+
+.barcode-lines span:nth-child(odd) {
+    height: 60px;
+}
+
+.barcode-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.ticket-sample-note {
+    color: #1bb7ff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    margin: 10px 0 0 0;
+}
+
+.ticket-sample-note i {
+    margin-right: 5px;
+}
+
+.alert-cybercon {
+    background: rgba(35, 56, 134, 0.3);
+    border: 2px solid #2e3856;
+    border-radius: 12px;
+    padding: 20px;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+}
+
+.alert-cybercon i {
+    color: #1bb7ff;
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.alert-cybercon strong {
+    color: #ff0037;
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-title {
+        font-size: 2rem !important;
+    }
+    
+    .ticket-sample-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .ticket-sample-logo img {
+        max-width: 60px;
+    }
+    
+    .ticket-sample-event h4 {
+        font-size: 1.4rem;
+    }
+    
+    .btn-register-cybercon {
+        width: 100%;
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+}
