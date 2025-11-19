@@ -2134,3 +2134,341 @@ section {
         padding: 20px;
     }
 }
+
+/* ===================================
+   Success Modal Styling
+   =================================== */
+.success-modal-content {
+    background: linear-gradient(135deg, #0a0e27, #1a1f3a);
+    border: 2px solid var(--accent-color);
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(255, 0, 55, 0.4);
+}
+
+.success-modal-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-bottom: 2px solid var(--accent-color);
+    padding: 20px 30px;
+}
+
+.success-modal-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.success-modal-title i {
+    color: #00ff88;
+    margin-right: 10px;
+    animation: pulse-success 2s infinite;
+}
+
+.success-modal-body {
+    background: rgba(10, 14, 39, 0.95);
+    padding: 40px 30px !important;
+}
+
+.ticket-display-box {
+    background: linear-gradient(135deg, rgba(255, 0, 55, 0.1), rgba(35, 56, 134, 0.1));
+    border: 2px solid var(--accent-color);
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ticket-display-box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-color), var(--primary-color), var(--accent-orange));
+    border-radius: 15px;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(10px);
+    animation: glow-border 3s infinite;
+}
+
+.ticket-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.ticket-number-display {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    text-shadow: 0 0 20px rgba(255, 0, 55, 0.6);
+    letter-spacing: 3px;
+}
+
+.success-message-box {
+    margin: 30px 0;
+}
+
+.success-text-main {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.success-text-email {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.email-highlight {
+    color: var(--accent-orange);
+    font-weight: 700;
+}
+
+.alert-save-ticket {
+    background: rgba(255, 0, 55, 0.1);
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 15px 20px;
+    color: var(--accent-color);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+}
+
+.alert-save-ticket i {
+    color: #ff0037;
+    margin-right: 8px;
+}
+
+.success-modal-footer {
+    background: rgba(10, 14, 39, 0.95);
+    border-top: 2px solid var(--accent-color);
+    padding: 20px 30px;
+    justify-content: center;
+}
+
+.btn-close-modal {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    border: 2px solid var(--accent-color);
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 12px 40px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-close-modal:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 0, 55, 0.4);
+}
+
+.btn-close-modal i {
+    margin-right: 8px;
+}
+
+/* ===================================
+   Payment Processing Overlay
+   =================================== */
+.payment-processing-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(10, 14, 39, 0.98), rgba(26, 31, 58, 0.98));
+    backdrop-filter: blur(20px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.payment-processing-content {
+    text-align: center;
+    max-width: 500px;
+    padding: 60px 40px;
+    background: rgba(10, 14, 39, 0.9);
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(255, 0, 55, 0.4);
+    position: relative;
+}
+
+.payment-processing-content::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-color), var(--primary-color), var(--accent-orange), var(--accent-color));
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(15px);
+    animation: rotate-gradient 4s linear infinite;
+}
+
+.payment-loader {
+    margin-bottom: 30px;
+}
+
+.payment-spinner {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border: 6px solid rgba(255, 255, 255, 0.1);
+    border-top: 6px solid var(--accent-color);
+    border-right: 6px solid var(--accent-orange);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.payment-processing-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(255, 0, 55, 0.6);
+}
+
+.payment-processing-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+}
+
+.payment-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.payment-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--accent-orange));
+    border-radius: 10px;
+    animation: progress-fill 3s ease-in-out infinite;
+}
+
+.payment-warning-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    color: var(--accent-orange);
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.payment-warning-text i {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+/* Animations */
+@keyframes pulse-success {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes glow-border {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-gradient {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes progress-fill {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 70%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .success-modal-title {
+        font-size: 1.2rem;
+    }
+    
+    .ticket-number-display {
+        font-size: 2.5rem;
+    }
+    
+    .payment-processing-content {
+        padding: 40px 25px;
+        max-width: 90%;
+    }
+    
+    .payment-processing-title {
+        font-size: 1.5rem;
+    }
+    
+    .payment-spinner {
+        width: 60px;
+        height: 60px;
+    }
+}
