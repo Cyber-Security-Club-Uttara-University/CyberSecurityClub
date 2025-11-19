@@ -8,7 +8,11 @@ function showRegistrationForm() {
     const formSection = document.getElementById('registration-form');
     if (formSection) {
         formSection.style.display = 'block';
-        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Scroll to form section after a brief delay to ensure it's rendered
+        setTimeout(() => {
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
         
         // Set timestamp
         document.getElementById('regTimestamp').value = new Date().toLocaleString('en-US', { 
