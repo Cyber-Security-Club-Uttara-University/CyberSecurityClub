@@ -751,6 +751,238 @@ section {
 }
 
 /* ===================================
+   About Section
+   =================================== */
+.about-section {
+    background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 50%, var(--darker-bg) 100%);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 0, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(27, 183, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.about-content {
+    position: relative;
+    z-index: 1;
+}
+
+.about-subtitle {
+    font-size: 2rem;
+    color: var(--accent-orange);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px rgba(27, 183, 255, 0.4);
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--gray-text);
+    margin-bottom: 1.5rem;
+}
+
+.about-text strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.about-main-image {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(27, 183, 255, 0.2);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.about-main-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6),
+                0 0 50px rgba(27, 183, 255, 0.3);
+}
+
+.about-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.expectation-card {
+    background: linear-gradient(135deg, rgba(35, 56, 134, 0.3), rgba(10, 14, 39, 0.5));
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.expectation-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-orange));
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.expectation-card:hover::before {
+    opacity: 0.3;
+}
+
+.expectation-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-orange);
+    box-shadow: 0 15px 40px rgba(27, 183, 255, 0.3);
+}
+
+.expectation-icon {
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.expectation-card:hover .expectation-icon {
+    color: var(--accent-orange);
+    transform: scale(1.1);
+}
+
+.expectation-card h4 {
+    font-size: 1.5rem;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+}
+
+.expectation-card p {
+    font-size: 1rem;
+    color: var(--gray-text);
+    line-height: 1.7;
+}
+
+.legacy-box {
+    background: linear-gradient(135deg, rgba(255, 0, 55, 0.1), rgba(35, 56, 134, 0.2));
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 20px 60px rgba(255, 0, 55, 0.2);
+}
+
+.legacy-box p {
+    font-size: 1.1rem;
+    color: var(--gray-text);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.legacy-box p:last-child {
+    margin-bottom: 0;
+}
+
+.about-cta {
+    background: linear-gradient(135deg, rgba(27, 183, 255, 0.1), rgba(35, 56, 134, 0.2));
+    border: 2px solid var(--accent-orange);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0 20px 60px rgba(27, 183, 255, 0.2);
+}
+
+.about-cta h3 {
+    color: var(--accent-orange);
+    margin-bottom: 1.5rem;
+}
+
+.about-cta p {
+    font-size: 1.1rem;
+    color: var(--gray-text);
+    line-height: 1.8;
+}
+
+.about-cta strong {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.cyber-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+    border: 3px solid var(--accent-color);
+    color: var(--light-text) !important;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 40px rgba(255, 0, 55, 0.4);
+}
+
+.cyber-btn:hover {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color)) !important;
+    border-color: var(--accent-orange);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 50px rgba(255, 0, 55, 0.6);
+}
+
+.cyber-btn i {
+    margin-right: 10px;
+}
+
+.organizer-info {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.organizer-info p {
+    color: var(--gray-text);
+    font-size: 1rem;
+}
+
+/* Responsive Design for About Section */
+@media (max-width: 768px) {
+    .about-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+    }
+    
+    .expectation-card {
+        padding: 2rem 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .legacy-box, .about-cta {
+        padding: 2rem 1.5rem;
+    }
+    
+    .cyber-btn {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+}
+
+/* ===================================
    News Section
    =================================== */
 .news-section {
@@ -1670,4 +1902,573 @@ section {
   50% { 
     border-color: #fff;
   }
+}
+
+/* ===================================
+   Enhanced Registration Form Theme
+   =================================== */
+.registration-form-section {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.registration-form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 0, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(35, 56, 134, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.registration-form-container {
+    /* background: rgba(35, 56, 134, 0.2); */
+    backdrop-filter: blur(20px);
+    /* border: 1px solid var(--border-color); */
+    /* box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6); */
+    padding: 50px;
+    border-radius: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.form-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 0, 55, 0.2);
+    border: 2px solid #ff0037;
+    color: #ff0037;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.form-close-btn:hover {
+    background: #ff0037;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.form-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(255, 0, 55, 0.5);
+}
+
+.form-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.registration-form-section .form-label {
+    color: var(--light-text);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.registration-form-section .form-control,
+.registration-form-section .form-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.registration-form-section .form-control:hover,
+.registration-form-section .form-select:hover {
+    border-color: var(--accent-color);
+}
+
+.registration-form-section .form-control:focus,
+.registration-form-section .form-select:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(255, 0, 55, 0.3);
+    color: #fff;
+    outline: none;
+}
+
+.registration-form-section .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.registration-form-section .form-control[readonly] {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+    cursor: not-allowed;
+}
+
+.payment-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 25px;
+}
+
+.section-heading {
+    color: #ff0037;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 0, 55, 0.5);
+}
+
+.registration-form-section .alert-info {
+    background: rgba(35, 56, 134, 0.3);
+    border: 1px solid var(--accent-orange);
+    color: var(--light-text);
+    font-family: 'Rajdhani', sans-serif;
+    border-radius: 10px;
+    padding: 15px 20px;
+}
+
+.btn-register-cybercon {
+    background: linear-gradient(135deg, #233886, #ff0037) !important;
+    border: 3px solid #ff0037;
+    color: #fff !important;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 18px 60px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 40px rgba(255, 0, 55, 0.4);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-register-cybercon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+.btn-register-cybercon:hover::before {
+    left: 100%;
+}
+
+.btn-register-cybercon:hover {
+    background: linear-gradient(135deg, #ff0037, #233886) !important;
+    border-color: #00ffff;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 50px rgba(255, 0, 55, 0.6);
+    color: #fff !important;
+}
+
+.btn-register-cybercon:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-register-cybercon i {
+    margin-right: 10px;
+}
+
+#form-alert-container .alert {
+    border-radius: 10px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-title {
+        font-size: 1.8rem;
+    }
+    
+    .registration-form-container {
+        padding: 30px 20px;
+    }
+    
+    .btn-register-cybercon {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+    
+    .payment-section {
+        padding: 20px;
+    }
+}
+
+/* ===================================
+   Success Modal Styling
+   =================================== */
+.success-modal-content {
+    background: linear-gradient(135deg, #0a0e27, #1a1f3a);
+    border: 2px solid #ff0037;
+    border-radius: 20px;
+    box-shadow: 0 25px 70px rgba(255, 0, 55, 0.3), 0 0 50px rgba(255, 0, 55, 0.1);
+    overflow: hidden;
+}
+
+.success-modal-header {
+    background: linear-gradient(135deg, #233886, #b31d4a);
+    border-bottom: none;
+    padding: 25px 35px;
+    position: relative;
+    border-radius: 20px 20px 0 0;
+}
+
+.success-modal-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin: 0;
+}
+
+.success-modal-title i {
+    color: #00ff88;
+    margin-right: 10px;
+    animation: pulse-success 2s infinite;
+}
+
+.success-modal-body {
+    background: rgba(10, 14, 39, 0.98);
+    padding: 50px 40px !important;
+}
+
+.ticket-display-box {
+    background: rgba(27, 183, 255, 0.03);
+    border: 2px solid var(--accent-orange);
+    border-radius: 15px;
+    padding: 40px 35px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(27, 183, 255, 0.1);
+}
+
+.ticket-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem;
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.ticket-number-display {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    text-shadow: 0 0 25px rgba(255, 0, 55, 0.5), 0 0 50px rgba(255, 0, 55, 0.2);
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+.success-message-box {
+    margin: 35px 0 30px 0;
+}
+
+.success-text-main {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #00ff88;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+.success-text-email {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+.email-highlight {
+    color: var(--accent-orange);
+    font-weight: 700;
+}
+
+.alert-save-ticket {
+    background: rgba(255, 165, 0, 0.1);
+    border: 2px solid #ffa500;
+    border-radius: 10px;
+    padding: 16px 24px;
+    color: #ffa500;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.alert-save-ticket i {
+    color: #ffa500;
+    font-size: 1.2rem;
+}
+
+.success-modal-footer {
+    background: rgba(10, 14, 39, 0.95);
+    border-top: 2px solid var(--accent-orange);
+    padding: 25px 35px;
+    justify-content: center;
+}
+
+.btn-close-modal {
+    background: linear-gradient(135deg, #ff0037, #233886);
+    border: none;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 14px 50px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(255, 0, 55, 0.3);
+}
+
+.btn-close-modal:hover {
+    background: linear-gradient(135deg, #233886, #ff0037);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 0, 55, 0.5);
+}
+
+.btn-close-modal i {
+    margin-right: 10px;
+}
+
+/* ===================================
+   Payment Processing Overlay
+   =================================== */
+.payment-processing-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(10, 14, 39, 0.98), rgba(26, 31, 58, 0.98));
+    backdrop-filter: blur(20px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.payment-processing-content {
+    text-align: center;
+    max-width: 500px;
+    padding: 60px 40px;
+    background: rgba(10, 14, 39, 0.9);
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(255, 0, 55, 0.4);
+    position: relative;
+}
+
+.payment-processing-content::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-color), var(--primary-color), var(--accent-orange), var(--accent-color));
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(15px);
+    animation: rotate-gradient 4s linear infinite;
+}
+
+.payment-loader {
+    margin-bottom: 30px;
+}
+
+.payment-spinner {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border: 6px solid rgba(255, 255, 255, 0.1);
+    border-top: 6px solid var(--accent-color);
+    border-right: 6px solid var(--accent-orange);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.payment-processing-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(255, 0, 55, 0.6);
+}
+
+.payment-processing-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+}
+
+.payment-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.payment-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--accent-orange));
+    border-radius: 10px;
+    animation: progress-fill 3s ease-in-out infinite;
+}
+
+.payment-warning-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    color: var(--accent-orange);
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.payment-warning-text i {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+/* Animations */
+@keyframes pulse-success {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes glow-border {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-gradient {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes progress-fill {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 70%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .success-modal-title {
+        font-size: 1.2rem;
+    }
+    
+    .ticket-number-display {
+        font-size: 2.5rem;
+    }
+    
+    .payment-processing-content {
+        padding: 40px 25px;
+        max-width: 90%;
+    }
+    
+    .payment-processing-title {
+        font-size: 1.5rem;
+    }
+    
+    .payment-spinner {
+        width: 60px;
+        height: 60px;
+    }
 }
