@@ -2118,20 +2118,71 @@ section {
 /* Responsive Design */
 @media (max-width: 768px) {
     .form-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    
+    .form-subtitle {
+        font-size: 0.95rem;
     }
     
     .registration-form-container {
         padding: 30px 20px;
     }
     
+    .form-close-btn {
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .registration-form-section .form-label {
+        font-size: 0.9rem;
+    }
+    
+    .registration-form-section .form-control,
+    .registration-form-section .form-select {
+        font-size: 0.95rem;
+        padding: 10px 12px;
+    }
+    
+    .section-heading {
+        font-size: 1.2rem;
+    }
+    
     .btn-register-cybercon {
         padding: 15px 30px;
         font-size: 1rem;
+        letter-spacing: 1px;
     }
     
     .payment-section {
-        padding: 20px;
+        padding: 20px 15px;
+    }
+    
+    .alert-info {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-title {
+        font-size: 1.3rem;
+    }
+    
+    .registration-form-container {
+        padding: 25px 15px;
+    }
+    
+    .registration-form-section .form-control,
+    .registration-form-section .form-select {
+        font-size: 0.9rem;
+    }
+    
+    .btn-register-cybercon {
+        padding: 12px 25px;
+        font-size: 0.95rem;
     }
 }
 
