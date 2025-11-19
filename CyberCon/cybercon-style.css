@@ -751,6 +751,238 @@ section {
 }
 
 /* ===================================
+   About Section
+   =================================== */
+.about-section {
+    background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 50%, var(--darker-bg) 100%);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 0, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(27, 183, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.about-content {
+    position: relative;
+    z-index: 1;
+}
+
+.about-subtitle {
+    font-size: 2rem;
+    color: var(--accent-orange);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px rgba(27, 183, 255, 0.4);
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--gray-text);
+    margin-bottom: 1.5rem;
+}
+
+.about-text strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.about-main-image {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(27, 183, 255, 0.2);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.about-main-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6),
+                0 0 50px rgba(27, 183, 255, 0.3);
+}
+
+.about-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.expectation-card {
+    background: linear-gradient(135deg, rgba(35, 56, 134, 0.3), rgba(10, 14, 39, 0.5));
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.expectation-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-orange));
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.expectation-card:hover::before {
+    opacity: 0.3;
+}
+
+.expectation-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-orange);
+    box-shadow: 0 15px 40px rgba(27, 183, 255, 0.3);
+}
+
+.expectation-icon {
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.expectation-card:hover .expectation-icon {
+    color: var(--accent-orange);
+    transform: scale(1.1);
+}
+
+.expectation-card h4 {
+    font-size: 1.5rem;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+}
+
+.expectation-card p {
+    font-size: 1rem;
+    color: var(--gray-text);
+    line-height: 1.7;
+}
+
+.legacy-box {
+    background: linear-gradient(135deg, rgba(255, 0, 55, 0.1), rgba(35, 56, 134, 0.2));
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 20px 60px rgba(255, 0, 55, 0.2);
+}
+
+.legacy-box p {
+    font-size: 1.1rem;
+    color: var(--gray-text);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.legacy-box p:last-child {
+    margin-bottom: 0;
+}
+
+.about-cta {
+    background: linear-gradient(135deg, rgba(27, 183, 255, 0.1), rgba(35, 56, 134, 0.2));
+    border: 2px solid var(--accent-orange);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0 20px 60px rgba(27, 183, 255, 0.2);
+}
+
+.about-cta h3 {
+    color: var(--accent-orange);
+    margin-bottom: 1.5rem;
+}
+
+.about-cta p {
+    font-size: 1.1rem;
+    color: var(--gray-text);
+    line-height: 1.8;
+}
+
+.about-cta strong {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.cyber-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+    border: 3px solid var(--accent-color);
+    color: var(--light-text) !important;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 40px rgba(255, 0, 55, 0.4);
+}
+
+.cyber-btn:hover {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color)) !important;
+    border-color: var(--accent-orange);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 50px rgba(255, 0, 55, 0.6);
+}
+
+.cyber-btn i {
+    margin-right: 10px;
+}
+
+.organizer-info {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.organizer-info p {
+    color: var(--gray-text);
+    font-size: 1rem;
+}
+
+/* Responsive Design for About Section */
+@media (max-width: 768px) {
+    .about-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+    }
+    
+    .expectation-card {
+        padding: 2rem 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .legacy-box, .about-cta {
+        padding: 2rem 1.5rem;
+    }
+    
+    .cyber-btn {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+}
+
+/* ===================================
    News Section
    =================================== */
 .news-section {
@@ -1670,4 +1902,231 @@ section {
   50% { 
     border-color: #fff;
   }
+}
+
+/* ===================================
+   Enhanced Registration Form Theme
+   =================================== */
+.registration-form-section {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.registration-form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 0, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(35, 56, 134, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.registration-form-container {
+    background: linear-gradient(135deg, rgba(10, 14, 39, 0.95), rgba(26, 31, 58, 0.95));
+    backdrop-filter: blur(20px);
+    border: 2px solid;
+    border-image: linear-gradient(135deg, #ff0037, #233886, #00ffff) 1;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6), 
+                0 0 40px rgba(255, 0, 55, 0.2),
+                inset 0 0 30px rgba(255, 255, 255, 0.02);
+    padding: 50px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.form-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 0, 55, 0.2);
+    border: 2px solid #ff0037;
+    color: #ff0037;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.form-close-btn:hover {
+    background: #ff0037;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.form-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #00ffff;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+.form-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.registration-form-section .form-label {
+    color: #00ffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.registration-form-section .form-control,
+.registration-form-section .form-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.05rem;
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.registration-form-section .form-control:focus,
+.registration-form-section .form-select:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ff0037;
+    box-shadow: 0 0 20px rgba(255, 0, 55, 0.4);
+    color: #fff;
+    outline: none;
+}
+
+.registration-form-section .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.registration-form-section .form-control[readonly] {
+    background: rgba(0, 255, 255, 0.1);
+    border-color: rgba(0, 255, 255, 0.5);
+    cursor: not-allowed;
+}
+
+.payment-section {
+    background: linear-gradient(135deg, rgba(255, 0, 55, 0.08), rgba(35, 56, 134, 0.08));
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.section-heading {
+    color: #ff0037;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 0, 55, 0.5);
+}
+
+.registration-form-section .alert-info {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(35, 56, 134, 0.1));
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    font-family: 'Rajdhani', sans-serif;
+    border-radius: 10px;
+    padding: 15px 20px;
+}
+
+.btn-register-cybercon {
+    background: linear-gradient(135deg, #233886, #ff0037) !important;
+    border: 3px solid #ff0037;
+    color: #fff !important;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 18px 60px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 40px rgba(255, 0, 55, 0.4);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-register-cybercon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+.btn-register-cybercon:hover::before {
+    left: 100%;
+}
+
+.btn-register-cybercon:hover {
+    background: linear-gradient(135deg, #ff0037, #233886) !important;
+    border-color: #00ffff;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 50px rgba(255, 0, 55, 0.6);
+    color: #fff !important;
+}
+
+.btn-register-cybercon:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-register-cybercon i {
+    margin-right: 10px;
+}
+
+#form-alert-container .alert {
+    border-radius: 10px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-title {
+        font-size: 1.8rem;
+    }
+    
+    .registration-form-container {
+        padding: 30px 20px;
+    }
+    
+    .btn-register-cybercon {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+    
+    .payment-section {
+        padding: 20px;
+    }
 }
