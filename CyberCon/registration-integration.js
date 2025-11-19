@@ -33,9 +33,13 @@ function hideRegistrationForm() {
     }
 }
 
-// Generate random 4-digit ticket ID
+// Generate unique ticket ID with timestamp to avoid conflicts
 function generateTicketId() {
-    return Math.floor(1000 + Math.random() * 9000).toString();
+    const timestamp = Date.now();
+    const random = Math.floor(Math.random() * 1000);
+    // Use last 4 digits of timestamp + 3 random digits, then take last 4 digits
+    const combined = (timestamp + random).toString();
+    return combined.slice(-4);
 }
 
 // Validate email domain
