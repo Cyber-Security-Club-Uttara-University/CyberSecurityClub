@@ -52,7 +52,7 @@
                         <a class="nav-link" href="#contact">CONTACT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn-register" href="#register">REGISTER NOW</a>
+                        <a class="nav-link btn-register" href="javascript:void(0);" onclick="showRegistrationForm()">REGISTER NOW</a>
                     </li>
                 </ul>
             </div>
@@ -857,7 +857,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label">Varsity Email *</label>
                                     <input type="email" class="form-control" id="email" name="email" required
-                                           placeholder="yourname@uttara.ac.bd" 
+                                           placeholder="varsity mail" 
                                            pattern="[a-zA-Z0-9._%+-]+@(uttara\.ac\.bd|uttarauniversity\.edu\.bd)$"
                                            title="Must be a valid @uttara.ac.bd or @uttarauniversity.edu.bd email"
                                            oninput="validateEmailDomain(this)">
