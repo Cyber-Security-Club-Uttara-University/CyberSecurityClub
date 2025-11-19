@@ -853,7 +853,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label">Varsity Email *</label>
                                     <input type="email" class="form-control" id="email" name="email" required
@@ -934,17 +934,18 @@
                                     <i class="fas fa-rocket"></i> REGISTER NOW
                                 </button>
                             </div>
-
-                            <div class="loading-overlay-form" id="loadingOverlayForm" style="display: none;">
-                                <div class="spinner-border text-primary" role="status"></div>
-                                <p class="mt-3">Processing your registration...</p>
-                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Loading Overlay (Full Screen) -->
+    <div class="loading-overlay-form" id="loadingOverlayForm" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(10, 14, 39, 0.85); z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center;">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p class="mt-3" style="color: white;">Processing your registration...</p>
+    </div>
 
     <!-- Success Modal -->
     <div class="modal fade" id="successModal" tabindex="-1">
@@ -976,23 +977,6 @@
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Payment Processing Overlay -->
-    <div id="paymentProcessingOverlay" class="payment-processing-overlay" style="display: none;">
-        <div class="payment-processing-content">
-            <div class="payment-loader">
-                <div class="payment-spinner"></div>
-            </div>
-            <h3 class="payment-processing-title">Processing Payment</h3>
-            <p class="payment-processing-text">Please wait while we verify your transaction...</p>
-            <div class="payment-progress-bar">
-                <div class="payment-progress-fill"></div>
-            </div>
-            <p class="payment-warning-text">
-                <i class="fas fa-exclamation-circle"></i> Do not close or refresh this page
-            </p>
         </div>
     </div>
 
