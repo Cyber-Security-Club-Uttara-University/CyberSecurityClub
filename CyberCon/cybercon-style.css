@@ -2499,6 +2499,74 @@ section {
     }
 }
 
+/* Floating Register Button */
+.floating-register-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: 2px solid var(--accent-color);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 0, 55, 0.4), 0 0 30px rgba(255, 0, 55, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: float-pulse 2s ease-in-out infinite;
+}
+
+.floating-register-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(255, 0, 55, 0.6), 0 0 40px rgba(255, 0, 55, 0.4);
+    border-color: var(--accent-orange);
+}
+
+.floating-register-btn i {
+    font-size: 1.2rem;
+}
+
+@keyframes float-pulse {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mobile responsive for floating button */
+@media (max-width: 768px) {
+    .floating-register-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .floating-register-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+    
+    .floating-register-btn i {
+        font-size: 1rem;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .success-modal-title {
