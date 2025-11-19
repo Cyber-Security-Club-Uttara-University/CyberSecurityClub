@@ -2140,24 +2140,28 @@ section {
    =================================== */
 .success-modal-content {
     background: linear-gradient(135deg, #0a0e27, #1a1f3a);
-    border: 2px solid var(--accent-color);
-    border-radius: 15px;
-    box-shadow: 0 20px 60px rgba(255, 0, 55, 0.4);
+    border: 2px solid #ff0037;
+    border-radius: 20px;
+    box-shadow: 0 25px 70px rgba(255, 0, 55, 0.3), 0 0 50px rgba(255, 0, 55, 0.1);
+    overflow: hidden;
 }
 
 .success-modal-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    border-bottom: 2px solid var(--accent-color);
-    padding: 20px 30px;
+    background: linear-gradient(135deg, #233886, #b31d4a);
+    border-bottom: none;
+    padding: 25px 35px;
+    position: relative;
+    border-radius: 20px 20px 0 0;
 }
 
 .success-modal-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 900;
     color: #fff;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
+    margin: 0;
 }
 
 .success-modal-title i {
@@ -2167,68 +2171,58 @@ section {
 }
 
 .success-modal-body {
-    background: rgba(10, 14, 39, 0.95);
-    padding: 40px 30px !important;
+    background: rgba(10, 14, 39, 0.98);
+    padding: 50px 40px !important;
 }
 
 .ticket-display-box {
-    background: linear-gradient(135deg, rgba(255, 0, 55, 0.1), rgba(35, 56, 134, 0.1));
-    border: 2px solid var(--accent-color);
+    background: rgba(27, 183, 255, 0.03);
+    border: 2px solid var(--accent-orange);
     border-radius: 15px;
-    padding: 30px;
+    padding: 40px 35px;
     position: relative;
-    overflow: hidden;
-}
-
-.ticket-display-box::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, var(--accent-color), var(--primary-color), var(--accent-orange));
-    border-radius: 15px;
-    z-index: -1;
-    opacity: 0.3;
-    filter: blur(10px);
-    animation: glow-border 3s infinite;
+    box-shadow: 0 4px 20px rgba(27, 183, 255, 0.1);
 }
 
 .ticket-label {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--accent-orange);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     font-weight: 700;
+    margin-bottom: 15px;
 }
 
 .ticket-number-display {
     font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
     color: var(--accent-color);
-    text-shadow: 0 0 20px rgba(255, 0, 55, 0.6);
-    letter-spacing: 3px;
+    text-shadow: 0 0 25px rgba(255, 0, 55, 0.5), 0 0 50px rgba(255, 0, 55, 0.2);
+    letter-spacing: 4px;
+    margin: 0;
 }
 
 .success-message-box {
-    margin: 30px 0;
+    margin: 35px 0 30px 0;
 }
 
 .success-text-main {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    color: #fff;
+    color: #00ff88;
     margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
 }
 
 .success-text-email {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
 }
 
 .email-highlight {
@@ -2237,49 +2231,55 @@ section {
 }
 
 .alert-save-ticket {
-    background: rgba(255, 0, 55, 0.1);
-    border: 1px solid var(--accent-color);
+    background: rgba(255, 165, 0, 0.1);
+    border: 2px solid #ffa500;
     border-radius: 10px;
-    padding: 15px 20px;
-    color: var(--accent-color);
+    padding: 16px 24px;
+    color: #ffa500;
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .alert-save-ticket i {
-    color: #ff0037;
-    margin-right: 8px;
+    color: #ffa500;
+    font-size: 1.2rem;
 }
 
 .success-modal-footer {
     background: rgba(10, 14, 39, 0.95);
-    border-top: 2px solid var(--accent-color);
-    padding: 20px 30px;
+    border-top: 2px solid var(--accent-orange);
+    padding: 25px 35px;
     justify-content: center;
 }
 
 .btn-close-modal {
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-    border: 2px solid var(--accent-color);
+    background: linear-gradient(135deg, #ff0037, #233886);
+    border: none;
     color: #fff;
     font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
     font-weight: 700;
-    padding: 12px 40px;
+    padding: 14px 50px;
     border-radius: 50px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(255, 0, 55, 0.3);
 }
 
 .btn-close-modal:hover {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(135deg, #233886, #ff0037);
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255, 0, 55, 0.4);
+    box-shadow: 0 8px 30px rgba(255, 0, 55, 0.5);
 }
 
 .btn-close-modal i {
-    margin-right: 8px;
+    margin-right: 10px;
 }
 
 /* ===================================
