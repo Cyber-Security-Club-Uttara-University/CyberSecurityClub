@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - CyberCon25 | Cyber Security Club - Uttara University</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="cybercon-style.css">
+    
+    <style>
+        .terms-hero {
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--primary-dark) 100%);
+            padding: 150px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terms-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 0, 55, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(27, 183, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .terms-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-color);
+            text-shadow: 0 0 30px rgba(255, 0, 55, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        .terms-hero p {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+        }
+
+        .terms-content {
+            background: var(--dark-bg);
+            padding: 80px 0;
+        }
+
+        .terms-section {
+            background: rgba(35, 56, 134, 0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .terms-section:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .terms-section h2 {
+            font-size: 2rem;
+            color: var(--accent-orange);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .terms-section h3 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .terms-section p {
+            color: var(--gray-text);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .terms-section ul, .terms-section ol {
+            color: var(--gray-text);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .terms-section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .terms-section strong {
+            color: var(--light-text);
+        }
+
+        .highlight-box {
+            background: rgba(255, 0, 55, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--light-text);
+        }
+
+        .info-box {
+            background: rgba(27, 183, 255, 0.1);
+            border-left: 4px solid var(--accent-orange);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: var(--light-text);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-orange));
+            color: var(--light-text);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 0, 55, 0.4);
+            color: var(--light-text);
+        }
+
+        .last-updated {
+            text-align: center;
+            color: var(--gray-text);
+            font-style: italic;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .terms-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .terms-section {
+                padding: 1.5rem;
+            }
+
+            .terms-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="CyberCon.html">
+                <img src="Assets/images/logo/CyberCon.png" alt="CyberCon 2025" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="CyberCon.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="CyberCon.html#about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="CyberCon.html#speakers">SPEAKERS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="CyberCon.html#contact">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="terms-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h1>Terms & Conditions</h1>
+                    <p>Please read these terms carefully before registering for CyberCon25</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="terms-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    
+                    <!-- Introduction -->
+                    <div class="terms-section">
+                        <h2>1. Introduction</h2>
+                        <p>Welcome to CyberCon25, organized by the Cyber Security Club at Uttara University. By registering for and attending CyberCon25, you agree to comply with and be bound by the following terms and conditions.</p>
+                        <div class="info-box">
+                            <p><strong><i class="fas fa-info-circle"></i> Important:</strong> These terms constitute a legally binding agreement between you and the Cyber Security Club - Uttara University.</p>
+                        </div>
+                    </div>
+
+                    <!-- Registration & Payment -->
+                    <div class="terms-section">
+                        <h2>2. Registration & Payment</h2>
+                        
+                        <h3>2.1 Registration Requirements</h3>
+                        <ul>
+                            <li>All participants must register using their valid Uttara University email address (@uttara.ac.bd or @uttarauniversity.edu.bd)</li>
+                            <li>Accurate personal information must be provided during registration</li>
+                            <li>Each student is permitted only one registration per academic ID</li>
+                            <li>Registration is non-transferable between individuals</li>
+                        </ul>
+
+                        <h3>2.2 Payment Terms</h3>
+                        <ul>
+                            <li>Registration fee: 200 BDT (Bangladeshi Taka) for student pass</li>
+                            <li>Payment must be completed via bKash, Rocket, or Nagad to the designated number: 01919399235</li>
+                            <li>Valid transaction ID must be provided during registration</li>
+                            <li>Pre-booked participants are exempt from payment</li>
+                            <li>All payments are subject to verification by the organizing committee</li>
+                        </ul>
+
+                        <h3>2.3 Refund Policy</h3>
+                        <div class="highlight-box">
+                            <p><strong><i class="fas fa-exclamation-triangle"></i> No Refund Policy:</strong> All registration fees are non-refundable once payment is confirmed. This includes cases of cancellation, no-show, or withdrawal for any reason.</p>
+                        </div>
+                    </div>
+
+                    <!-- Event Access & Participation -->
+                    <div class="terms-section">
+                        <h2>3. Event Access & Participation</h2>
+                        
+                        <h3>3.1 Entry Requirements</h3>
+                        <ul>
+                            <li>Valid ticket ID and student identification must be presented at the venue</li>
+                            <li>Entry is granted on a first-come, first-served basis within capacity limits</li>
+                            <li>Late arrivals may not be guaranteed entry if capacity is reached</li>
+                            <li>Re-entry policies will be determined by venue management on event day</li>
+                        </ul>
+
+                        <h3>3.2 Included Benefits</h3>
+                        <p>Your student pass includes:</p>
+                        <ul>
+                            <li>Access to all keynote talks and speaker sessions</li>
+                            <li>Participation in CTF (Capture The Flag) competitions</li>
+                            <li>Entry to interactive villages and workshops</li>
+                            <li>Breakfast and lunch on event day</li>
+                            <li>Official CyberCon25 swag</li>
+                            <li>Workshop materials and resources</li>
+                            <li>Certificate of participation</li>
+                            <li>Networking opportunities with industry professionals</li>
+                        </ul>
+                    </div>
+
+                    <!-- Code of Conduct -->
+                    <div class="terms-section" id="code-of-conduct">
+                        <h2>4. Code of Conduct</h2>
+                        
+                        <h3>4.1 Expected Behavior</h3>
+                        <p>All participants are expected to:</p>
+                        <ul>
+                            <li>Treat all attendees, speakers, sponsors, and staff with respect and courtesy</li>
+                            <li>Engage professionally and constructively in all sessions and activities</li>
+                            <li>Respect intellectual property and confidentiality</li>
+                            <li>Follow all instructions from event organizers and security personnel</li>
+                            <li>Maintain the integrity of the event venue and equipment</li>
+                        </ul>
+
+                        <h3>4.2 Prohibited Conduct</h3>
+                        <div class="highlight-box">
+                            <p><strong>The following behaviors are strictly prohibited:</strong></p>
+                        </div>
+                        <ul>
+                            <li>Harassment, discrimination, or intimidation of any kind</li>
+                            <li>Unauthorized recording or photography during restricted sessions</li>
+                            <li>Malicious hacking or unauthorized access to event systems</li>
+                            <li>Possession or consumption of alcohol or illegal substances</li>
+                            <li>Disruptive behavior during presentations or workshops</li>
+                            <li>Unauthorized commercial activities or solicitation</li>
+                            <li>Theft, vandalism, or damage to property</li>
+                        </ul>
+
+                        <h3>4.3 Consequences</h3>
+                        <p>Violation of the code of conduct may result in:</p>
+                        <ul>
+                            <li>Warning from event organizers</li>
+                            <li>Immediate expulsion from the event without refund</li>
+                            <li>Ban from future Cyber Security Club events</li>
+                            <li>Reporting to university authorities</li>
+                            <li>Legal action if applicable</li>
+                        </ul>
+                    </div>
+
+                    <!-- Health & Safety -->
+                    <div class="terms-section">
+                        <h2>5. Health & Safety</h2>
+                        
+                        <h3>5.1 Participant Responsibility</h3>
+                        <ul>
+                            <li>Participants attend the event at their own risk</li>
+                            <li>Any health conditions or dietary restrictions should be communicated during registration</li>
+                            <li>Follow all health and safety protocols established by the venue and organizing committee</li>
+                            <li>Report any safety concerns immediately to event staff</li>
+                        </ul>
+
+                        <h3>5.2 Emergency Procedures</h3>
+                        <ul>
+                            <li>Emergency exits and procedures will be announced at the start of the event</li>
+                            <li>First aid will be available on-site</li>
+                            <li>Follow all instructions from event staff during emergencies</li>
+                        </ul>
+                    </div>
+
+                    <!-- Intellectual Property -->
+                    <div class="terms-section">
+                        <h2>6. Intellectual Property & Media</h2>
+                        
+                        <h3>6.1 Photography & Recording</h3>
+                        <ul>
+                            <li>Official event photography and videography will be conducted throughout the event</li>
+                            <li>By attending, you consent to be photographed and filmed for promotional purposes</li>
+                            <li>Personal recording is permitted in designated areas only</li>
+                            <li>Speaker presentations may not be recorded without explicit permission</li>
+                        </ul>
+
+                        <h3>6.2 Content Usage</h3>
+                        <ul>
+                            <li>Event materials, presentations, and resources are for personal use only</li>
+                            <li>Unauthorized distribution or commercial use is prohibited</li>
+                            <li>Respect copyright and intellectual property of all speakers and sponsors</li>
+                        </ul>
+                    </div>
+
+                    <!-- CTF Competition -->
+                    <div class="terms-section">
+                        <h2>7. CTF Competition Rules</h2>
+                        
+                        <h3>7.1 Competition Conduct</h3>
+                        <ul>
+                            <li>All CTF participants must compete fairly and ethically</li>
+                            <li>Sharing answers or flags is strictly prohibited</li>
+                            <li>Attacking competition infrastructure or other teams is forbidden</li>
+                            <li>Use only authorized tools and methods</li>
+                        </ul>
+
+                        <h3>7.2 Prizes & Awards</h3>
+                        <ul>
+                            <li>Prizes will be awarded to top performers as announced by organizers</li>
+                            <li>Prize distribution is at the sole discretion of the organizing committee</li>
+                            <li>Winners may be required to provide identification for verification</li>
+                        </ul>
+                    </div>
+
+                    <!-- Liability & Disclaimers -->
+                    <div class="terms-section">
+                        <h2>8. Liability & Disclaimers</h2>
+                        
+                        <h3>8.1 Limitation of Liability</h3>
+                        <div class="highlight-box">
+                            <p><strong>Important:</strong> The Cyber Security Club - Uttara University, its organizers, volunteers, sponsors, and partners shall not be liable for:</p>
+                        </div>
+                        <ul>
+                            <li>Personal injury, illness, or property damage incurred during the event</li>
+                            <li>Loss or theft of personal belongings</li>
+                            <li>Technical difficulties or service interruptions</li>
+                            <li>Changes to event schedule or content</li>
+                            <li>Actions or conduct of other participants</li>
+                        </ul>
+
+                        <h3>8.2 Force Majeure</h3>
+                        <p>The organizers reserve the right to cancel, postpone, or modify the event due to circumstances beyond their control, including but not limited to:</p>
+                        <ul>
+                            <li>Natural disasters or severe weather</li>
+                            <li>Public health emergencies</li>
+                            <li>Government orders or restrictions</li>
+                            <li>Venue unavailability</li>
+                            <li>Security threats</li>
+                        </ul>
+                        <p>In such cases, registration fees will not be refunded, but alternative arrangements may be offered at the organizers' discretion.</p>
+                    </div>
+
+                    <!-- Data Privacy -->
+                    <div class="terms-section" id="data-privacy">
+                        <h2>9. Data Privacy</h2>
+                        
+                        <h3>9.1 Information Collection</h3>
+                        <p>We collect personal information including:</p>
+                        <ul>
+                            <li>Name, student ID, and contact details</li>
+                            <li>University affiliation and academic information</li>
+                            <li>Payment information and transaction records</li>
+                            <li>Dietary restrictions and special requirements</li>
+                        </ul>
+
+                        <h3>9.2 Information Use</h3>
+                        <ul>
+                            <li>Registration and event management</li>
+                            <li>Communication regarding event updates</li>
+                            <li>Certificate generation and distribution</li>
+                            <li>Statistical analysis and reporting</li>
+                            <li>Future event promotions (with consent)</li>
+                        </ul>
+
+                        <h3>9.3 Data Protection</h3>
+                        <ul>
+                            <li>Personal information will be stored securely and handled confidentially</li>
+                            <li>Data will not be shared with third parties without consent</li>
+                            <li>Participants may request data deletion after the event</li>
+                        </ul>
+                    </div>
+
+                    <!-- Changes & Updates -->
+                    <div class="terms-section">
+                        <h2>10. Changes & Updates</h2>
+                        <ul>
+                            <li>The organizing committee reserves the right to modify these terms at any time</li>
+                            <li>Changes will be communicated via email and website announcements</li>
+                            <li>Continued participation after notification of changes constitutes acceptance</li>
+                            <li>Event schedule, speakers, and activities are subject to change without notice</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="terms-section">
+                        <h2>11. Contact Information</h2>
+                        <p>For questions or concerns regarding these terms and conditions, please contact:</p>
+                        <div class="info-box">
+                            <p><strong>Cyber Security Club - Uttara University</strong><br>
+                            Email: cybersecurity@club.uttara.ac.bd<br>
+                            Phone: +880 1919399235<br>
+                            Pranto Kumar Shil - Organizing Secretary</p>
+                        </div>
+                    </div>
+
+                    <!-- Agreement -->
+                    <div class="terms-section">
+                        <h2>12. Agreement</h2>
+                        <div class="highlight-box">
+                            <p><strong>By registering for CyberCon25, you acknowledge that you have read, understood, and agree to be bound by these terms and conditions.</strong></p>
+                        </div>
+                        <p>This agreement is effective as of your registration date and remains in effect through the conclusion of the event and any post-event activities.</p>
+                    </div>
+
+                    <!-- Back Button -->
+                    <div class="text-center">
+                        <a href="CyberCon.html" class="back-btn">
+                            <i class="fas fa-arrow-left"></i> Back to CyberCon25 Home
+                        </a>
+                    </div>
+
+                    <!-- Last Updated -->
+                    <div class="last-updated">
+                        <p>Last Updated: November 17, 2025</p>
+                        <p>© 2025 Cyber Security Club - Uttara University. All rights reserved.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <img src="Assets/images/logo/CyberCon.png" alt="CyberCon Logo" class="footer-logo mb-3">
+                    <p>The premier cybersecurity conference bringing together industry leaders, researchers, and enthusiasts.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="CyberCon.html">Home</a></li>
+                        <li><a href="CyberCon.html#about">About</a></li>
+                        <li><a href="CyberCon.html#speakers">Speakers</a></li>
+                        <li><a href="CyberCon.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Code of Conduct</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>Connect</h5>
+                    <div class="social-links mt-3">
+                        <a href="https://facebook.com/csc.uu.bd" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/cscuu/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Cyber-Security-Club-Uttara-University" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://discord.gg/N83SjBHjzG" target="_blank"><i class="fab fa-discord"></i></a>
+                        <a href="mailto:cybersecurity@club.uttara.ac.bd"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="copyright">
+                        © 2025 CyberCon Conference. All rights reserved. | Organized by Cyber Security Club - Uttara University
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="cybercon-script.js"></script>
+</body>
+</html>
