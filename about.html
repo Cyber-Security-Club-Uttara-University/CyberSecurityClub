@@ -334,7 +334,7 @@
               }
             }
             
-            @media (max-width: 480px) {
+              @media (max-width: 480px) {
               .year-selector {
                 gap: 4px;
                 padding: 5px;
@@ -345,9 +345,267 @@
                 font-size: 0.85rem;
               }
             }
-          </style>
 
-          <script>
+            /* Member Avatar Click Effect */
+            .member_avatar-container {
+              position: relative;
+              transition: all 0.3s ease;
+            }
+            
+            .member_avatar-container:hover {
+              transform: scale(1.05);
+              box-shadow: 0 5px 20px rgba(0, 0, 255, 0.3);
+            }
+            
+            .member_avatar-container:active {
+              transform: scale(0.98);
+            }
+            
+            /* Copy Notification Styles */
+            .copy-notification {
+              position: fixed;
+              top: 20px;
+              right: 20px;
+              background: linear-gradient(135deg, #00AA00, #00DD00);
+              color: white;
+              padding: 15px 25px;
+              border-radius: 12px;
+              box-shadow: 0 10px 30px rgba(0, 170, 0, 0.4);
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              font-family: "JetBrains Mono", Monospace, Sans-Serif;
+              font-weight: 600;
+              font-size: 0.95rem;
+              z-index: 10001;
+              opacity: 0;
+              transform: translateX(400px);
+              transition: all 0.3s ease;
+            }
+            
+            .copy-notification.show {
+              opacity: 1;
+              transform: translateX(0);
+            }
+            
+            .copy-notification i {
+              font-size: 1.5rem;
+            }
+            
+            @media (max-width: 600px) {
+              .copy-notification {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                padding: 12px 15px;
+                font-size: 0.85rem;
+              }
+            }
+
+            /* Share Modal Styles */
+            .share-modal {
+              display: none;
+              position: fixed;
+              z-index: 10000;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0.7);
+              backdrop-filter: blur(5px);
+              animation: fadeIn 0.3s ease;
+            }
+
+            .share-modal-content {
+              background: var(--header-color);
+              margin: 10% auto;
+              padding: 30px;
+              border: 1px solid rgba(0, 0, 255, 0.3);
+              border-radius: 16px;
+              width: 90%;
+              max-width: 500px;
+              box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+              animation: slideIn 0.3s ease;
+            }
+
+            .share-modal-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 20px;
+              padding-bottom: 15px;
+              border-bottom: 1px solid rgba(0, 0, 255, 0.2);
+            }
+
+            .share-modal-header h2 {
+              margin: 0;
+              color: var(--text-color);
+              font-size: 1.5rem;
+              font-family: "JetBrains Mono", Monospace, Sans-Serif;
+            }
+
+            .share-close {
+              color: var(--light-text-color);
+              font-size: 28px;
+              font-weight: bold;
+              cursor: pointer;
+              border: none;
+              background: transparent;
+              transition: all 0.3s ease;
+              width: 35px;
+              height: 35px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 8px;
+            }
+
+            .share-close:hover {
+              color: var(--text-color);
+              background: rgba(0, 0, 255, 0.1);
+              transform: rotate(90deg);
+            }
+
+            .share-profile-info {
+              text-align: center;
+              margin-bottom: 25px;
+            }
+
+            .share-profile-info h3 {
+              margin: 10px 0 5px;
+              color: var(--text-color);
+              font-size: 1.3rem;
+            }
+
+            .share-profile-info p {
+              margin: 5px 0;
+              color: var(--light-text-color);
+              font-size: 0.95rem;
+            }
+
+            .share-options {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+              gap: 15px;
+              margin-bottom: 20px;
+            }
+
+            .share-option-btn {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              padding: 15px 10px;
+              background: rgba(0, 0, 255, 0.05);
+              border: 1px solid rgba(0, 0, 255, 0.2);
+              border-radius: 12px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              text-decoration: none;
+              color: var(--text-color);
+            }
+
+            .share-option-btn:hover {
+              background: rgba(0, 0, 255, 0.15);
+              border-color: var(--link-color);
+              transform: translateY(-3px);
+              box-shadow: 0 5px 15px rgba(0, 0, 255, 0.2);
+            }
+
+            .share-option-btn i {
+              font-size: 2rem;
+              margin-bottom: 8px;
+            }
+
+            .share-option-btn span {
+              font-size: 0.85rem;
+              font-family: "JetBrains Mono", Monospace, Sans-Serif;
+            }
+
+            .share-url-container {
+              margin-top: 20px;
+              padding: 15px;
+              background: rgba(0, 0, 255, 0.05);
+              border: 1px solid rgba(0, 0, 255, 0.2);
+              border-radius: 10px;
+            }
+
+            .share-url-label {
+              font-size: 0.9rem;
+              color: var(--light-text-color);
+              margin-bottom: 8px;
+              display: block;
+            }
+
+            .share-url-input-group {
+              display: flex;
+              gap: 10px;
+            }
+
+            .share-url-input {
+              flex: 1;
+              padding: 10px;
+              background: var(--background-color);
+              border: 1px solid rgba(0, 0, 255, 0.2);
+              border-radius: 8px;
+              color: var(--text-color);
+              font-family: "JetBrains Mono", Monospace, Sans-Serif;
+              font-size: 0.9rem;
+            }
+
+            .copy-url-btn {
+              padding: 10px 20px;
+              background: var(--link-color);
+              color: white;
+              border: none;
+              border-radius: 8px;
+              cursor: pointer;
+              font-family: "JetBrains Mono", Monospace, Sans-Serif;
+              font-weight: 600;
+              transition: all 0.3s ease;
+            }
+
+            .copy-url-btn:hover {
+              background: #0000CC;
+              transform: scale(1.05);
+            }
+
+            .copy-url-btn.copied {
+              background: #00AA00;
+            }
+
+            @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+
+            @keyframes slideIn {
+              from {
+                transform: translateY(-50px);
+                opacity: 0;
+              }
+              to {
+                transform: translateY(0);
+                opacity: 1;
+              }
+            }
+
+            @media (max-width: 600px) {
+              .share-modal-content {
+                margin: 20% auto;
+                padding: 20px;
+                width: 95%;
+              }
+
+              .share-options {
+                grid-template-columns: repeat(2, 1fr);
+              }
+
+              .share-url-input-group {
+                flex-direction: column;
+              }
+            }
+          </style>          <script>
             document.addEventListener('DOMContentLoaded', function() {
               const yearBtns = document.querySelectorAll('.year-btn');
               const yearSections = document.querySelectorAll('.year-section');
@@ -1064,9 +1322,233 @@
   </div>
 </div>
     </footer>
+    <!-- Share Modal -->
+    <div id="shareModal" class="share-modal">
+      <div class="share-modal-content">
+        <div class="share-modal-header">
+          <h2>Share Profile</h2>
+          <button class="share-close" onclick="closeShareModal()">&times;</button>
+        </div>
+        <div class="share-profile-info" id="shareProfileInfo">
+        </div>
+        <div class="share-options">
+          <a href="#" class="share-option-btn" id="shareWhatsApp" target="_blank">
+            <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i>
+            <span>WhatsApp</span>
+          </a>
+          <a href="#" class="share-option-btn" id="shareFacebook" target="_blank">
+            <i class="fa-brands fa-facebook" style="color: #1877F2;"></i>
+            <span>Facebook</span>
+          </a>
+          <a href="#" class="share-option-btn" id="shareLinkedIn" target="_blank">
+            <i class="fa-brands fa-linkedin" style="color: #0A66C2;"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="#" class="share-option-btn" id="shareTwitter" target="_blank">
+            <i class="fa-brands fa-twitter" style="color: #1DA1F2;"></i>
+            <span>Twitter</span>
+          </a>
+        </div>
+        <div class="share-url-container">
+          <label class="share-url-label">Or copy link:</label>
+          <div class="share-url-input-group">
+            <input type="text" class="share-url-input" id="shareUrlInput" readonly>
+            <button class="copy-url-btn" onclick="copyShareUrl()">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="assets/js/index.js"></script>
     <script src="assets/js/git-cont.js"></script>
+    <script>
+      // Copy Profile Link Functionality
+      function copyProfileLink(name, position, year, imageUrl) {
+        // Create shareable URL with all profile data
+        const baseUrl = window.location.origin + window.location.pathname;
+        const shareUrl = `${baseUrl}?member=${encodeURIComponent(name)}&position=${encodeURIComponent(position)}&year=${encodeURIComponent(year)}&image=${encodeURIComponent(imageUrl)}`;
+        
+        // Copy to clipboard
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          // Show notification
+          showCopyNotification(name);
+        }).catch(err => {
+          console.error('Failed to copy:', err);
+          alert('Link copied to clipboard!\n\n' + shareUrl);
+        });
+      }
+      
+      // Show copy notification
+      function showCopyNotification(name) {
+        // Remove existing notification if any
+        const existing = document.querySelector('.copy-notification');
+        if (existing) existing.remove();
+        
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = 'copy-notification';
+        notification.innerHTML = `
+          <i class="fa-solid fa-check-circle"></i>
+          <span>Profile link copied for ${name}!</span>
+        `;
+        document.body.appendChild(notification);
+        
+        // Show notification
+        setTimeout(() => notification.classList.add('show'), 10);
+        
+        // Hide and remove notification
+        setTimeout(() => {
+          notification.classList.remove('show');
+          setTimeout(() => notification.remove(), 300);
+        }, 3000);
+      }
+      
+      // Profile Share Functionality (for modal - kept for compatibility)
+      function shareProfile(button) {
+        const name = button.getAttribute('data-name');
+        const position = button.getAttribute('data-position');
+        const year = button.getAttribute('data-year');
+        const image = button.getAttribute('data-image');
+        
+        // Create shareable URL with query parameters
+        const baseUrl = window.location.origin + window.location.pathname;
+        const shareUrl = `${baseUrl}?member=${encodeURIComponent(name)}&position=${encodeURIComponent(position)}&year=${encodeURIComponent(year)}`;
+        
+        // Update modal content
+        document.getElementById('shareProfileInfo').innerHTML = `
+          <h3>${name}</h3>
+          <p><strong>${position}</strong></p>
+          <p>Executive Committee ${year}</p>
+        `;
+        
+        // Update share URL input
+        document.getElementById('shareUrlInput').value = shareUrl;
+        
+        // Create share message
+        const shareMessage = `Check out ${name}, ${position} of Cyber Security Club, Uttara University (${year})`;
+        
+        // Update social share links
+        document.getElementById('shareWhatsApp').href = `https://wa.me/?text=${encodeURIComponent(shareMessage + ' ' + shareUrl)}`;
+        document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+        document.getElementById('shareLinkedIn').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+        document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareMessage)}&url=${encodeURIComponent(shareUrl)}`;
+        
+        // Show modal
+        document.getElementById('shareModal').style.display = 'block';
+      }
+      
+      function closeShareModal() {
+        document.getElementById('shareModal').style.display = 'none';
+        // Reset copy button text
+        const copyBtn = document.querySelector('.copy-url-btn');
+        copyBtn.textContent = 'Copy';
+        copyBtn.classList.remove('copied');
+      }
+      
+      function copyShareUrl() {
+        const input = document.getElementById('shareUrlInput');
+        input.select();
+        input.setSelectionRange(0, 99999); // For mobile devices
+        
+        navigator.clipboard.writeText(input.value).then(() => {
+          const copyBtn = document.querySelector('.copy-url-btn');
+          copyBtn.textContent = 'Copied!';
+          copyBtn.classList.add('copied');
+          
+          setTimeout(() => {
+            copyBtn.textContent = 'Copy';
+            copyBtn.classList.remove('copied');
+          }, 2000);
+        });
+      }
+      
+      // Close modal when clicking outside
+      window.onclick = function(event) {
+        const modal = document.getElementById('shareModal');
+        if (event.target === modal) {
+          closeShareModal();
+        }
+      }
+      
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          closeShareModal();
+        }
+      });
+      
+      // Check URL parameters and update Open Graph meta tags for shared profiles
+      (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const memberName = urlParams.get('member');
+        const position = urlParams.get('position');
+        const year = urlParams.get('year');
+        const imageUrl = urlParams.get('image');
+        
+        if (memberName && position) {
+          // Update page title
+          document.title = `${memberName} - ${position} | Cyber Security Club`;
+          
+          // Update or create Open Graph meta tags
+          const ogTitle = document.querySelector('meta[property="og:title"]');
+          if (ogTitle) {
+            ogTitle.setAttribute('content', `${memberName} - ${position}`);
+          }
+          
+          const ogDescription = document.querySelector('meta[property="og:description"]');
+          if (ogDescription) {
+            ogDescription.setAttribute('content', `${memberName}, ${position} of Cyber Security Club, Uttara University (${year || '2025-2026'})`);
+          }
+          
+          if (imageUrl) {
+            // Update og:image
+            let ogImage = document.querySelector('meta[property="og:image"]');
+            if (ogImage) {
+              ogImage.setAttribute('content', imageUrl);
+            } else {
+              ogImage = document.createElement('meta');
+              ogImage.setAttribute('property', 'og:image');
+              ogImage.setAttribute('content', imageUrl);
+              document.head.appendChild(ogImage);
+            }
+            
+            // Update twitter:image
+            let twitterImage = document.querySelector('meta[name="twitter:image"]');
+            if (twitterImage) {
+              twitterImage.setAttribute('content', imageUrl);
+            } else {
+              twitterImage = document.createElement('meta');
+              twitterImage.setAttribute('name', 'twitter:image');
+              twitterImage.setAttribute('content', imageUrl);
+              document.head.appendChild(twitterImage);
+            }
+          }
+          
+          // Scroll to the member's profile if on the page
+          setTimeout(() => {
+            const memberContainers = document.querySelectorAll('.member_container');
+            memberContainers.forEach(container => {
+              const titleElement = container.querySelector('.member_title');
+              if (titleElement && titleElement.textContent.trim().replace(/\s+/g, ' ') === memberName) {
+                container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                container.style.animation = 'highlight 2s ease';
+              }
+            });
+          }, 500);
+        }
+      })();
+      
+      // Add highlight animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes highlight {
+          0%, 100% { transform: scale(1); box-shadow: none; }
+          50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 0, 255, 0.5); }
+        }
+      `;
+      document.head.appendChild(style);
+    </script>
     <script>
       function togglePastEboard(year) {
         const content = document.getElementById('content-' + year);
@@ -1104,6 +1586,39 @@
               togglePastEboard(year);
             }
           });
+        });
+        
+        // Add click handler to member avatars for sharing
+        const memberContainers = document.querySelectorAll('.member_container');
+        memberContainers.forEach(container => {
+          const memberTitle = container.querySelector('.member_title');
+          const memberDetails = container.querySelector('.member_details');
+          const memberAvatar = container.querySelector('.member_avatar');
+          const avatarContainer = container.querySelector('.member_avatar-container');
+          
+          if (memberTitle && memberDetails && memberAvatar && avatarContainer) {
+            const name = memberTitle.textContent.trim().replace(/\s+/g, ' ');
+            const positionMatch = memberDetails.innerHTML.match(/<span[^>]*>([^<]+)<\/span>/);
+            const position = positionMatch ? positionMatch[1] : 'Member';
+            
+            // Get the year from the parent section
+            const yearSection = container.closest('.year-section');
+            const yearHeading = yearSection ? yearSection.querySelector('.about-section-heading') : null;
+            const year = yearHeading ? yearHeading.textContent.trim() : '2025-2026';
+            
+            // Get image source - convert to absolute URL
+            const imageSrc = memberAvatar.getAttribute('src');
+            const absoluteImageUrl = new URL(imageSrc, window.location.href).href;
+            
+            // Add cursor pointer style and title
+            avatarContainer.style.cursor = 'pointer';
+            avatarContainer.setAttribute('title', 'Click to copy share link');
+            
+            // Add click event to avatar container
+            avatarContainer.addEventListener('click', function() {
+              copyProfileLink(name, position, year, absoluteImageUrl);
+            });
+          }
         });
       });
     </script>
