@@ -48,9 +48,9 @@ class CertificateGenerator {
         });
     }
 
-    // Accept 3 or 4 digit ticket IDs only
+    // Accept 1 to 4 digit ticket IDs only
     isValidTicketId(id) {
-        const pattern = /^\d{3,4}$/;
+        const pattern = /^\d{1,4}$/;
         return pattern.test(id);
     }
 
@@ -62,7 +62,7 @@ class CertificateGenerator {
             return;
         }
         if (!this.isValidTicketId(ticketId)) {
-            this.showError('Ticket ID must be 3 or 4 digits');
+            this.showError('Ticket ID must be 1 to 4 digits');
             return;
         }
         this.showLoading();
