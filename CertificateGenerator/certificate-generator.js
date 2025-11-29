@@ -48,30 +48,30 @@ class CertificateGenerator {
         });
     }
 
-    // Accept 1 to 4 digit ticket IDs only
-    isValidTicketId(id) {
-        const pattern = /^\d{1,4}$/;
+    // Accept exactly 10 digit student IDs only
+    isValidStudentId(id) {
+        const pattern = /^\d{10}$/;
         return pattern.test(id);
     }
 
     async handleCheckId() {
         const API_BASE = 'https://cybersecurity.club.uttara.ac.bd/certificate-api';
-        const ticketId = this.studentIdInput.value.trim();
-        if (!ticketId) {
-            this.showError('Please enter your Ticket ID');
-            return;
-        }
-        if (!this.isValidTicketId(ticketId)) {
-            this.showError('Ticket ID must be 1 to 4 digits');
-            return;
-        }
+            const studentId = this.studentIdInput.value.trim();
+            if (!studentId) {
+                this.showError('Please enter your Student ID');
+                return;
+            }
+            if (!this.isValidStudentId(studentId)) {
+                this.showError('Student ID must be exactly 10 digits');
+                return;
+            }
         this.showLoading();
         this.checkIdBtn.disabled = true;
         try {
             const response = await fetch(`${API_BASE}/api/lookup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ ticketId })
+                    body: JSON.stringify({ studentId })
             });
             let data;
             if (response.ok) {
@@ -100,18 +100,18 @@ class CertificateGenerator {
 
     async handleGenerate() {
         const API_BASE = 'https://cybersecurity.club.uttara.ac.bd/certificate-api';
-        if (!this.validatedName) {
-            this.showError('Please check your Ticket ID first');
+            if (!this.validatedName) {
+                this.showError('Please check your Student ID first');
             return;
         }
         this.showLoading();
         this.generateBtn.disabled = true;
         try {
-            const ticketId = this.studentIdInput.value.trim();
-            const response = await fetch(`${API_BASE}/api/generate-certificate`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ ticketId })
+                const studentId = this.studentIdInput.value.trim();
+                const response = await fetch(`${API_BASE}/api/generate-certificate`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ studentId })
             });
             const data = await response.json();
             if (!response.ok) {
@@ -234,7 +234,7 @@ class CertificateGenerator {
             return;
         }
         
-        if (this.isValidTicketId(value)) {
+            if (this.isValidStudentId(value)) {
             input.style.borderColor = '#28a745';
         } else {
             input.style.borderColor = '#dc3545';
