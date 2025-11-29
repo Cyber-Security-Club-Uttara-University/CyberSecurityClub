@@ -55,7 +55,7 @@ class CertificateGenerator {
     }
 
     async handleCheckId() {
-        const API_BASE = 'http://localhost:5000'; // Change to your deployed server address if needed
+        const API_BASE = 'http://161.248.123.81:6555'; // Use deployed server address
         const ticketId = this.studentIdInput.value.trim();
         if (!ticketId) {
             this.showError('Please enter your Ticket ID');
@@ -99,7 +99,7 @@ class CertificateGenerator {
     }
 
     async handleGenerate() {
-        const API_BASE = 'http://localhost:5000'; // Change to your deployed server address if needed
+        const API_BASE = 'http://161.248.123.81:6555'; // Use deployed server address
         if (!this.validatedName) {
             this.showError('Please check your Ticket ID first');
             return;
@@ -117,7 +117,9 @@ class CertificateGenerator {
             if (!response.ok) {
                 throw new Error(data.error || 'Certificate generation failed');
             }
-            // Convert base64 to Blob
+            // Use base64 image for preview
+            this.certificateImage.src = data.image;
+            // Convert base64 to Blob for download
             const base64Data = data.image.split(',')[1];
             const byteCharacters = atob(base64Data);
             const byteNumbers = new Array(byteCharacters.length);
@@ -212,15 +214,11 @@ class CertificateGenerator {
     }
 
     showCertificatePreview() {
-        if (!this.certificateBlob) {
+        if (!this.certificateImage.src) {
             console.error('No certificate available for preview');
             return;
         }
-
-        const certificateUrl = URL.createObjectURL(this.certificateBlob);
-        this.certificateImage.src = certificateUrl;
         this.certificatePreview.classList.add('visible');
-        
         // Scroll to the preview section
         this.certificatePreview.scrollIntoView({ 
             behavior: 'smooth', 
