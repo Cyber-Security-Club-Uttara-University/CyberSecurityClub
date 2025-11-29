@@ -55,6 +55,7 @@ class CertificateGenerator {
     }
 
     async handleCheckId() {
+        const API_BASE = 'http://localhost:5000'; // Change to your deployed server address if needed
         const ticketId = this.studentIdInput.value.trim();
         if (!ticketId) {
             this.showError('Please enter your Ticket ID');
@@ -67,7 +68,7 @@ class CertificateGenerator {
         this.showLoading();
         this.checkIdBtn.disabled = true;
         try {
-            const response = await fetch('/api/lookup', {
+            const response = await fetch(`${API_BASE}/api/lookup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ticketId })
@@ -98,6 +99,7 @@ class CertificateGenerator {
     }
 
     async handleGenerate() {
+        const API_BASE = 'http://localhost:5000'; // Change to your deployed server address if needed
         if (!this.validatedName) {
             this.showError('Please check your Ticket ID first');
             return;
@@ -106,7 +108,7 @@ class CertificateGenerator {
         this.generateBtn.disabled = true;
         try {
             const ticketId = this.studentIdInput.value.trim();
-            const response = await fetch('/api/generate-certificate', {
+            const response = await fetch(`${API_BASE}/api/generate-certificate`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ticketId })
