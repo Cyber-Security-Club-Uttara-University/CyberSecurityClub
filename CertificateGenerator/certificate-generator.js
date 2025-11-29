@@ -55,7 +55,7 @@ class CertificateGenerator {
     }
 
     async handleCheckId() {
-        const API_BASE = 'http://161.248.123.81:6555'; // Use deployed server address
+        const API_BASE = 'https://cybersecurity.club.uttara.ac.bd';
         const ticketId = this.studentIdInput.value.trim();
         if (!ticketId) {
             this.showError('Please enter your Ticket ID');
@@ -99,7 +99,7 @@ class CertificateGenerator {
     }
 
     async handleGenerate() {
-        const API_BASE = 'http://161.248.123.81:6555'; // Use deployed server address
+        const API_BASE = 'https://cybersecurity.club.uttara.ac.bd';
         if (!this.validatedName) {
             this.showError('Please check your Ticket ID first');
             return;
