@@ -1,12 +1,11 @@
 // Certificate Generator JavaScript - Clean Version
 class CertificateGenerator {
     constructor() {
-        this.studentData = null;
         this.certificateBlob = null;
         this.validatedStudent = null;
+        this.validatedName = null;
         this.initializeElements();
         this.bindEvents();
-        this.loadStudentData();
     }
 
     initializeElements() {
@@ -49,68 +48,48 @@ class CertificateGenerator {
         });
     }
 
-    async loadStudentData() {
-        try {
-            const response = await fetch('student-data.csv');
-            if (!response.ok) {
-                throw new Error('Could not load student database');
-            }
-            
-            const csvText = await response.text();
-            this.studentData = this.parseCSV(csvText);
-            console.log('Student data loaded:', this.studentData.length, 'records');
-        } catch (error) {
-            console.error('Error loading student data:', error);
-            this.showError('Could not load student database. Please try again later.');
-        }
-    }
-
-    parseCSV(csvText) {
-        const lines = csvText.trim().split('\n');
-        const headers = lines[0].split(',').map(h => h.trim());
-        const data = [];
-
-        for (let i = 1; i < lines.length; i++) {
-            const values = lines[i].split(',').map(v => v.trim());
-            if (values.length === headers.length) {
-                const row = {};
-                headers.forEach((header, index) => {
-                    row[header] = values[index];
-                });
-                data.push(row);
-            }
-        }
-        return data;
+    // Accept 3 or 4 digit ticket IDs only
+    isValidTicketId(id) {
+        const pattern = /^\d{3,4}$/;
+        return pattern.test(id);
     }
 
     async handleCheckId() {
-        const studentId = this.studentIdInput.value.trim();
-        
-        if (!studentId) {
-            this.showError('Please enter your Student ID');
+        const API_BASE = 'http://localhost:5000'; // Change to your deployed server address if needed
+        const ticketId = this.studentIdInput.value.trim();
+        if (!ticketId) {
+            this.showError('Please enter your Ticket ID');
             return;
         }
-
-        if (!this.isValidStudentId(studentId)) {
-            this.showError('Please enter your Uttara University Student ID (e.g., 2233081XXX)');
+        if (!this.isValidTicketId(ticketId)) {
+            this.showError('Ticket ID must be 3 or 4 digits');
             return;
         }
-
         this.showLoading();
         this.checkIdBtn.disabled = true;
-
         try {
-            await new Promise(resolve => setTimeout(resolve, 1000));
-
-            const student = this.findStudent(studentId);
-            if (!student) {
-                throw new Error('Student ID not found. Only registered CyberCon24 participants can generate certificates.');
+            const response = await fetch(`${API_BASE}/api/lookup`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ticketId })
+            });
+            let data;
+            if (response.ok) {
+                data = await response.json();
+                this.validatedName = data.name;
+                this.showNameInputStep();
+                this.clearMessages();
+            } else {
+                // Try to parse error from JSON, fallback to generic error
+                let errorMsg = 'Ticket ID not found. Only registered participants can generate certificates.';
+                try {
+                    const errData = await response.json();
+                    errorMsg = errData.error || errorMsg;
+                } catch {
+                    // If JSON parsing fails, keep default errorMsg
+                }
+                throw new Error(errorMsg);
             }
-
-            this.validatedStudent = student;
-            this.showNameInputStep();
-            this.clearMessages();
-
         } catch (error) {
             this.showError(error.message);
         } finally {
@@ -120,19 +99,34 @@ class CertificateGenerator {
     }
 
     async handleGenerate() {
-        if (!this.validatedStudent) {
-            this.showError('Please check your Student ID first');
+        const API_BASE = 'http://localhost:5000'; // Change to your deployed server address if needed
+        if (!this.validatedName) {
+            this.showError('Please check your Ticket ID first');
             return;
         }
-
         this.showLoading();
         this.generateBtn.disabled = true;
-
         try {
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            await this.generateCertificate(this.validatedStudent);
+            const ticketId = this.studentIdInput.value.trim();
+            const response = await fetch(`${API_BASE}/api/generate-certificate`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ticketId })
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.error || 'Certificate generation failed');
+            }
+            // Convert base64 to Blob
+            const base64Data = data.image.split(',')[1];
+            const byteCharacters = atob(base64Data);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            this.certificateBlob = new Blob([byteArray], { type: 'image/png' });
             this.showSuccess();
-
         } catch (error) {
             this.showError(error.message);
         } finally {
@@ -148,12 +142,10 @@ class CertificateGenerator {
         this.generateBtn.classList.add('visible-step');
         this.checkIdBtn.classList.add('hidden-step');
         this.studentIdInput.disabled = true;
-        
         // Pre-fill with registered name (read-only)
-        if (this.validatedStudent && this.validatedStudent.name) {
-            this.studentNameInput.value = this.validatedStudent.name.trim();
+        if (this.validatedName) {
+            this.studentNameInput.value = this.validatedName;
         }
-        
         this.generateBtn.focus();
     }
 
@@ -169,213 +161,6 @@ class CertificateGenerator {
         this.clearMessages();
     }
 
-    isValidStudentId(id) {
-        const pattern = /^\d{10}$/;
-        return pattern.test(id);
-    }
-
-    findStudent(studentId) {
-        if (!this.studentData) {
-            throw new Error('Student database not loaded');
-        }
-
-        return this.studentData.find(student => 
-            student.student_id === studentId || student.id === studentId
-        );
-    }
-
-    async generateCertificate(student) {
-        try {
-            // Ensure Dancing Script font is loaded
-            await this.loadDancingScriptFont();
-            
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            // Set canvas dimensions (A4 landscape at 300 DPI)
-            canvas.width = 3508;
-            canvas.height = 2480;
-
-            // Try to load Canva template first, fallback to programmatic generation
-            try {
-                await this.loadCanvaTemplate(ctx, student.name, canvas.width, canvas.height);
-            } catch (templateError) {
-                console.log('Template not found, using programmatic generation');
-                this.createCertificateBackground(ctx, canvas.width, canvas.height);
-                this.addTextToCertificate(ctx, student.name, canvas.width, canvas.height);
-            }
-
-            // Convert canvas to blob
-            return new Promise((resolve) => {
-                canvas.toBlob((blob) => {
-                    this.certificateBlob = blob;
-                    resolve();
-                }, 'image/png');
-            });
-        } catch (error) {
-            throw new Error('Failed to generate certificate: ' + error.message);
-        }
-    }
-
-    async loadDancingScriptFont() {
-        if ('fonts' in document) {
-            try {
-                await document.fonts.load('400 180px Dancing Script');
-                await document.fonts.load('600 150px Dancing Script');
-                await document.fonts.load('700 150px Dancing Script');
-                console.log('Dancing Script font loaded successfully');
-            } catch (error) {
-                console.warn('Failed to load Dancing Script font:', error);
-            }
-        }
-    }
-
-    async loadCanvaTemplate(ctx, studentName, width, height) {
-        return new Promise((resolve, reject) => {
-            const templateImg = new Image();
-            templateImg.crossOrigin = 'anonymous';
-            
-            templateImg.onload = () => {
-                try {
-                    ctx.drawImage(templateImg, 0, 0, width, height);
-                    this.addNameToCanvaTemplate(ctx, studentName, width, height);
-                    resolve();
-                } catch (error) {
-                    reject(error);
-                }
-            };
-
-            templateImg.onerror = () => {
-                reject(new Error('Could not load Canva template'));
-            };
-
-            templateImg.src = 'Certificate.png';
-        });
-    }
-
-    addNameToCanvaTemplate(ctx, studentName, width, height) {
-        ctx.fillStyle = '#000000';
-        ctx.font = 'bold 180px Dancing Script, Arial, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        
-        const nameX = width * 0.500;
-        const nameY = height * 0.480;
-        
-        // Add text shadow for better visibility
-        ctx.shadowColor = 'rgba(255,255,255,0.8)';
-        ctx.shadowBlur = 2;
-        ctx.shadowOffsetX = 1;
-        ctx.shadowOffsetY = 1;
-        
-        ctx.fillText(studentName, nameX, nameY);
-        
-        // Reset shadow
-        ctx.shadowColor = 'transparent';
-        ctx.shadowBlur = 0;
-    }
-
-    createCertificateBackground(ctx, width, height) {
-        // Create gradient background
-        const gradient = ctx.createLinearGradient(0, 0, width, height);
-        gradient.addColorStop(0, '#667eea');
-        gradient.addColorStop(1, '#764ba2');
-        
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, width, height);
-
-        // Add outer border
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-        ctx.lineWidth = 20;
-        ctx.strokeRect(100, 100, width - 200, height - 200);
-
-        // Add inner border
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
-        ctx.lineWidth = 5;
-        ctx.strokeRect(150, 150, width - 300, height - 300);
-    }
-
-    addTextToCertificate(ctx, studentName, width, height) {
-        const centerX = width / 2;
-        
-        // Add title "CERTIFICATE"
-        ctx.fillStyle = 'white';
-        ctx.font = 'bold 200px Arial';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText('CERTIFICATE', centerX, 600);
-
-        // Add subtitle "of Participation"
-        ctx.font = '80px Arial';
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.fillText('of Participation', centerX, 720);
-
-        // Add "This is to certify that"
-        ctx.font = '60px Arial';
-        ctx.fillText('This is to certify that', centerX, 950);
-
-        // Add student name with Dancing Script font
-        ctx.font = 'bold 150px Dancing Script, Arial, sans-serif';
-        ctx.fillStyle = 'white';
-        const nameY = 1150;
-        ctx.fillText(studentName, centerX, nameY);
-
-        // Add underline for name
-        const nameWidth = ctx.measureText(studentName).width;
-        ctx.beginPath();
-        ctx.moveTo(centerX - nameWidth/2 - 100, nameY + 80);
-        ctx.lineTo(centerX + nameWidth/2 + 100, nameY + 80);
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
-        ctx.lineWidth = 8;
-        ctx.stroke();
-
-        // Add description
-        ctx.font = '60px Arial';
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.fillText('has successfully participated in', centerX, 1400);
-        
-        ctx.font = 'bold 80px Arial';
-        ctx.fillStyle = 'white';
-        ctx.fillText('CyberCon 2024', centerX, 1500);
-        
-        ctx.font = '60px Arial';
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.fillText('organized by Cyber Security Club, Uttara University', centerX, 1600);
-
-        // Add date
-        const currentDate = new Date().toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-        ctx.font = '50px Arial';
-        ctx.textAlign = 'left';
-        ctx.fillText(currentDate, 200, height - 300);
-
-        // Add signature
-        const sigX = width - 600;
-        const sigY = height - 250;
-        
-        ctx.beginPath();
-        ctx.moveTo(sigX - 200, sigY - 50);
-        ctx.lineTo(sigX + 200, sigY - 50);
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
-        ctx.lineWidth = 4;
-        ctx.stroke();
-        
-        ctx.font = '45px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText('Faculty Advisor', sigX, sigY);
-
-        // Add organization info
-        ctx.font = '60px Arial';
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.textAlign = 'center';
-        ctx.fillText('Cyber Security Club', centerX, height - 180);
-        
-        ctx.font = '45px Arial';
-        ctx.fillText('Uttara University', centerX, height - 120);
-    }
 
     downloadCertificate() {
         if (!this.certificateBlob) {
@@ -451,7 +236,7 @@ class CertificateGenerator {
             return;
         }
         
-        if (this.isValidStudentId(value)) {
+        if (this.isValidTicketId(value)) {
             input.style.borderColor = '#28a745';
         } else {
             input.style.borderColor = '#dc3545';
