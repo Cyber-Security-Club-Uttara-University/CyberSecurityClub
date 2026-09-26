@@ -1,0 +1,343 @@
+
+> web@0.1.0 dev
+> next dev
+
+▲ Next.js 16.3.5 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.166:3000
+- Environments: .env
+✓ Ready in 487ms
+✓ Running next.config.ts took 44ms
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead.
+
+  To migrate automatically, run:
+  npx @next/codemod@canary middleware-to-proxy .
+
+  Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+
+ GET / 200 in 301ms (next.js: 142ms, application-code: 159ms)
+ GET / 200 in 55ms (next.js: 5ms, application-code: 50ms)
+[browser] Image with src "/images/CTF/CTF-NIGHT0x2.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/slideshow/bupctf25.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/Weekly-ctf-0x1.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /news 200 in 233ms (next.js: 212ms, application-code: 20ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Image with src "/images/News/Exe_25.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/CTF-NIGHT0x1.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/csc-Store-Open.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/CTF_Night0x1.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET / 200 in 17ms (next.js: 4ms, application-code: 13ms)
+ GET /about 200 in 192ms (next.js: 173ms, application-code: 19ms)
+[browser] Image with src "/images/2025eboard/Shawon.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Said.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/pran0x.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Ashiq.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/depro.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET / 200 in 26ms (next.js: 6ms, application-code: 20ms)
+ GET /about 200 in 19ms (next.js: 4ms, application-code: 15ms)
+ GET /advisor 200 in 169ms (next.js: 149ms, application-code: 20ms)
+ GET /about 200 in 22ms (next.js: 4ms, application-code: 17ms)
+[browser] Image with src "/images/not-available.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/Tariqul.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/mishu.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/asif.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/akash.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/naeem.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /advisor 200 in 22ms (next.js: 5ms, application-code: 18ms)
+ GET /ctf/weekly 200 in 180ms (next.js: 159ms, application-code: 21ms)
+ GET /ctf/monthly 200 in 239ms (next.js: 221ms, application-code: 18ms)
+ GET /events 200 in 159ms (next.js: 135ms, application-code: 24ms)
+ GET /images/Previous Event/Binary-CTF-2024.jpg 404 in 308ms (next.js: 118ms, application-code: 190ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/Binary-CTF-2024.jpg received null
+ GET /images/Previous Event/CyberCon25.jpg 404 in 327ms (next.js: 142ms, application-code: 185ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/CyberCon25.jpg received null
+ GET /images/Previous Event/CyberCon23.jpg 404 in 310ms (next.js: 130ms, application-code: 180ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/CyberCon23.jpg received null
+ GET /images/Previous Event/CyberCon-CTF.jpg 404 in 315ms (next.js: 140ms, application-code: 175ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/CyberCon-CTF.jpg received null
+ GET /images/Previous Event/Binary-CTF-2023.jpg 404 in 314ms (next.js: 143ms, application-code: 170ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/Binary-CTF-2023.jpg received null
+ GET /gallery 200 in 137ms (next.js: 119ms, application-code: 18ms)
+ GET /teams 200 in 138ms (next.js: 118ms, application-code: 19ms)
+ GET /resources 200 in 141ms (next.js: 115ms, application-code: 26ms)
+ GET /sponsors 200 in 131ms (next.js: 110ms, application-code: 21ms)
+ GET /news 200 in 19ms (next.js: 5ms, application-code: 14ms)
+ GET /news/ctf-night-0x2-results 200 in 547ms (next.js: 133ms, generate-params: 389ms, application-code: 25ms)
+ GET /news 200 in 17ms (next.js: 4ms, application-code: 13ms)
+ GET /blog 200 in 152ms (next.js: 136ms, application-code: 17ms)
+ GET /blog/bup-ctf-2025-writeup 200 in 672ms (next.js: 276ms, generate-params: 374ms, application-code: 22ms)
+ GET /certificate 200 in 203ms (next.js: 182ms, application-code: 21ms)
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `{imported module ./src/lib/db.ts}["db"].student.findUnique()` invocation in
+C:\Users\pranto\Documents\GitHub\CyberSecurityClub\web\.next\dev\server\chunks\[root-of-the-server]__1la6p3a._.js:82:156
+
+  79         status: 400
+  80     });
+  81 }
+→ 82 const student = await {imported module ./src/lib/db.ts}["db"].student.findUnique(
+Can't reach database server at `localhost:5432`
+
+Please make sure your database server is running at `localhost:5432`.
+    at <unknown> (src\app\api\certificate\lookup\route.ts:14:36)
+    at async POST (src\app\api\certificate\lookup\route.ts:14:19)
+  12 |   }
+  13 |
+> 14 |   const student = await db.student.findUnique({
+     |                                    ^
+  15 |     where: { studentId },
+  16 |   });
+  17 | {
+  clientVersion: '5.22.0',
+  errorCode: undefined
+}
+ POST /api/certificate/lookup 500 in 4.6s (next.js: 280ms, application-code: 4.3s)
+ GET /membership 200 in 148ms (next.js: 128ms, application-code: 20ms)
+ GET /recruitment 200 in 254ms (next.js: 239ms, application-code: 15ms)
+ GET /store 200 in 159ms (next.js: 138ms, application-code: 21ms)
+[browser] Image with src "/images/store/Stickers/CyberCon_Execlusive/sticker-cybercon24.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/store/Stickers/Club_Execlusive/sticker-official.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/store/merchandise/CyberCon-exclusive-edition.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /store 200 in 21ms (next.js: 7ms, application-code: 14ms)
+ GET /logo 200 in 166ms (next.js: 145ms, application-code: 21ms)
+[browser] Image with src "/images/csc_white.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/images/csc_blue.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 17ms (next.js: 5ms, application-code: 12ms)
+ GET /news 200 in 18ms (next.js: 4ms, application-code: 14ms)
+ GET / 200 in 16ms (next.js: 4ms, application-code: 12ms)
+ GET /cybercon 200 in 182ms (next.js: 164ms, application-code: 18ms)
+ GET /cybercon/registration 200 in 155ms (next.js: 133ms, application-code: 21ms)
+ GET / 200 in 20ms (next.js: 5ms, application-code: 15ms)
+ GET / 200 in 51ms (next.js: 4ms, application-code: 47ms)
+[browser] Image with src "/images/CTF/CTF-NIGHT0x2.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/slideshow/bupctf25.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/Weekly-ctf-0x1.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/csc-Store-Open.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/Exe_25.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/slideshow/MIST2025.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET / 200 in 43ms (next.js: 4ms, application-code: 40ms)
+[browser] Image with src "/images/CTF/CTF-NIGHT0x2.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/slideshow/bupctf25.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/Weekly-ctf-0x1.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/csc-Store-Open.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/Exe_25.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/slideshow/MIST2025.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+✓ Compiled in 106ms
+✓ Compiled in 269ms
+ GET / 200 in 38ms (next.js: 11ms, application-code: 27ms)
+ GET / 200 in 53ms (next.js: 11ms, application-code: 42ms)
+[browser] Image with src "/images/CTF/CTF-NIGHT0x2.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/slideshow/bupctf25.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/Weekly-ctf-0x1.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET / 200 in 9ms (next.js: 4ms, application-code: 5ms)
+ GET / 200 in 14ms (next.js: 4ms, application-code: 11ms)
+[browser] Image with src "/images/News/csc-Store-Open.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/Exe_25.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /about 200 in 23ms (next.js: 9ms, application-code: 14ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Image with src "/images/2025eboard/Said.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Ashiq.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/depro.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/pran0x.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Shawon.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /advisor 200 in 28ms (next.js: 9ms, application-code: 20ms)
+ GET /advisor 200 in 33ms (next.js: 10ms, application-code: 23ms)
+ GET /advisor 200 in 42ms (next.js: 4ms, application-code: 38ms)
+ GET / 200 in 25ms (next.js: 8ms, application-code: 17ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Image with src "/images/slideshow/bupctf25.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/CTF-NIGHT0x2.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/Weekly-ctf-0x1.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/Exe_25.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/csc-Store-Open.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET / 200 in 16ms (next.js: 4ms, application-code: 12ms)
+ GET /about 200 in 30ms (next.js: 10ms, application-code: 20ms)
+[browser] Image with src "/images/2025eboard/Said.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Ashiq.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/depro.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/pran0x.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Shawon.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/not-available.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/mishu.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/Tariqul.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/akash.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/asif.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/naeem.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /advisor 200 in 27ms (next.js: 4ms, application-code: 23ms)
+ GET /ctf/writeups 200 in 212ms (next.js: 190ms, application-code: 22ms)
+ GET /blog 200 in 27ms (next.js: 9ms, application-code: 18ms)
+ GET /events 200 in 40ms (next.js: 16ms, application-code: 24ms)
+ GET /images/Previous Event/CyberCon25.jpg 404 in 242ms (next.js: 20ms, application-code: 222ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/CyberCon25.jpg received null
+ GET /images/Previous Event/CyberCon-CTF.jpg 404 in 243ms (next.js: 31ms, application-code: 212ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/CyberCon-CTF.jpg received null
+ GET /images/Previous Event/Binary-CTF-2024.jpg 404 in 244ms (next.js: 37ms, application-code: 207ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/Binary-CTF-2024.jpg received null
+ GET /images/Previous Event/Binary-CTF-2023.jpg 404 in 240ms (next.js: 83ms, application-code: 157ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/Binary-CTF-2023.jpg received null
+ GET /images/Previous Event/CyberCon23.jpg 404 in 241ms (next.js: 89ms, application-code: 152ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/CyberCon23.jpg received null
+ GET /events 200 in 28ms (next.js: 4ms, application-code: 24ms)
+✓ Compiled in 96ms
+ GET /gallery 200 in 27ms (next.js: 10ms, application-code: 17ms)
+ GET /teams 200 in 26ms (next.js: 7ms, application-code: 19ms)
+ GET /resources 200 in 27ms (next.js: 7ms, application-code: 20ms)
+ GET /sponsors 200 in 23ms (next.js: 7ms, application-code: 16ms)
+ GET /sponsors 200 in 35ms (next.js: 14ms, application-code: 21ms)
+ GET / 200 in 47ms (next.js: 9ms, application-code: 38ms)
+ GET /sponsors 200 in 26ms (next.js: 4ms, application-code: 22ms)
+✓ Compiled in 68ms
+ GET /sponsors 200 in 42ms (next.js: 4ms, application-code: 38ms)
+ GET /sponsors 200 in 50ms (next.js: 5ms, application-code: 46ms)
+ GET / 200 in 19ms (next.js: 5ms, application-code: 14ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Image with src "/images/slideshow/bupctf25.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/CTF-NIGHT0x2.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/Weekly-ctf-0x1.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/csc-Store-Open.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/Exe_25.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /news 200 in 25ms (next.js: 11ms, application-code: 13ms)
+[browser] Image with src "/images/News/CTF_Night0x1.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/CTF-NIGHT0x1.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /about 200 in 25ms (next.js: 12ms, application-code: 13ms)
+[browser] Image with src "/images/2025eboard/Said.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Ashiq.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/depro.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/pran0x.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Shawon.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/mishu.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/Tariqul.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/not-available.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/asif.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/naeem.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/Alumni/akash.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /advisor 200 in 25ms (next.js: 11ms, application-code: 14ms)
+ GET /events 200 in 29ms (next.js: 10ms, application-code: 19ms)
+ GET /images/Previous Event/CyberCon25.jpg 404 in 215ms (next.js: 31ms, application-code: 184ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/CyberCon25.jpg received null
+ GET /images/Previous Event/CyberCon-CTF.jpg 404 in 215ms (next.js: 38ms, application-code: 176ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/CyberCon-CTF.jpg received null
+ GET /images/Previous Event/Binary-CTF-2024.jpg 404 in 214ms (next.js: 45ms, application-code: 169ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/Binary-CTF-2024.jpg received null
+ GET /images/Previous Event/Binary-CTF-2023.jpg 404 in 214ms (next.js: 51ms, application-code: 163ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/Binary-CTF-2023.jpg received null
+ GET /images/Previous Event/CyberCon23.jpg 404 in 214ms (next.js: 58ms, application-code: 156ms)
+⨯ The requested resource isn't a valid image for /images/Previous Event/CyberCon23.jpg received null
+ GET /gallery 200 in 26ms (next.js: 10ms, application-code: 16ms)
+ GET /teams 200 in 26ms (next.js: 9ms, application-code: 16ms)
+ GET /resources 200 in 27ms (next.js: 9ms, application-code: 18ms)
+ GET /sponsors 200 in 25ms (next.js: 4ms, application-code: 21ms)
+✓ Compiled in 59ms
+ GET /sponsors 200 in 22ms (next.js: 4ms, application-code: 18ms)
+ GET /sponsors 200 in 21ms (next.js: 4ms, application-code: 17ms)
+ GET /sponsors 200 in 22ms (next.js: 4ms, application-code: 18ms)
+ GET /sponsors 200 in 38ms (next.js: 5ms, application-code: 33ms)
+ GET /sponsors 200 in 33ms (next.js: 4ms, application-code: 29ms)
+✓ Compiled in 81ms
+ GET /sponsors 200 in 22ms (next.js: 4ms, application-code: 18ms)
+ GET /sponsors 200 in 24ms (next.js: 4ms, application-code: 20ms)
+ GET /sponsors 200 in 22ms (next.js: 4ms, application-code: 18ms)
+ GET /sponsors 200 in 23ms (next.js: 5ms, application-code: 19ms)
+✓ Compiled in 77ms
+ GET /sponsors 200 in 22ms (next.js: 4ms, application-code: 18ms)
+ GET /sponsors 200 in 26ms (next.js: 5ms, application-code: 21ms)
+✓ Compiled in 73ms
+ GET /sponsors 200 in 22ms (next.js: 4ms, application-code: 19ms)
+✓ Compiled in 65ms
+ GET /sponsors 200 in 37ms (next.js: 4ms, application-code: 33ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/sponsors" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="jetbrains_...">
+                          <head>
+                          <body
+                            className="jetbrains_mono_22c42f6c-module__vW93QG__variable min-h-screen flex flex-col fon..."
+                            style={{fontFamily:"\"JetBrain..."}}
+-                           data-new-gr-c-s-check-loaded="14.1150.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+ 
+ GET /sponsors 200 in 43ms (next.js: 6ms, application-code: 36ms)
+ GET / 200 in 18ms (next.js: 4ms, application-code: 14ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Image with src "/images/slideshow/bupctf25.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/Weekly-ctf-0x1.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/CTF-NIGHT0x2.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/Exe_25.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/News/csc-Store-Open.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /cybercon 200 in 22ms (next.js: 10ms, application-code: 12ms)
+ GET / 200 in 17ms (next.js: 5ms, application-code: 12ms)
+ GET /about 200 in 18ms (next.js: 4ms, application-code: 14ms)
+[browser] Image with src "/images/2025eboard/Said.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Ashiq.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/depro.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/pran0x.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Shawon.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /advisor 200 in 24ms (next.js: 10ms, application-code: 14ms)
+ GET /events 200 in 28ms (next.js: 10ms, application-code: 18ms)
+ GET /gallery 200 in 23ms (next.js: 6ms, application-code: 16ms)
+ GET /resources 200 in 25ms (next.js: 9ms, application-code: 16ms)
+ GET / 200 in 15ms (next.js: 4ms, application-code: 11ms)
+ GET / 200 in 23ms (next.js: 4ms, application-code: 18ms)
+ GET / 200 in 19ms (next.js: 4ms, application-code: 16ms)
+✓ Compiled in 66ms
+ GET / 200 in 19ms (next.js: 4ms, application-code: 15ms)
+ GET / 200 in 21ms (next.js: 4ms, application-code: 17ms)
+ GET / 200 in 22ms (next.js: 4ms, application-code: 17ms)
+✓ Compiled in 88ms
+ GET / 200 in 20ms (next.js: 4ms, application-code: 16ms)
+ GET / 200 in 21ms (next.js: 4ms, application-code: 17ms)
+ GET / 200 in 22ms (next.js: 5ms, application-code: 17ms)
+ GET / 200 in 41ms (next.js: 4ms, application-code: 38ms)
+ GET / 200 in 35ms (next.js: 4ms, application-code: 32ms)
+[browser] Image with src "/images/CTF/CTF-NIGHT0x2.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/slideshow/bupctf25.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/CTF/Weekly-ctf-0x1.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /events 200 in 34ms (next.js: 7ms, application-code: 26ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /gallery 200 in 27ms (next.js: 5ms, application-code: 22ms)
+ GET /teams 200 in 27ms (next.js: 8ms, application-code: 18ms)
+ GET /resources 200 in 22ms (next.js: 5ms, application-code: 18ms)
+ GET /sponsors 200 in 26ms (next.js: 9ms, application-code: 16ms)
+ GET /certificate 200 in 24ms (next.js: 10ms, application-code: 14ms)
+ GET /membership 200 in 24ms (next.js: 10ms, application-code: 14ms)
+ GET /recruitment 200 in 22ms (next.js: 10ms, application-code: 12ms)
+ GET / 200 in 21ms (next.js: 7ms, application-code: 14ms)
+ GET /about 200 in 16ms (next.js: 4ms, application-code: 12ms)
+[browser] Image with src "/images/2025eboard/Said.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/depro.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Ashiq.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/pran0x.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/images/2025eboard/Shawon.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /advisor 200 in 20ms (next.js: 5ms, application-code: 16ms)
+ GET /events 200 in 24ms (next.js: 5ms, application-code: 19ms)
+ GET /gallery 200 in 26ms (next.js: 4ms, application-code: 22ms)
+ GET /teams 200 in 23ms (next.js: 5ms, application-code: 18ms)
+ GET / 200 in 16ms (next.js: 4ms, application-code: 12ms)
