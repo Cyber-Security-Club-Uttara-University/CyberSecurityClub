@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { db } from "@/lib/db";
 import { SECTIONS } from "@/content/sections";
+import { getCurrentUser } from "@/lib/session";
+import { allowedSectionIds, canManageUsers, canViewLogs } from "@/lib/roles";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboard() {
+  const user = await getCurrentUser();
+
   const [
     announcements,
     contacts,
@@ -12,6 +16,8 @@ export default async function AdminDashboard() {
     products,
     contentBlocks,
     unreadContacts,
+    accountCount,
+    logCount,
   ] = await Promise.all([
     db.announcement.count(),
     db.contact.count(),
@@ -19,14 +25,26 @@ export default async function AdminDashboard() {
     db.product.count(),
     db.contentBlock.count(),
     db.contact.count({ where: { read: false } }),
+    db.admin.count(),
+    db.auditLog.count(),
   ]);
+
+  const role = user?.role ?? "Office Secretary";
+  const allowed = allowedSectionIds(role);
+  const visibleSections = SECTIONS.filter((s) => allowed === "all" || allowed.includes(s.id));
 
   const cards = [
     { label: "Announcements", value: announcements, href: "/admin/announcements" },
     { label: "Contact messages", value: contacts, href: "/admin/contacts", badge: unreadContacts || undefined },
     { label: "Registrations", value: registrations, href: "/admin/registrations" },
     { label: "Products", value: products, href: "/admin/products" },
-    { label: "Content sections saved", value: contentBlocks, href: "/admin/sections/hero-slides" },
+    { label: "Content sections saved", value: contentBlocks, href: `/admin/sections/${visibleSections[0]?.id ?? "hero-slides"}` },
+    ...(canManageUsers(role)
+      ? [{ label: "Accounts", value: accountCount, href: "/admin/users" }]
+      : []),
+    ...(canViewLogs(role)
+      ? [{ label: "Audit log entries", value: logCount, href: "/admin/logs" }]
+      : []),
   ];
 
   const unseeded = SECTIONS.length - contentBlocks;
@@ -35,7 +53,9 @@ export default async function AdminDashboard() {
     <div className="max-w-[1100px]">
       <h1 className="text-2xl font-extrabold text-black mb-1">Dashboard</h1>
       <p className="text-sm text-[#525252] mb-6">
-        Manage everything the public site renders.
+        Manage everything the public site renders. You are signed in as{" "}
+        <span className="font-semibold text-black">{user?.name || user?.username}</span> —{" "}
+        <span className="font-semibold text-[#0000ff]">{role}</span>.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
@@ -58,7 +78,7 @@ export default async function AdminDashboard() {
         ))}
       </div>
 
-      {unseeded > 0 && (
+      {unseeded > 0 && canManageUsers(role) && (
         <div className="mb-8 px-4 py-3 rounded-xl bg-amber-50 border border-amber-300 text-amber-800 text-sm">
           {unseeded} of {SECTIONS.length} content sections have not been saved yet. Open a
           section and press <strong>Save</strong> to start editing it, or leave it empty to
@@ -67,9 +87,12 @@ export default async function AdminDashboard() {
       )}
 
       <div className="bg-white rounded-xl p-5 shadow-[0px_4px_16px_rgba(0,0,0,0.08)]">
-        <h2 className="font-bold text-black mb-3">Quick links</h2>
+        <h2 className="font-bold text-black mb-1">Quick links</h2>
+        <p className="text-xs text-[#525252] mb-3">
+          Only sections your role can edit are listed ({visibleSections.length} of {SECTIONS.length}).
+        </p>
         <div className="flex flex-wrap gap-2">
-          {SECTIONS.map((s) => (
+          {visibleSections.map((s) => (
             <Link
               key={s.id}
               href={`/admin/sections/${s.id}`}

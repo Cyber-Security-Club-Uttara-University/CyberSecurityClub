@@ -10,8 +10,34 @@ datasource db {
 model Admin {
   id        Int      @id @default(autoincrement())
   username  String   @unique
+  email     String?  @unique
   password  String
+  name      String?
+  role      String   @default("Office Secretary")
+  avatar    String?
   createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+// Allowed usernames / emails. Login and account creation are restricted to
+// these values whenever the list is non-empty.
+model WhitelistEntry {
+  id        Int      @id @default(autoincrement())
+  type      String // "email" | "username"
+  value     String   @unique
+  createdAt DateTime @default(now())
+}
+
+// Audit trail: who did what, from which IP, at what time.
+model AuditLog {
+  id        Int      @id @default(autoincrement())
+  username  String
+  action    String
+  detail    String?
+  ip        String?
+  createdAt DateTime @default(now())
+
+  @@index([username, createdAt])
 }
 
 model Announcement {
@@ -79,6 +105,6 @@ model Product {
   imageUrl    String
   inStock     Boolean  @default(true)
   featured    Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

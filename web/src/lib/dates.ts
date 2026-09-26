@@ -46,8 +46,15 @@ export function parseDate(value: unknown): Date | null {
 
   const iso = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (iso) {
-    const d = new Date(Date.UTC(Number(iso[1]), Number(iso[2]) - 1, Number(iso[3])));
-    return Number.isNaN(d.getTime()) ? null : d;
+    const year = Number(iso[1]);
+    const month = Number(iso[2]);
+    const day = Number(iso[3]);
+    if (month < 1 || month > 12 || day < 1 || day > 31) return null;
+    const d = new Date(Date.UTC(year, month - 1, day));
+    if (d.getUTCFullYear() !== year || d.getUTCMonth() !== month - 1 || d.getUTCDate() !== day) {
+      return null;
+    }
+    return d;
   }
 
   const parts = raw

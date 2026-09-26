@@ -1,5 +1,6 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
+import type { Role } from "@/lib/roles";
 
 const secret = new TextEncoder().encode(
   process.env.JWT_SECRET || "fallback-secret-change-me"
@@ -9,6 +10,12 @@ const COOKIE_NAME = "csc-admin-token";
 
 export interface AdminPayload {
   username: string;
+  /** May be absent on cookies minted before roles existed — always resolve
+   *  the live role through getCurrentUser() instead of trusting this. */
+  role?: Role;
+  name?: string;
+  email?: string;
+  avatar?: string;
 }
 
 export async function createToken(payload: AdminPayload): Promise<string> {
@@ -19,12 +26,18 @@ export async function createToken(payload: AdminPayload): Promise<string> {
     .sign(secret);
 }
 
-export async function verifyToken(
-  token: string
-): Promise<AdminPayload | null> {
+export async function verifyToken(token: string): Promise<AdminPayload | null> {
   try {
     const { payload } = await jwtVerify(token, secret);
-    return payload as unknown as AdminPayload;
+    const username = payload.username;
+    if (typeof username !== "string" || !username) return null;
+    return {
+      username,
+      role: (payload.role as Role | undefined) ?? undefined,
+      name: typeof payload.name === "string" ? payload.name : undefined,
+      email: typeof payload.email === "string" ? payload.email : undefined,
+      avatar: typeof payload.avatar === "string" ? payload.avatar : undefined,
+    };
   } catch {
     return null;
   }

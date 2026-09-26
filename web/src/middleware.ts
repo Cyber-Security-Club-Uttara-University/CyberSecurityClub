@@ -26,6 +26,11 @@ export async function middleware(request: NextRequest) {
     if (!payload) {
       return NextResponse.redirect(new URL(loginPath, request.url));
     }
+
+    // Authorisation is deliberately NOT done here: a cookie can be older than
+    // the account's current role. Every page and API route checks the live
+    // role through getCurrentUser() (the database), which is the single
+    // source of truth. Middleware only proves the session exists.
   }
 
   return NextResponse.next();
