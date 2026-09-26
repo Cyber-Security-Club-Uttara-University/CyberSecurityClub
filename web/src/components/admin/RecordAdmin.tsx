@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Field } from "@/content/sections";
 import ImageField, { ImageThumb } from "@/components/admin/ImageField";
+import DateInput from "@/components/admin/DateInput";
 
 type Row = Record<string, unknown> & { id?: number };
 
@@ -78,6 +79,8 @@ function Input({
     );
   if (field.kind === "image")
     return <ImageField value={String(value ?? "")} onChange={onChange} label={field.label} />;
+  if (field.kind === "date")
+    return <DateInput value={String(value ?? "")} onChange={onChange} placeholder={field.placeholder} />;
   return (
     <input
       type="text"

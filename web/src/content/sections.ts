@@ -5,6 +5,7 @@ export type FieldKind =
   | "url"
   | "number"
   | "boolean"
+  | "date"
   | "select";
 
 export type Field = {
@@ -105,7 +106,7 @@ export const SECTIONS: Section[] = [
       { key: "slug", label: "Slug", kind: "text", required: true, placeholder: "ctf-night-0x1-results" },
       { key: "excerpt", label: "Excerpt", kind: "textarea" },
       { key: "body", label: "Article body", kind: "textarea" },
-      { key: "date", label: "Date", kind: "text", placeholder: "1 Nov 2025" },
+      { key: "date", label: "Date", kind: "date", placeholder: "1 Nov 2025" },
       { key: "author", label: "Author", kind: "text", placeholder: "CSC Team" },
       { key: "category", label: "Category", kind: "select", options: ["CTF Results", "Announcements", "Events", "General"] },
       { key: "image", label: "Image path", kind: "image" },
@@ -124,7 +125,7 @@ export const SECTIONS: Section[] = [
       { key: "slug", label: "Slug", kind: "text", required: true, placeholder: "owasp-top-10-explained" },
       { key: "excerpt", label: "Excerpt", kind: "textarea" },
       { key: "body", label: "Article body", kind: "textarea" },
-      { key: "date", label: "Date", kind: "text", placeholder: "20 Sep 2025" },
+      { key: "date", label: "Date", kind: "date", placeholder: "20 Sep 2025" },
       { key: "author", label: "Author", kind: "text", required: true, placeholder: "CSC Admin" },
       { key: "category", label: "Category", kind: "select", required: true, options: ["CTF Writeups", "Events", "Tutorials", "Tools"] },
       { key: "readingTime", label: "Reading time", kind: "text", placeholder: "10 min read" },
