@@ -19,6 +19,7 @@ const CONTENT_TYPES: Record<string, string> = {
   ".gif": "image/gif",
   ".avif": "image/avif",
   ".svg": "image/svg+xml",
+  ".pdf": "application/pdf",
 };
 
 const SAFE_NAME = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
@@ -48,6 +49,14 @@ export async function GET(
     headers: {
       "Content-Type": type,
       "Content-Length": String(buffer.length),
+      "X-Content-Type-Options": "nosniff",
+      ...(type === "application/pdf"
+        ? {
+            // Never let a PDF drive the page it is embedded in.
+            "Content-Security-Policy": "sandbox",
+            "Content-Disposition": `inline; filename="${name}"`,
+          }
+        : {}),
       "Cache-Control": "public, max-age=31536000, immutable",
     },
   });

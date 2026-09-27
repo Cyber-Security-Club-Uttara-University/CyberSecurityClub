@@ -66,18 +66,14 @@ function Avatar({
           src={src}
           alt=""
           fill
-          sizes={`${size}px`}
+          sizes={`${size * 2}px`}
+          quality={90}
           className="object-cover"
           loading="eager"
         />
       ) : (
         initials(name)
       )}
-      <span className="absolute -right-0.5 -top-0.5 flex h-[38%] w-[38%] items-center justify-center rounded-full border-2 border-white bg-blue-600">
-        <svg viewBox="0 0 24 24" className="h-[60%] w-[60%]" fill="none" stroke="white" strokeWidth={4}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-        </svg>
-      </span>
     </span>
   );
 }

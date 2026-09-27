@@ -7,6 +7,8 @@ export type RecordConfig = {
   fields: Field[];
   columns: string[];
   readOnly?: boolean;
+  /** Adds a "View" action that opens the full record (incl. attached files). */
+  viewable?: boolean;
 };
 
 export const RECORDS: RecordConfig[] = [
@@ -39,15 +41,27 @@ export const RECORDS: RecordConfig[] = [
   {
     table: "registrations",
     label: "Registrations",
-    description: "CyberCon event registrations. Read-only.",
+    description: "Join Us applications submitted through the recruitment form. Read-only.",
     readOnly: true,
+    viewable: true,
     fields: [
-      { key: "fullName", label: "Full name", kind: "text" },
-      { key: "email", label: "Email", kind: "text" },
+      { key: "fullName", label: "Full name (as per ID card)", kind: "text" },
+      { key: "email", label: "Student email", kind: "text" },
+      { key: "phone", label: "Phone", kind: "text" },
       { key: "studentId", label: "Student ID", kind: "text" },
-      { key: "ticketId", label: "Ticket ID", kind: "text" },
+      { key: "university", label: "University", kind: "text" },
+      { key: "department", label: "Department", kind: "text" },
+      { key: "batch", label: "Batch", kind: "text" },
+      { key: "section", label: "Section", kind: "text" },
+      { key: "preferredRole", label: "Preferred role", kind: "text" },
+      { key: "facebook", label: "Facebook", kind: "url" },
+      { key: "linkedin", label: "LinkedIn", kind: "url" },
+      { key: "github", label: "GitHub", kind: "url" },
+      { key: "queries", label: "Questions or comments", kind: "textarea" },
+      { key: "resume", label: "Resume (PDF)", kind: "file" },
+      { key: "ticketId", label: "Application ID", kind: "text" },
     ],
-    columns: ["fullName", "email", "studentId", "ticketId", "createdAt"],
+    columns: ["fullName", "email", "studentId", "department", "batch", "preferredRole", "resume", "createdAt"],
   },
   {
     table: "products",

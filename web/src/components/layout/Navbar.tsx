@@ -33,8 +33,7 @@ const navLinks: NavLink[] = [
   },
   { href: "/certificate", label: "Certificate" },
   {
-    href: "/membership",
-    label: "Membership",
+    href: "/membership", label: "Membership",
     children: [
       { href: "/membership", label: "Membership Process" },
       { href: "/recruitment", label: "Join Us" },

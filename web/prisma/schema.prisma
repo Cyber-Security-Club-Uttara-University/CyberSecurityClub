@@ -82,8 +82,14 @@ model Registration {
   batch         String
   section       String
   queries       String?
-  paymentNumber String
-  transactionId String
+  // Uploaded resume, "/uploads/….pdf".
+  resume        String?
+  preferredRole String?
+  facebook      String?
+  linkedin      String?
+  github        String?
+  // Answers to admin-defined extra form fields: [{ key, label, type, value }].
+  extra         Json?
   ticketId      String   @unique
   createdAt     DateTime @default(now())
 }

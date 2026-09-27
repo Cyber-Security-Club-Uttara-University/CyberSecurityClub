@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import type { Field } from "@/content/sections";
 import ImageField, { ImageThumb } from "@/components/admin/ImageField";
 import DateInput from "@/components/admin/DateInput";
+import PdfViewer from "@/components/admin/PdfViewer";
 
 type Row = Record<string, unknown> & { id?: number };
 
@@ -15,12 +16,20 @@ type Config = {
   fields: Field[];
   columns: string[];
   readOnly?: boolean;
+  viewable?: boolean;
 };
+
+type ExtraAnswer = { key?: string; label?: string; type?: string; value?: string };
 
 function emptyRow(fields: Field[]): Row {
   const r: Row = {};
   for (const f of fields) r[f.key] = f.kind === "number" ? 0 : f.kind === "boolean" ? false : "";
   return r;
+}
+
+function formatDate(value: unknown) {
+  const date = value instanceof Date ? value : new Date(String(value));
+  return Number.isNaN(date.getTime()) ? String(value ?? "") : date.toLocaleString();
 }
 
 function Input({
@@ -96,6 +105,7 @@ export default function RecordAdmin({ config, initial }: { config: Config; initi
   const router = useRouter();
   const [rows, setRows] = useState<Row[]>(initial);
   const [draft, setDraft] = useState<Row | null>(null);
+  const [detail, setDetail] = useState<Row | null>(null);
   const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -249,15 +259,27 @@ export default function RecordAdmin({ config, initial }: { config: Config; initi
                   const isImg =
                     config.fields.some((f) => f.key === c && f.kind === "image") &&
                     Boolean(String(row[c] ?? "").trim());
+                  const isFile =
+                    config.fields.some((f) => f.key === c && f.kind === "file") &&
+                    Boolean(String(row[c] ?? "").trim());
                   return (
                     <td key={c} className="py-2.5 px-4 text-black max-w-[260px] truncate">
-                      {isImg ? (
+                      {isFile ? (
+                        <button
+                          onClick={() => setDetail(row)}
+                          className="px-2.5 py-1 rounded bg-[#0000ff]/10 text-[#0000ff] font-semibold hover:bg-[#0000ff]/20"
+                        >
+                          View PDF
+                        </button>
+                      ) : isImg ? (
                         <span className="flex items-center gap-2">
                           <ImageThumb src={String(row[c])} />
                           <span className="truncate">{String(row[c])}</span>
                         </span>
                       ) : typeof row[c] === "boolean" ? (
                         row[c] ? "yes" : "no"
+                      ) : c === "createdAt" ? (
+                        formatDate(row[c])
                       ) : (
                         String(row[c] ?? "")
                       )}
@@ -266,6 +288,14 @@ export default function RecordAdmin({ config, initial }: { config: Config; initi
                 })}
                 <td className="py-2.5 px-4">
                   <div className="flex items-center justify-end gap-1.5">
+                    {config.viewable && (
+                      <button
+                        onClick={() => setDetail(row)}
+                        className="px-2.5 py-1 rounded bg-black/5 text-black font-semibold hover:bg-black/10"
+                      >
+                        View
+                      </button>
+                    )}
                     {c_toggle(config, row, patch)}
                     {!config.readOnly && (
                       <>
@@ -291,8 +321,99 @@ export default function RecordAdmin({ config, initial }: { config: Config; initi
           </tbody>
         </table>
       </div>
+
+      {detail && (
+        <div
+          className="fixed inset-0 z-50 overflow-y-auto bg-black/60 p-4 sm:p-8"
+          onClick={() => setDetail(null)}
+        >
+          <div
+            className="mx-auto w-full max-w-3xl rounded-xl bg-white p-6 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4 mb-5">
+              <div>
+                <h2 className="text-lg font-extrabold text-black">{config.label} # {String(detail.id ?? "")}</h2>
+                {detail.ticketId ? (
+                  <p className="text-xs text-[#525252] mt-0.5">
+                    Application ID: <span className="font-bold text-black">{String(detail.ticketId)}</span>
+                    {detail.createdAt ? <> · {formatDate(detail.createdAt)}</> : null}
+                  </p>
+                ) : null}
+              </div>
+              <button
+                onClick={() => setDetail(null)}
+                className="px-3 py-1.5 rounded-lg bg-black/5 text-black text-sm font-semibold hover:bg-black/10"
+              >
+                Close
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
+              {config.fields.map((f) => (
+                <div key={f.key} className={f.kind === "file" || f.kind === "textarea" ? "sm:col-span-2" : ""}>
+                  <div className="text-[11px] font-bold uppercase tracking-wide text-[#525252] mb-1">
+                    {f.label}
+                  </div>
+                  <DetailValue field={f} value={detail[f.key]} />
+                </div>
+              ))}
+              {Array.isArray(detail.extra) && (detail.extra as ExtraAnswer[]).length > 0 && (
+                <div className="sm:col-span-2">
+                  <div className="text-[11px] font-bold uppercase tracking-wide text-[#525252] mb-1">
+                    Additional answers
+                  </div>
+                  <div className="space-y-3 rounded-lg bg-black/[0.03] p-3">
+                    {(detail.extra as ExtraAnswer[]).map((a, i) => (
+                      <div key={a.key ?? i}>
+                        <div className="text-xs font-bold text-black">{a.label || a.key}</div>
+                        {a.type === "link" && a.value ? (
+                          <a
+                            href={a.value}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-[#0000ff] hover:underline break-all"
+                          >
+                            {a.value}
+                          </a>
+                        ) : (
+                          <p className="text-sm text-black whitespace-pre-wrap">{a.value}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
+}
+
+function DetailValue({ field, value }: { field: Field; value: unknown }) {
+  const text = String(value ?? "").trim();
+  if (field.kind === "file") {
+    if (!text) return <span className="text-sm text-[#525252]">Not uploaded</span>;
+    return <PdfViewer src={text} title={field.label} />;
+  }
+  if (!text) return <span className="text-sm text-[#525252]">—</span>;
+  if (field.kind === "url")
+    return (
+      <a
+        href={text}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-sm text-[#0000ff] hover:underline break-all"
+      >
+        {text}
+      </a>
+    );
+  if (field.kind === "textarea")
+    return <p className="text-sm text-black whitespace-pre-wrap">{text}</p>;
+  if (field.key === "createdAt") return <span className="text-sm text-black">{formatDate(value)}</span>;
+  return <span className="text-sm text-black break-words">{text}</span>;
 }
 
 function c_toggle(

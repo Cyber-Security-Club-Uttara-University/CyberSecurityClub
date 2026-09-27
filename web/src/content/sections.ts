@@ -6,7 +6,8 @@ export type FieldKind =
   | "number"
   | "boolean"
   | "date"
-  | "select";
+  | "select"
+  | "file";
 
 export type Field = {
   key: string;
