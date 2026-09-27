@@ -33,6 +33,26 @@ function initialValues(config: JoinFormConfig): JoinValues {
 const formatSize = (bytes: number) =>
   bytes >= 1024 * 1024 ? `${(bytes / 1024 / 1024).toFixed(1)} MB` : `${Math.max(1, Math.round(bytes / 1024))} KB`;
 
+function FieldError({ errors, field }: { errors: Record<string, string>; field: string }) {
+  return errors[field] ? <p className="text-red-500 text-xs mt-1">{errors[field]}</p> : null;
+}
+
+function Label({
+  htmlFor,
+  children,
+  required = true,
+}: {
+  htmlFor: string;
+  children: React.ReactNode;
+  required?: boolean;
+}) {
+  return (
+    <label htmlFor={htmlFor} className="block text-sm font-medium mb-1.5 text-black">
+      {children} {required && <span className="text-red-500">*</span>}
+    </label>
+  );
+}
+
 export default function JoinForm({ config }: { config: JoinFormConfig }) {
   const [values, setValues] = useState<JoinValues>(() => initialValues(config));
   const [file, setFile] = useState<File | null>(null);
@@ -113,15 +133,6 @@ export default function JoinForm({ config }: { config: JoinFormConfig }) {
       errors[key] ? "border-red-500" : "border-transparent"
     } rounded-lg focus:outline-none focus:border-[#0000ff] transition-colors text-sm text-black placeholder:text-[#525252]`;
 
-  const Error = ({ field }: { field: string }) =>
-    errors[field] ? <p className="text-red-500 text-xs mt-1">{errors[field]}</p> : null;
-
-  const Label = ({ htmlFor, children, required = true }: { htmlFor: string; children: React.ReactNode; required?: boolean }) => (
-    <label htmlFor={htmlFor} className="block text-sm font-medium mb-1.5 text-black">
-      {children} {required && <span className="text-red-500">*</span>}
-    </label>
-  );
-
   if (done) {
     return (
       <div className="py-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
@@ -161,7 +172,7 @@ export default function JoinForm({ config }: { config: JoinFormConfig }) {
         <div>
           <Label htmlFor="fullName">Full Name (as per Student ID card)</Label>
           <input id="fullName" name="fullName" type="text" value={values.fullName} onChange={(e) => set("fullName", e.target.value)} className={inputClass("fullName")} placeholder="As printed on your ID card" />
-          <Error field="fullName" />
+          <FieldError errors={errors} field="fullName" />
         </div>
 
         <div>
@@ -170,28 +181,28 @@ export default function JoinForm({ config }: { config: JoinFormConfig }) {
           <p className="text-xs text-[#525252] mt-1">
             Must end with @{STUDENT_EMAIL_DOMAINS[0]} or @{STUDENT_EMAIL_DOMAINS[1]}
           </p>
-          <Error field="email" />
+          <FieldError errors={errors} field="email" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
             <Label htmlFor="studentId">Student ID</Label>
             <input id="studentId" name="studentId" type="text" inputMode="numeric" maxLength={10} value={values.studentId} onChange={(e) => set("studentId", e.target.value.replace(/\D/g, ""))} className={inputClass("studentId")} placeholder="Max 10 digits" />
-            <Error field="studentId" />
+            <FieldError errors={errors} field="studentId" />
           </div>
           <div>
             <Label htmlFor="phone">Phone Number</Label>
             <input id="phone" name="phone" type="tel" value={values.phone} onChange={(e) => set("phone", e.target.value)} className={inputClass("phone")} placeholder="01XXXXXXXXX" />
             <p className="text-xs text-[#525252] mt-1">WhatsApp preferable</p>
-            <Error field="phone" />
+            <FieldError errors={errors} field="phone" />
           </div>
         </div>
 
         <div>
           <Label htmlFor="university">University</Label>
-          <input id="university" name="university" type="text" value={values.university} readOnly disabled aria-locked="true" className={`${inputClass("university")} cursor-not-allowed opacity-80`} />
+          <input id="university" name="university" type="text" value={values.university} readOnly disabled aria-readonly="true" className={`${inputClass("university")} cursor-not-allowed opacity-80`} />
           <p className="text-xs text-[#525252] mt-1">Locked — {UNIVERSITY_NAME} only.</p>
-          <Error field="university" />
+          <FieldError errors={errors} field="university" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -199,18 +210,18 @@ export default function JoinForm({ config }: { config: JoinFormConfig }) {
             <Label htmlFor="department">Department</Label>
             <input id="department" name="department" type="text" value={values.department} onChange={(e) => set("department", e.target.value)} className={inputClass("department")} placeholder="e.g. Computer Science" />
             <p className="text-xs text-[#525252] mt-1">Short name — maximum 5 words.</p>
-            <Error field="department" />
+            <FieldError errors={errors} field="department" />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <Label htmlFor="batch">Batch</Label>
               <input id="batch" name="batch" type="text" inputMode="numeric" maxLength={2} value={values.batch} onChange={(e) => set("batch", e.target.value.replace(/\D/g, ""))} className={inputClass("batch")} placeholder="22" />
-              <Error field="batch" />
+              <FieldError errors={errors} field="batch" />
             </div>
             <div>
               <Label htmlFor="section">Section</Label>
               <input id="section" name="section" type="text" maxLength={1} value={values.section} onChange={(e) => set("section", e.target.value.replace(/[^A-Za-z]/g, "").toUpperCase())} className={inputClass("section")} placeholder="A" />
-              <Error field="section" />
+              <FieldError errors={errors} field="section" />
             </div>
           </div>
         </div>
@@ -261,7 +272,7 @@ export default function JoinForm({ config }: { config: JoinFormConfig }) {
               Remove file
             </button>
           )}
-          <Error field="resume" />
+          <FieldError errors={errors} field="resume" />
         </div>
 
         {config.roles.length > 0 && (
@@ -281,7 +292,7 @@ export default function JoinForm({ config }: { config: JoinFormConfig }) {
                 </option>
               ))}
             </select>
-            <Error field="preferredRole" />
+            <FieldError errors={errors} field="preferredRole" />
           </div>
         )}
 
@@ -295,7 +306,7 @@ export default function JoinForm({ config }: { config: JoinFormConfig }) {
             ].map(({ key, label }) => (
               <div key={key}>
                 <input id={key} name={key} type="text" value={values[key]} onChange={(e) => set(key, e.target.value)} className={inputClass(key)} placeholder={`${label} (optional)`} aria-label={label} />
-                <Error field={key} />
+                <FieldError errors={errors} field={key} />
               </div>
             ))}
           </div>
@@ -311,7 +322,7 @@ export default function JoinForm({ config }: { config: JoinFormConfig }) {
             ) : (
               <input id={field.id} name={field.id} type={field.type === "link" ? "url" : "text"} value={values[field.id] ?? ""} onChange={(e) => set(field.id, e.target.value)} className={inputClass(field.id)} placeholder={field.type === "link" ? "https://" : "Your answer"} />
             )}
-            <Error field={field.id} />
+            <FieldError errors={errors} field={field.id} />
           </div>
         ))}
 
@@ -320,7 +331,7 @@ export default function JoinForm({ config }: { config: JoinFormConfig }) {
             Any Questions or Comments?
           </Label>
           <textarea id="queries" name="queries" rows={4} value={values.queries} onChange={(e) => set("queries", e.target.value)} className={inputClass("queries")} placeholder="Anything you'd like us to know (optional)" />
-          <Error field="queries" />
+          <FieldError errors={errors} field="queries" />
         </div>
 
         {formError && (
