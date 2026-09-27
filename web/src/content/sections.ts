@@ -21,7 +21,7 @@ export type Section = {
   id: string;
   label: string;
   description: string;
-  group: "Content" | "People" | "Resources";
+  group: "Content" | "People" | "Resources" | "CTF";
   itemLabel: string;
   fields: Field[];
   columns: string[];
@@ -184,8 +184,8 @@ export const SECTIONS: Section[] = [
   {
     id: "ctf-events",
     label: "CTF Events",
-    description: "Leaderboard tabs on the CTF page.",
-    group: "People",
+    description: "Events shown in the CTF leaderboard selector.",
+    group: "CTF",
     itemLabel: "Event",
     fields: [
       { key: "tab", label: "Tab label", kind: "text", required: true, placeholder: "Weekly CTF 0x1" },
@@ -198,18 +198,17 @@ export const SECTIONS: Section[] = [
   {
     id: "ctf-standings",
     label: "CTF Standings",
-    description: "Leaderboard rows. `event` must match a CTF Event tab.",
-    group: "People",
+    description: "Per-event standings rows. `event` must match a CTF Event tab.",
+    group: "CTF",
     itemLabel: "Standing",
     fields: [
       { key: "event", label: "Event tab", kind: "text", required: true, placeholder: "Weekly CTF 0x1" },
       { key: "place", label: "Place", kind: "number", required: true },
       { key: "team", label: "Team / User", kind: "text", required: true },
       { key: "score", label: "Score", kind: "number", required: true },
-      { key: "integrity", label: "Integrity (0-100)", kind: "number" },
       { key: "placeholder", label: "Placeholder row", kind: "boolean" },
     ],
-    columns: ["event", "place", "team", "score", "integrity"],
+    columns: ["event", "place", "team", "score"],
   },
   {
     id: "resource-categories",
@@ -251,7 +250,7 @@ export const SECTIONS: Section[] = [
   },
 ];
 
-export const SECTION_GROUPS = ["Content", "People", "Resources"] as const;
+export const SECTION_GROUPS = ["Content", "People", "Resources", "CTF"] as const;
 
 export function getSection(id: string): Section | undefined {
   return SECTIONS.find((s) => s.id === id);

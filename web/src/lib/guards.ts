@@ -3,6 +3,7 @@ import { getCurrentUser, type CurrentUser } from "@/lib/session";
 import {
   canAccessSection,
   canEditSettings,
+  canManageCtf,
   canManageUsers,
   canViewLogs,
   type Role,
@@ -39,6 +40,16 @@ export async function requireSection(
 export async function requireData(): Promise<CurrentUser | NextResponse> {
   const user = await requireUser();
   if (isResponse(user)) return user;
+  return user;
+}
+
+/** CTF arena management: President, VP, General Secretary, Organizing Secretary. */
+export async function requireCtf(): Promise<CurrentUser | NextResponse> {
+  const user = await requireUser();
+  if (isResponse(user)) return user;
+  if (!canManageCtf(user.role)) {
+    return forbidden("Your role cannot manage the CTF arena");
+  }
   return user;
 }
 

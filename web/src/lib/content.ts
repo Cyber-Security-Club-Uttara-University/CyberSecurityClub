@@ -7,6 +7,8 @@ export type Row = Record<string, unknown>;
 
 /**
  * Returns the stored JSON array for a section, or the built-in defaults.
+ * A section that exists in the DB is authoritative even when empty — clearing
+ * every row is a real edit, not a reason to resurrect the demo content.
  * `connection()` opts the calling page out of static prerendering so that
  * every admin edit is reflected on the very next request.
  */
@@ -15,9 +17,9 @@ export const getSectionData = cache(async (key: string): Promise<Row[]> => {
   const fallback = (DEFAULTS[key] ?? []) as Row[];
   try {
     const block = await db.contentBlock.findUnique({ where: { key } });
-    if (block && Array.isArray(block.data)) {
-      const rows = block.data as Row[];
-      if (rows.length > 0) return rows;
+    if (block) {
+      if (Array.isArray(block.data)) return block.data as Row[];
+      return fallback;
     }
   } catch {
     // fall through to defaults

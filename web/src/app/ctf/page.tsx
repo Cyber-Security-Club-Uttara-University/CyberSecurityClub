@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import CTFContent, { type EventDef } from "./CTFContent";
 import { getSectionData, getSettings } from "@/lib/content";
+import {
+  DEFAULT_STREAK_LEVELS,
+  STREAK_LEVELS_BLOCK_KEY,
+  buildEventBoard,
+  buildOverallBoard,
+  normalizePlayers,
+  normalizeStreakLevels,
+} from "@/content/ctf";
+import { db } from "@/lib/db";
 
 export const metadata: Metadata = {
   title: "CTF",
@@ -13,41 +22,73 @@ type StandingRow = {
   place?: number;
   team?: string;
   score?: number;
-  integrity?: number;
   placeholder?: boolean;
 };
 
 const DEFAULT_PORTAL = "http://ctf-cybersecurity-club-uttara.duckdns.org/scoreboard";
+const OVERALL_TITLE = "Overall Leaderboard";
+const OVERALL_DATE = "All published events";
+
+export const LEADERBOARD_LOGO = "/images/csc_white.png";
+
+const isOverall = (row: EventRow) =>
+  String(row.tab ?? row.title ?? "").trim().toLowerCase() === "overall";
 
 export default async function CTFPage() {
-  const [eventRows, standingRows, settings] = await Promise.all([
+  const [eventRows, standingRows, playerRows, settings, levelsBlock] = await Promise.all([
     getSectionData("ctf-events"),
     getSectionData("ctf-standings"),
+    getSectionData("ctf-players"),
     getSettings(),
-  ]).then(([e, s, st]) => [
+    db.contentBlock.findUnique({ where: { key: STREAK_LEVELS_BLOCK_KEY } }),
+  ]).then(([e, s, p, st, l]) => [
     e as unknown as EventRow[],
     s as unknown as StandingRow[],
+    p as unknown as unknown[],
     st,
+    l?.data ?? null,
   ] as const);
 
-  const events: EventDef[] = eventRows.map((e) => ({
-    id: String(e.tab ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-    tab: String(e.tab ?? ""),
-    title: String(e.title ?? e.tab ?? ""),
-    date: String(e.date ?? ""),
-    note: e.note ? String(e.note) : undefined,
-    rows: standingRows
-      .filter((s) => s.event === e.tab)
-      .map((s, i) => ({
-        place: Number(s.place ?? i + 1),
-        team: String(s.team ?? ""),
-        score: Number(s.score ?? 0),
-        integrity: Number(s.integrity ?? 0),
-        placeholder: Boolean(s.placeholder),
-      })),
-  }));
+  const players = normalizePlayers(playerRows);
+  const levels = normalizeStreakLevels(levelsBlock ?? DEFAULT_STREAK_LEVELS);
+
+  // The overall board is computed from every participant's summed points, so
+  // it leads the selector regardless of how many events are published (§12).
+  const configured = eventRows.filter((e) => String(e.tab ?? "").trim());
+  const existingOverall = configured.find(isOverall);
+  const overallRow: EventRow =
+    existingOverall ?? { tab: "Overall", title: OVERALL_TITLE, date: OVERALL_DATE };
+  const otherRows = configured.filter((e) => e !== existingOverall);
+
+  const tabs = [overallRow, ...otherRows];
+
+  const events: EventDef[] = tabs.map((e) => {
+    const tab = String(e.tab ?? "");
+    const overall = e === overallRow;
+    const tabStandings = standingRows.filter((s) => s.event === tab);
+    return {
+      id: tab.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+      tab,
+      title: String(e.title ?? e.tab ?? (overall ? OVERALL_TITLE : "")),
+      date: String(e.date ?? (overall ? OVERALL_DATE : "")),
+      note: e.note ? String(e.note) : undefined,
+      overall,
+      rows: overall
+        ? buildOverallBoard(players, levels)
+        : buildEventBoard(players, tabStandings, tab, levels),
+    };
+  });
 
   const portalUrl = settings.ctfPortalUrl || DEFAULT_PORTAL;
+  const titleOptions = ["CTF Leaderboard", ...events.map((e) => e.title).filter(Boolean)];
 
-  return <CTFContent events={events} portalUrl={portalUrl} />;
+  return (
+    <CTFContent
+      events={events}
+      levels={levels}
+      portalUrl={portalUrl}
+      titleOptions={titleOptions}
+      logoUrl={LEADERBOARD_LOGO}
+    />
+  );
 }

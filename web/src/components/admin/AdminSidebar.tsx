@@ -6,6 +6,7 @@ import { SECTIONS, SECTION_GROUPS } from "@/content/sections";
 import {
   allowedSectionIds,
   canEditSettings,
+  canManageCtf,
   canManageUsers,
   canViewLogs,
   type Role,
@@ -67,9 +68,13 @@ export default function AdminSidebar({ role }: { role: Role }) {
 
         {SECTION_GROUPS.map((group) => {
           const rows = visibleSections.filter((s) => s.group === group);
-          if (rows.length === 0) return null;
+          const isCtfGroup = group === "CTF";
+          if (rows.length === 0 && !(isCtfGroup && canManageCtf(role))) return null;
           return (
             <Group key={group} label={group}>
+              {isCtfGroup && canManageCtf(role) && (
+                <NavLink href="/admin/ctf" label="CTF Arena" />
+              )}
               {rows.map((s) => (
                 <NavLink key={s.id} href={`/admin/sections/${s.id}`} label={s.label} />
               ))}

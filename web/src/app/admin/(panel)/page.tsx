@@ -2,7 +2,9 @@ import Link from "next/link";
 import { db } from "@/lib/db";
 import { SECTIONS } from "@/content/sections";
 import { getCurrentUser } from "@/lib/session";
-import { allowedSectionIds, canManageUsers, canViewLogs } from "@/lib/roles";
+import { allowedSectionIds, canManageCtf, canManageUsers, canViewLogs } from "@/lib/roles";
+import { PLAYERS_BLOCK_KEY, normalizePlayers } from "@/content/ctf";
+import { DEFAULTS } from "@/content/defaults";
 
 export const dynamic = "force-dynamic";
 
@@ -18,6 +20,7 @@ export default async function AdminDashboard() {
     unreadContacts,
     accountCount,
     logCount,
+    ctfPlayersBlock,
   ] = await Promise.all([
     db.announcement.count(),
     db.contact.count(),
@@ -27,7 +30,12 @@ export default async function AdminDashboard() {
     db.contact.count({ where: { read: false } }),
     db.admin.count(),
     db.auditLog.count(),
+    db.contentBlock.findUnique({ where: { key: PLAYERS_BLOCK_KEY } }),
   ]);
+
+  const playerCount = normalizePlayers(
+    ctfPlayersBlock?.data ?? (DEFAULTS["ctf-players"] as unknown[]) ?? null
+  ).length;
 
   const role = user?.role ?? "Office Secretary";
   const allowed = allowedSectionIds(role);
@@ -39,6 +47,9 @@ export default async function AdminDashboard() {
     { label: "Registrations", value: registrations, href: "/admin/registrations" },
     { label: "Products", value: products, href: "/admin/products" },
     { label: "Content sections saved", value: contentBlocks, href: `/admin/sections/${visibleSections[0]?.id ?? "hero-slides"}` },
+    ...(canManageCtf(role)
+      ? [{ label: "CTF players", value: playerCount, href: "/admin/ctf" }]
+      : []),
     ...(canManageUsers(role)
       ? [{ label: "Accounts", value: accountCount, href: "/admin/users" }]
       : []),

@@ -17,14 +17,7 @@ const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/advisor", label: "Advisor" },
-  {
-    href: "/ctf",
-    label: "CTF",
-    children: [
-      { href: "/ctf", label: "Leaderboard" },
-      { href: "http://ctf-cybersecurity-club-uttara.duckdns.org/scoreboard", label: "Live Scoreboard", external: true },
-    ],
-  },
+  { href: "/ctf", label: "CTF" },
   { href: "/events", label: "Events" },
   { href: "/gallery", label: "Gallery" },
   { href: "/teams", label: "Teams" },

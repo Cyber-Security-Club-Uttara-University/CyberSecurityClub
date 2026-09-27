@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 
-const ALLOWED = ["image/jpeg", "image/png"];
+const ALLOWED = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 
 function isAllowedType(type: string) {
   return ALLOWED.includes(type.toLowerCase());
@@ -61,7 +61,7 @@ export default function ImageField({
     if (!file) return;
 
     if (!isAllowedType(file.type)) {
-      setError("Only JPEG and PNG images are allowed.");
+      setError("Only JPEG, PNG, WebP or GIF images are allowed.");
       return;
     }
     if (file.size === 0) {
@@ -125,7 +125,7 @@ export default function ImageField({
       <input
         ref={inputRef}
         type="file"
-        accept="image/jpeg,image/png,.jpg,.jpeg,.png"
+        accept="image/jpeg,image/png,image/webp,image/gif,.jpg,.jpeg,.png,.webp,.gif"
         className="hidden"
         onChange={(e) => {
           upload(e.target.files?.[0]);
@@ -136,6 +136,15 @@ export default function ImageField({
       {/* Small frame that always shows the whole image */}
       <div className="mt-2 flex items-start gap-3">
         <div
+          role="button"
+          tabIndex={0}
+          onClick={() => inputRef.current?.click()}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              inputRef.current?.click();
+            }
+          }}
           onDragOver={(e) => {
             e.preventDefault();
             setDragging(true);
@@ -146,12 +155,12 @@ export default function ImageField({
             setDragging(false);
             upload(e.dataTransfer.files?.[0]);
           }}
-          className={`relative shrink-0 h-40 w-40 rounded-lg border-2 border-dashed overflow-hidden flex items-center justify-center ${
+          className={`relative shrink-0 h-40 w-40 rounded-lg border-2 border-dashed overflow-hidden flex items-center justify-center cursor-pointer transition-colors ${
             dragging
               ? "border-[#0000ff] bg-[#0000ff]/5"
               : broken
                 ? "border-red-300 bg-red-50"
-                : "border-black/15 bg-[repeating-conic-gradient(#eef1f6_0%_25%,#ffffff_0%_50%)]"
+                : "border-black/15 bg-[repeating-conic-gradient(#eef1f6_0%_25%,#ffffff_0%_50%)] hover:border-[#0000ff]"
           }`}
         >
           {src && !broken ? (
@@ -174,9 +183,9 @@ export default function ImageField({
                 </>
               ) : (
                 <>
-                  <span className="font-semibold">Drop a JPEG or PNG</span>
+                  <span className="font-semibold">Click to choose a picture</span>
                   <br />
-                  <span className="text-[#9aa1bd]">or click Upload</span>
+                  <span className="text-[#9aa1bd]">or drop a JPEG, PNG, WebP or GIF</span>
                 </>
               )}
             </div>
@@ -185,14 +194,15 @@ export default function ImageField({
 
         <div className="min-w-0 flex-1">
           <p className="text-[11px] font-bold uppercase tracking-wide text-[#525252]">{label}</p>
-          <p className="mt-1 text-xs text-black break-all">
-            {src || "No image selected"}
-          </p>
+          <p className="mt-1 text-xs text-black break-all">{src || "No image selected"}</p>
           <p className="mt-2 text-[11px] leading-4 text-[#525252]">
-            JPEG or PNG only, up to 8&nbsp;MB. Preview fits the whole image inside the frame.
+            JPEG, PNG, WebP or GIF, up to 8&nbsp;MB. Preview fits the whole image inside the
+            frame.
           </p>
           {error && (
-            <p className="mt-2 text-xs font-semibold text-red-600">{error}</p>
+            <p className="mt-2 rounded-lg border border-red-200 bg-red-50 px-2.5 py-2 text-xs font-bold text-red-700">
+              {error}
+            </p>
           )}
         </div>
       </div>

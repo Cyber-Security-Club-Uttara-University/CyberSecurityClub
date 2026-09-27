@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { verifyToken } from "@/lib/auth";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const isAdminArea =
@@ -30,7 +30,7 @@ export async function middleware(request: NextRequest) {
     // Authorisation is deliberately NOT done here: a cookie can be older than
     // the account's current role. Every page and API route checks the live
     // role through getCurrentUser() (the database), which is the single
-    // source of truth. Middleware only proves the session exists.
+    // source of truth. The proxy only proves the session exists.
   }
 
   return NextResponse.next();

@@ -1,15 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import Image from "next/image";
+import LeaderboardDownload from "@/components/ctf/LeaderboardDownload";
+import { streakFor, tagStyle, type CtfStreakLevel, type LeaderboardRow } from "@/content/ctf";
 
-type Row = {
-  place: number;
-  team: string;
-  score: number;
-  integrity: number;
-  placeholder?: boolean;
-};
+type Row = LeaderboardRow;
 
 export type EventDef = {
   id: string;
@@ -17,21 +13,12 @@ export type EventDef = {
   title: string;
   date: string;
   note?: string;
+  overall?: boolean;
   rows: Row[];
 };
 
 const HERO_PATTERN =
   "url(\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='64'%20height='64'%20viewBox='0%200%2064%2064'%3E%3Cpath%20d='M32%2012l16%2020-16%2020-16-20z'%20fill='none'%20stroke='%23ffffff'%20stroke-opacity='0.07'%20stroke-width='2'/%3E%3C/svg%3E\")";
-
-const TIER = [
-  { min: 95, label: "Elite", pill: "bg-emerald-100 text-emerald-700", bar: "bg-emerald-500" },
-  { min: 90, label: "Strong", pill: "bg-blue-100 text-blue-700", bar: "bg-blue-600" },
-  { min: 0, label: "Fair", pill: "bg-amber-100 text-amber-700", bar: "bg-amber-500" },
-];
-
-function tierOf(score: number) {
-  return TIER.find((t) => score >= t.min) ?? TIER[TIER.length - 1];
-}
 
 function initials(name: string) {
   const parts = name.trim().split(/[\s_-]+/).filter(Boolean);
@@ -59,20 +46,33 @@ function Avatar({
   name,
   size,
   ring = false,
+  src,
 }: {
   name: string;
   size: number;
   ring?: boolean;
+  src?: string;
 }) {
   return (
     <span
-      className={`relative inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${avatarColor(
+      className={`relative inline-flex shrink-0 items-center justify-center rounded-full overflow-hidden bg-gradient-to-br ${avatarColor(
         name
       )} font-extrabold text-white ${ring ? "ring-4 ring-white/90" : ""}`}
       style={{ width: size, height: size, fontSize: Math.round(size * 0.36) }}
       aria-hidden="true"
     >
-      {initials(name)}
+      {src ? (
+        <Image
+          src={src}
+          alt=""
+          fill
+          sizes={`${size}px`}
+          className="object-cover"
+          loading="eager"
+        />
+      ) : (
+        initials(name)
+      )}
       <span className="absolute -right-0.5 -top-0.5 flex h-[38%] w-[38%] items-center justify-center rounded-full border-2 border-white bg-blue-600">
         <svg viewBox="0 0 24 24" className="h-[60%] w-[60%]" fill="none" stroke="white" strokeWidth={4}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -86,12 +86,14 @@ function PodiumCard({
   row,
   rank,
   first,
+  streak,
 }: {
   row: Row;
   rank: number;
   first: boolean;
+  streak: string;
 }) {
-  const tier = tierOf(row.integrity);
+  const pill = tagStyle(streak);
   return (
     <div
       className={`relative flex w-[190px] flex-col items-center rounded-2xl bg-white px-4 pb-5 pt-7 shadow-[0_18px_40px_rgba(0,0,0,0.35)] ${
@@ -114,16 +116,16 @@ function PodiumCard({
           {rank}
         </span>
       )}
-      <Avatar name={row.team} size={first ? 84 : 72} ring />
+      <Avatar name={row.team} size={first ? 84 : 72} ring src={row.avatar} />
       <div className="mt-3 max-w-full truncate text-[15px] font-bold text-[#0f1533]">
         {row.team}
       </div>
       <div className="mt-0.5 text-sm font-semibold text-[#5a6180]">{row.score}pts</div>
       <span
-        className={`mt-3 rounded-full px-3 py-1 text-xs font-bold ${tier.pill}`}
-        title={`Integrity ${row.integrity}/100`}
+        className="mt-3 rounded-full px-3 py-1 text-xs font-bold"
+        style={{ background: pill.bg, color: pill.fg }}
       >
-        {tier.label}
+        {streak}
       </span>
     </div>
   );
@@ -131,15 +133,22 @@ function PodiumCard({
 
 export default function CTFContent({
   events,
+  levels,
   portalUrl,
+  titleOptions,
+  logoUrl,
 }: {
   events: EventDef[];
+  levels: CtfStreakLevel[];
   portalUrl: string;
+  titleOptions: string[];
+  logoUrl: string;
 }) {
   const [active, setActive] = useState(events[0]?.id ?? "");
   const [filter, setFilter] = useState("");
 
   const event = events.find((e) => e.id === active) ?? events[0];
+  const streakOf = (row: Row) => row.tag || streakFor(row.score, levels);
 
   const rows = useMemo(() => {
     if (!event) return [];
@@ -173,18 +182,18 @@ export default function CTFContent({
           className="relative overflow-hidden rounded-3xl bg-[#101740] px-5 py-10 sm:px-10 sm:py-12"
           style={{ backgroundImage: HERO_PATTERN, backgroundSize: "64px 64px" }}
         >
-          {/* top bar: heading + filters / CTF portal */}
+          {/* top bar: heading + event selector / CTF portal */}
           <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
               <h1 className="text-[2.4rem] font-extrabold leading-none text-white max-sm:text-[1.9rem]">
-                Our leaderboard
+                CTF
               </h1>
               <p className="mt-3 text-sm text-white/60">
-                {event.title} &middot; {event.date}
+                {event.title}
+                {event.date ? ` \u00b7 ${event.date}` : ""}
               </p>
             </div>
 
-            {/* right upper-middle: event selector + CTF portal link */}
             <div className="flex flex-wrap items-center gap-3">
               <label className="sr-only" htmlFor="ctf-event-select">
                 Select event
@@ -229,9 +238,9 @@ export default function CTFContent({
 
           {/* podium */}
           <div className="relative z-10 mt-12 flex items-end justify-center gap-4 sm:gap-7 md:mt-16">
-            {second && <PodiumCard row={second} rank={2} first={false} />}
-            {first && <PodiumCard row={first} rank={1} first />}
-            {third && <PodiumCard row={third} rank={3} first={false} />}
+            {second && <PodiumCard row={second} rank={2} first={false} streak={streakOf(second)} />}
+            {first && <PodiumCard row={first} rank={1} first streak={streakOf(first)} />}
+            {third && <PodiumCard row={third} rank={3} first={false} streak={streakOf(third)} />}
           </div>
 
           {event.note && (
@@ -279,15 +288,16 @@ export default function CTFContent({
             <thead>
               <tr className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8a91b0]">
                 <th className="w-[90px] pb-3 pl-2">Rank</th>
-                <th className="pb-3">Researcher</th>
-                <th className="pb-3">Reputation</th>
+                <th className="pb-3">Username</th>
+                <th className="pb-3">Points</th>
                 <th className="w-[160px] pb-3">Streak</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((row) => {
-                const tier = tierOf(row.integrity);
+                const streak = streakOf(row);
                 const top = row.place === 1;
+                const pill = tagStyle(streak);
                 return (
                   <tr
                     key={`${event.id}-${row.place}-${row.team}`}
@@ -300,7 +310,7 @@ export default function CTFContent({
                     </td>
                     <td className="py-4">
                       <span className="flex items-center gap-3">
-                        <Avatar name={row.team} size={36} />
+                        <Avatar name={row.team} size={36} src={row.avatar} />
                         <span className="font-semibold text-[#0000ff]">{row.team}</span>
                         {row.placeholder && (
                           <span className="rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700">
@@ -314,10 +324,10 @@ export default function CTFContent({
                     </td>
                     <td className="py-4">
                       <span
-                        className={`inline-block rounded-md px-2.5 py-1 text-xs font-bold ${tier.pill}`}
-                        title={`Integrity ${row.integrity}/100`}
+                        className="inline-block rounded-md px-2.5 py-1 text-xs font-bold"
+                        style={{ background: pill.bg, color: pill.fg }}
                       >
-                        {tier.label}
+                        {streak}
                       </span>
                     </td>
                   </tr>
@@ -326,7 +336,7 @@ export default function CTFContent({
               {rows.length === 0 && (
                 <tr>
                   <td colSpan={4} className="py-14 text-center text-sm text-[#5a6180]">
-                    No teams match &ldquo;{filter}&rdquo;.
+                    {filter ? <>No participants match &ldquo;{filter}&rdquo;.</> : <>No participants yet.</>}
                   </td>
                 </tr>
               )}
@@ -334,53 +344,37 @@ export default function CTFContent({
           </table>
         </div>
 
-        {/* legend */}
+        {/* streak legend — thresholds are configured in the CTF admin section */}
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-[#5a6180]">
           <span className="font-semibold text-black">Streak</span>
-          {TIER.map((t) => (
-            <span key={t.label} className="inline-flex items-center gap-2">
-              <span className={`h-2.5 w-2.5 rounded-full ${t.bar}`} />
-              {t.label}
-              <span className="text-[#9aa1bd]">
-                {t.min === 0 ? "below 90" : `${t.min}+ integrity`}
+          {[...levels]
+            .sort((a, b) => b.min - a.min)
+            .map((level) => (
+              <span key={level.label} className="inline-flex items-center gap-2">
+                <span
+                  className="h-2.5 w-2.5 rounded-full"
+                  style={{ background: tagStyle(level.label).fg }}
+                />
+                {level.label}
+                <span className="text-[#9aa1bd]">{level.min}+ points</span>
               </span>
-            </span>
-          ))}
+            ))}
           <span className="text-[#9aa1bd]">
-            Integrity is a 0&ndash;100 fair-play score. Values are illustrative until a
-            fair-play audit is recorded for each event.
+            Based on overall points across every published event.
           </span>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/events"
-            className="inline-flex items-center gap-2 rounded-lg border border-[#0000ff] px-5 py-2.5 text-sm font-medium text-[#0000ff] transition-colors hover:bg-[#0000ff]/5"
-          >
-            Past Events
-          </Link>
-          <a
-            href={portalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#0000ff] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#0000cc]"
-          >
-            Visit Scoreboard
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="h-4 w-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </a>
+        {/* Download a shareable image of the current leaderboard */}
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-[#fafbff] p-5">
+          <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+            <h2 className="text-sm font-extrabold uppercase tracking-[0.12em] text-[#0f1533]">
+              Share the leaderboard
+            </h2>
+            <p className="text-[13px] text-[#5a6180]">
+              Pick the title, then download the image — top 3, club logo included.
+            </p>
+          </div>
+          <LeaderboardDownload rows={event.rows} titleOptions={titleOptions} logoUrl={logoUrl} />
         </div>
       </section>
     </div>
